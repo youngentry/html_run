@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>css 선택자 기본 / 기본 박스 02</title>
+    <style>
+      /* 모든 선택자 */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      /* tag 선택자 */
+      section li {
+        color: #f00;
+      }
+      section li:nth-child(1) {
+        color: #369;
+      }
+      section div:nth-child(2) {
+        /* 자식의 순서를 기준으로 하기 때문에 div:nth-childe(1)은 존재하지 않습니다. */
+        color: #ff0;
+      }
+      section div:nth-of-type(2) {
+        /* 태그 타입의 두번째를 기준으로 합니다. 2번째 div가 선택됩니다. */
+        color: #0ff;
+      }
+      /* class와 id모두에 적용될 때는 id가 우선됩니다. */
+      #color {
+        color: #0f0;
+      }
+      .color {
+        color: #359;
+      }
+      /* 아래쪽의 형제 : li 모두를 선택합니다. */
+      .color ~ li {
+        color: rgb(255, 30, 240);
+      }
+      /* 인접형제 선택자 : 가장 인접한 형제를 선택합니다. */
+      .color + li {
+        color: chocolate;
+      }
+      input {
+        outline: none;
+      }
+      /* attr 선택자는 [] 안에 입력하며, attr로 선택할 수 있습니다. */
+      input[type="text"] {
+        border: 1px solid #f00;
+      }
+      [class="color"] {
+        background: #ff0;
+      }
+      /* * 표시는 "모든"을 의미합니다. col 이란 class를 가진 모든 attr을 선택합니다.  */
+      [class*="col"] {
+        background: #ff0;
+      }
+      /* section 안의 ul, 그리고 모든 div 입니다.
+      section안의 ul과 section안의 div가 아닙니다/ */
+      section ul,
+      div {
+        background: #ddd;
+      }
+      /* 올바른 형태는 아래와 같습니다. 착각하기 쉬우니 주의합니다. */
+      section ul,
+      section div {
+        background: #ddd;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <ul>
+        <li>BOX01</li>
+        <li id="color" class="color">BOX02</li>
+        <li class="col">BOX03</li>
+        <li>BOX04</li>
+        <li>BOX05</li>
+      </ul>
+      <div>BOX08</div>
+      <div>BOX09</div>
+      <!-- input 기본 테두리는 border / focus 상태에서 가장 밖에 나타나는 테두리는 outline 입니다. -->
+      <input type="text" />
+      <input type="search" />
+    </section>
+    <div>BOX10</div>
+  </body>
+</html>
