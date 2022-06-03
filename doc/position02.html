@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>position01</title>
+    <title>position02</title>
     <style>
       * {
         margin: 0;
@@ -14,91 +14,72 @@
       body {
         background: #ddd;
       }
-      .box {
-        background: rgba(255, 0, 0, 0.3);
-        text-align: center;
-        line-height: 100px;
-        color: #fff;
-      }
-      /* div는 항상 쓰이고 중복되기 때문에 div를 선택자로 잡는 일은 매우 적습니다.
-      position: relative; 좌표를 가지는 position상태로 만듭니다.
-      position의 floating이나 w의 변화가 없다*/
-      .position-relative div {
-        position: relative;
-        top: 100px;
-        left: 100px;
-        width: 100px;
-      }
-      /* position: absolute; 뜬다. 쪼그라든다. 기준점이 없어져서 body를 기준으로 포개진다
-      block의 속성을 가지게 된다.
-      position: absolute; 의 기준을 부모요소의 position: relative, absolute, fixed로 기준을 만들어 줄 수 있다. */
-      .position-absolute {
-        position: relative;
-        margin: 0 0 100vh 0;
-      }
-      .position-absolute span {
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        width: 100px;
-      }
-      .position-absolute span:nth-child(1) {
-        top: 20px;
-        left: 20px;
-      }
-      /* z-index로 흐름의 순서를 바꿔줄 수 있습니다. 정수를 입력값으로 씁니다. */
-      .position-absolute span:nth-child(2) {
-        top: 40px;
-        left: 40px;
-        z-index: 999;
-      }
-      .position-absolute span:nth-child(3) {
-        top: 60px;
-        left: 60px;
-        z-index: -1;
-      }
-      .position-absolute span:nth-child(4) {
-        top: 80px;
-        left: 80px;
-      }
-      .position-absolute span:nth-child(5) {
-        top: 100px;
-        left: 100px;
-      }
-
-      /* position-fixed는 기준이 없습니다. (viewport를 기준으로 합니다.)
-      스크롤바가 생기지 않습니다. */
-      .position-fixed {
-        position: fixed;
-        top: 30px;
-        right: 30px;
-      }
-
-      .position-sticky {
+      .sticky {
         position: sticky;
-        top: 0px;
-        left: 0px;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        color: #fff;
+        text-align: center;
+        line-height: 100vh;
+      }
+
+      header {
+        background: rgba(255, 0, 0, 0.9);
+      }
+      main {
+        background: rgba(0, 255, 0, 0.9);
+      }
+      footer {
+        background: rgba(0, 0, 255, 0.9);
+      }
+
+      .container {
+        display: flex;
+      }
+
+      .container figure {
+        flex: 1;
+        line-height: 1.4;
+      }
+      .container figure:nth-child(2) {
         background: #333;
-        line-height: 100px;
+        height: 100vh;
       }
     </style>
   </head>
   <body>
-    <header class="position-sticky">header</header>
-    <section class="position-relative">
-      <div class="box">01</div>
-      <div class="box">02</div>
-      <div class="box">03</div>
-      <div class="box">04</div>
-      <div class="box">05</div>
+    <header class="sticky">header</header>
+    <main>main</main>
+    <section class="sticky">
+      <div class="container">
+        <figure>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis
+          ex ullam, facere ipsum ad consectetur nisi quis ratione vero explicabo
+          repellendus dignissimos sunt eos a assumenda nostrum asperiores?
+          Molestias libero reiciendis dicta quas accusantium unde repellat illum
+          eos facilis ea distinctio, maxime quos magnam consequuntur dolorum
+          asperiores odio nam architecto, aperiam ipsum? Quos odit
+          necessitatibus culpa consequatur quis illum animi perspiciatis sint?
+          Id rerum placeat dicta. Vel quo exercitationem illo nam a nulla
+          suscipit odit itaque quos, iusto nemo placeat tempore dolores
+          accusamus sint ratione at possimus assumenda quaerat voluptatum
+          voluptas quod minus quasi. Laudantium libero consequatur architecto
+          cum assumenda molestias ratione officiis enim, illo pariatur animi,
+          aperiam corrupti maiores. Omnis fugit laborum aspernatur ab quos non
+          nobis quas impedit beatae, recusandae suscipit libero deleniti ex
+          tempore quam molestias similique fugiat eligendi quod, rem est alias!
+          Est earum placeat assumenda fuga aut deleniti nam? Quidem eius porro
+          doloribus inventore dolore pariatur sapiente iste ipsa, minus
+          voluptatem itaque? Porro earum laboriosam fugit saepe explicabo animi.
+          Dolorem, non autem perspiciatis enim ut est cumque ab asperiores, esse
+          tempora neque fuga dignissimos, cum assumenda itaque fugiat voluptate
+          aspernatur nisi eligendi! Excepturi a eaque corporis labore, quo esse
+          cupiditate iure eum error illum aspernatur!
+        </figure>
+        <figure></figure>
+      </div>
     </section>
-    <section class="position-absolute">
-      <span class="box">01</span>
-      <span class="box">02</span>
-      <span class="box">03</span>
-      <span class="box">04</span>
-      <span class="box">05</span>
-      <button class="position-fixed">fixed</button>
-    </section>
+    <footer class="sticky">footer</footer>
   </body>
 </html>
