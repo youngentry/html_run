@@ -61,8 +61,8 @@
         width: 100%;
         transform: translateX(-50%);
         background: yellow;
-        transition: 0.3s;
         opacity: 0;
+        transition: 0.2s;
         visibility: hidden;
       }
 
@@ -82,29 +82,27 @@
         opacity: 0;
       }
 
-      nav > ul > li > ul > li > ul a {
-        opacity: 0;
+      nav > ul > li > ul > li > ul > li > a {
+        display: none;
       }
 
-      nav > ul > li > ul > li:hover ul li > a {
-        opacity: 1;
-        transition: 0.3;
+      nav > ul > li > ul > li:hover ul > li > a {
+        display: block;
       }
 
-      nav > ul > li > ul > li:nth-child(1):hover ul li > a {
+      nav > ul > li > ul > li:nth-child(1) ul > li > a {
         background: red;
       }
-
-      nav > ul > li > ul > li:nth-child(2):hover ul li > a {
+      nav > ul > li > ul > li:nth-child(2) ul > li > a {
         background: rgb(140, 255, 0);
       }
-      nav > ul > li > ul > li:nth-child(3):hover ul li > a {
+      nav > ul > li > ul > li:nth-child(3) ul > li > a {
         background: rgb(76, 0, 255);
       }
-      nav > ul > li > ul > li:nth-child(4):hover ul li > a {
+      nav > ul > li > ul > li:nth-child(4) ul > li > a {
         background: rgb(255, 0, 144);
       }
-      nav > ul > li > ul > li:nth-child(5):hover ul li > a {
+      nav > ul > li > ul > li:nth-child(5) ul > li > a {
         background: rgb(255, 187, 0);
       }
     </style>
