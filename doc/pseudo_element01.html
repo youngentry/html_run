@@ -49,6 +49,41 @@
       .psd01 h2::after {
         content: "뒤";
       }
+      .psd01 figure {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .psd01 figure::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        width: 150px;
+        height: 280px;
+        border: 200px solid transparent;
+        border-radius: 50%;
+        background: transparent;
+        z-index: 999;
+        animation: abc 2s infinite;
+      }
+
+      @keyframes abc {
+        0% {
+          border: 200px solid rgba(234, 0, 255, 0.027);
+        }
+        33% {
+          border: 200px solid rgba(255, 238, 0, 0.04);
+        }
+        66% {
+          border: 200px solid rgba(255, 89, 0, 0.035);
+        }
+        100% {
+          border: 200px solid rgba(234, 0, 255, 0.027);
+        }
+      }
 
       .psd02 h2::after {
         content: "";
