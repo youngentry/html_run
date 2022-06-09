@@ -1,0 +1,14 @@
+.Wrap {
+  min-width: 1900px;
+}
+
+.main_visual {
+  position: relative;
+  height: 500px;
+  background: url(../img/mainvisual01.jpg) no-repeat center center/cover;
+}
+
+.footer {
+  padding: 30px 0 50px 0;
+  text-align: center;
+}
