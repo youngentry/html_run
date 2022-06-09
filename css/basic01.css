@@ -1,11 +1,14 @@
 .Wrap {
   min-width: 1900px;
+  height: 300vh;
 }
 
 .main_visual {
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   height: 500px;
-  background: url(../img/mainvisual01.jpg) no-repeat center center/cover;
+  background: url(../img/mainvisual01.jpg) no-repeat fixed center center/cover;
 }
 
 .footer {

@@ -35,10 +35,72 @@
   display: block;
 }
 
+.header nav > ul > li {
+  position: relative;
+}
+.header nav > ul > li:hover {
+  text-decoration: underline;
+}
+
+.header nav > ul > li > ul {
+  position: absolute;
+  text-align: center;
+  line-height: 1;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+}
+
+.header nav > ul > li:hover > ul {
+  opacity: 1;
+  visibility: visible;
+  transition: 0.5s;
+}
+
+.header nav > ul > li > ul > li {
+  background: white;
+  font-size: 21px;
+  transition: 0.3s;
+}
+
+.header nav > ul > li > ul > li:hover {
+  background: #ddd;
+}
+
+.header nav > ul > li > ul > li > a {
+  position: relative;
+  padding: 10px 30px;
+}
+.header nav > ul > li > ul > li > a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: #ddd;
+}
+.header nav > ul > li > ul > li:last-child > a::after {
+  display: none;
+}
+
+.main_visual {
+  position: relative;
+  justify-content: flex-start;
+}
+
+.main_visual .slider {
+  top: 0;
+  left: 0;
+}
+
 .main_visual .slogan {
   width: 1200px;
   margin: 0 auto;
-  padding: 150px 0 0 0;
+  padding: 130px 0 130px 30px;
 }
 .main_visual .slogan h2 {
   font-size: 60px;
