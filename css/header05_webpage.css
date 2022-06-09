@@ -1,0 +1,146 @@
+.header {
+  background: #f7f7f7;
+  line-height: 100px;
+}
+.header .container {
+  width: 1200px;
+  margin: 0 auto;
+}
+.header nav {
+  display: flex;
+  justify-content: space-between;
+}
+.header nav > * {
+  flex: 1;
+}
+.header h1 {
+  text-align: center;
+}
+.header .btn i {
+  font-size: 23px;
+  padding: 5px;
+  background: #ddd;
+  border-radius: 3px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.header nav > ul {
+  display: flex;
+  gap: 40px;
+}
+.header nav > ul.service {
+  justify-content: flex-end;
+}
+.header nav > ul a {
+  display: block;
+}
+
+.header nav > ul > li {
+  position: relative;
+}
+.header nav > ul > li:hover {
+  text-decoration: underline;
+}
+
+.header nav > ul > li > ul {
+  position: absolute;
+  text-align: center;
+  line-height: 1;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+}
+
+.header nav > ul > li:hover > ul {
+  opacity: 1;
+  visibility: visible;
+  transition: 0.5s;
+}
+
+.header nav > ul > li > ul > li {
+  background: white;
+  font-size: 21px;
+  transition: 0.3s;
+}
+
+.header nav > ul > li > ul > li:hover {
+  background: #ddd;
+}
+
+.header nav > ul > li > ul > li > a {
+  position: relative;
+  padding: 10px 30px;
+}
+.header nav > ul > li > ul > li > a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: #ddd;
+}
+.header nav > ul > li > ul > li:last-child > a::after {
+  display: none;
+}
+
+.main_visual {
+  position: relative;
+  justify-content: flex-start;
+}
+
+.main_visual .slider {
+  top: 0;
+  left: 0;
+}
+
+.main_visual .slogan {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 130px 0 130px 30px;
+}
+.main_visual .slogan h2 {
+  font-size: 60px;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 0 3px #333;
+  margin: 0 0 10px 0;
+}
+.main_visual .slogan i {
+  font-size: 60px;
+  color: white;
+}
+
+.content01 {
+  padding: 100px 0;
+  width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+.content01 h3 {
+  font-size: 30px;
+  font-weight: 700;
+  padding: 0 0 20px 0;
+}
+
+.content01 p {
+  font-size: 15px;
+  font-weight: 300;
+  padding: 0 0 30px 0;
+}
+
+.content01 ul {
+  display: flex;
+  gap: 30px;
+}
+
+.content01 ul > li {
+  flex: 1;
+}
+
+.content01 img {
+  max-width: 100%;
+}
