@@ -28,7 +28,7 @@ $(function () {
     autoplay: true,
     pauseOnHover: false,
     pauseOnFocus: false,
-    autoplaySpeed: 1000,
+    autoplaySpeed: 4000,
   });
 
   $(".custom_dots a").on("click", function (e) {
