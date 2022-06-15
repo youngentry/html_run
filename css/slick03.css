@@ -181,3 +181,22 @@
 .main_visual .custom_arrow i:first-child {
   margin: 0 200px 0 0;
 }
+
+.main_visual .custom_play {
+  background: #f00;
+}
+
+.main_visual .custom_play i:nth-child(1) {
+  display: none;
+}
+
+.main_visual .custom_play i:nth-child(2) {
+  display: block;
+}
+
+.main_visual .custom_play.on i:nth-child(1) {
+  display: block;
+}
+.main_visual .custom_play.on i:nth-child(2) {
+  display: none;
+}
