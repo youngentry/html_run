@@ -2,6 +2,10 @@ body {
   height: 300vh;
 }
 
+.Wrap {
+  position: relative;
+}
+
 .banner {
   position: sticky;
   top: 0;

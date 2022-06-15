@@ -13,5 +13,7 @@ $(function () {
     dots: true,
     autoplay: true,
     autoplaySpeed: 6000,
+    pauseOnFocus: false,
+    pauseOnHover: false,
   });
 });
