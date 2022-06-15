@@ -110,7 +110,7 @@ body {
 }
 
 .header {
-  position: fixed;
+  position: sticky;
   top: 160px;
   left: 0;
   width: 100%;
