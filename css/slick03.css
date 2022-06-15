@@ -43,7 +43,7 @@
 
 .main_slider figure .inner {
   position: absolute;
-  top: 50%;
+  top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 1200px;
@@ -102,4 +102,82 @@
   background-position-y: 0;
   margin: 0 0 0 600px;
   transition: 0.3s;
+}
+
+.main_visual .custom_dots {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1200px;
+  background: transparent;
+  border: 1px solid #ddd;
+  display: flex;
+  text-align: center;
+}
+
+.main_visual .custom_dots li {
+  position: relative;
+  flex: 1;
+}
+
+.main_visual .custom_dots li ~ li {
+  border-left: 1px solid #fff;
+}
+
+.main_visual .custom_dots li a {
+  position: relative;
+  display: block;
+  padding: 10px;
+  font-size: 17px;
+  color: #fff;
+  text-shadow: 0 0 3px #000;
+}
+
+.main_visual .custom_dots li a:hover {
+  color: #333;
+  text-shadow: 0 0 3px #fff;
+}
+
+.main_visual .custom_dots li i {
+  margin: 0 10px 0 0;
+}
+
+.main_visual .custom_dots li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: #f00;
+}
+
+.main_visual .custom_dots li.on::before {
+  width: 100%;
+  transition: 3.5s;
+}
+.main_visual i {
+  font-size: 30px;
+  vertical-align: -25%;
+}
+
+.main_visual .custom_arrow,
+.main_visual .custom_play {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  color: #fff;
+  text-shadow: 0 0 3px #000;
+  transform: translateX(-50%);
+}
+
+.main_visual .custom_arrow i:hover,
+.main_visual .custom_play i:hover {
+  color: #333;
+  text-shadow: 0 0 7px #fff;
+}
+
+.main_visual .custom_arrow i:first-child {
+  margin: 0 200px 0 0;
 }
