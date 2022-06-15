@@ -90,3 +90,16 @@
   opacity: 1;
   transition: 0.5s 1s;
 }
+
+.main_visual .num {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-100%);
+  width: 100px;
+  height: 100px;
+  background-image: url(../img/num.png);
+  background-position-y: 0;
+  margin: 0 0 0 600px;
+  transition: 0.3s;
+}
