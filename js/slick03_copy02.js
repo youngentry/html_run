@@ -28,7 +28,7 @@ $(function () {
     autoplay: true,
     pauseOnHover: false,
     pauseOnFocus: false,
-    autoplaySpeed: 100,
+    autoplaySpeed: 1000,
   });
 
   $(".custom_dots a").on("click", function (e) {
@@ -45,17 +45,13 @@ $(function () {
   });
 
   $(".custom_play i:nth-child(1)").on("click", function () {
-    $(".main_slider").slick("slickPlay");
-    $(".custom_play i:nth-child(1)")
-      .addClass("on")
-      .siblings()
-      .removeClass("on");
+    $(".main_slider").slick("slickPause");
   });
   $(".custom_play i:nth-child(2)").on("click", function () {
-    $(".main_slider").slick("slickPause");
-    $(".custom_play i:nth-child(2)")
-      .addClass("on")
-      .siblings()
-      .removeClass("on");
+    $(".main_slider").slick("slickPlay");
+  });
+
+  $(".custom_play").on("click", function () {
+    $(".custom_play i").toggleClass("on");
   });
 });
