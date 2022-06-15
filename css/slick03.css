@@ -186,17 +186,15 @@
   background: #f00;
 }
 
-.main_visual .custom_play i:nth-child(1) {
+.main_visual .custom_play i:nth-child(2) {
   display: none;
 }
-
-.main_visual .custom_play i:nth-child(2) {
+.main_visual .custom_play i:nth-child(1) {
   display: block;
 }
-
-.main_visual .custom_play.on i:nth-child(1) {
+.main_visual .custom_play i.on:nth-child(2) {
   display: block;
 }
-.main_visual .custom_play.on i:nth-child(2) {
+.main_visual .custom_play i.on:nth-child(1) {
   display: none;
 }

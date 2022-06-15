@@ -46,18 +46,16 @@ $(function () {
 
   $(".custom_play i:nth-child(1)").on("click", function () {
     $(".main_slider").slick("slickPlay");
-    if ($(".custom_play").hasClass("on")) {
-      $(".custom_play").removeClass("on");
-    } else {
-      $(".custom_play").addClass("on");
-    }
+    $(".custom_play i:nth-child(1)")
+      .addClass("on")
+      .siblings()
+      .removeClass("on");
   });
   $(".custom_play i:nth-child(2)").on("click", function () {
     $(".main_slider").slick("slickPause");
-    if ($(".custom_play").hasClass("on")) {
-      $(".custom_play").removeClass("on");
-    } else {
-      $(".custom_play").addClass("on");
-    }
+    $(".custom_play i:nth-child(2)")
+      .addClass("on")
+      .siblings()
+      .removeClass("on");
   });
 });
