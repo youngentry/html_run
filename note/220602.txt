@@ -1,0 +1,295 @@
+      section li:nth-child(1) {
+        color: #369;
+      }
+      section div:nth-child(2) {
+        /* 자식의 순서를 기준으로 하기 때문에 div:nth-childe(1)은 존재하지 않습니다. */
+        color: #ff0;
+      }
+
+폴더 파일확장명
+vscode 이 앱으로 열기 설정
+
+extensions
+Live Server
+Auto Rename Tag
+Auto Close Tag
+
+
+shortcut : 대괄호 안에 내용을 입력할 수 있습니다.
+ul>li*7{BOX0$} 
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--* 외부 스타일 시트(External style sheet) 모듈화 -->
+    <title>기본 박스 : box-model / 기본 박스 01</title>
+    <!--* 내부 스타일 시트(Internal style sheet) -->
+    <style>
+      /* 선택자 */
+      div {
+        width: 1200px;
+        background: rgba(0, 0, 0, 0.3);
+        /*
+        margin, padding, inset
+        축약형의 방향 : 상 우 하 좌 (4)
+        축약형의 방향 : 상 좌우 하 (3)
+        축약형의 방향 : 상하 좌우 (2)
+         */
+        margin: 50px 0;
+        /*
+        박스 사이의 마진은 겹침 현상이 생긴다.
+        부모 block과 첫번째 자식 block사이에도 margin은 겹침 현상이 생긴다.
+        */
+      }
+      div:nth-child(1) {
+        padding: 0 100px;
+        /* block의 안쪽으로 padding과 border를 가둔다. for layout */
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <!--* 인라인 스타일(Inline style) -->
+    <div>BOX01</div>
+    <div>BOX02</div>
+    <div>BOX03</div>
+
+    <h2>box의 기본성질 (display:block)</h2>
+    <ul>
+      <li>투명하다.</li>
+      <li>width: auto / height: auto</li>
+      <li>Y축으로 쌓여간다.</li>
+      <li>block 옆에 block이 오지 못하게 한다.</li>
+    </ul>
+
+    <ol>
+      <li>태그는 크게 inline / block인 걸로 나뉜다.</li>
+      <li>
+        글자 그림 등 내용에 관여하는 태그 <span>span</span>
+        <strong>strong</strong> <em>em</em> <i>icon</i> / <button>btn</button>
+        <input /> 인라인 속성을 가지고 나머지는 block 속성을 가진다.
+      </li>
+      <li>
+        block 속성은 width height margin padding 값을 가지고 inline 속성을 좌우
+        margin padding 만을 가진다.
+      </li>
+      <li>
+        inline 상하 padding의 경우 background를 포함하여 padding이 적용된 것
+        처럼 보인다.
+      </li>
+    </ol>
+    <p>
+      css는 레이아웃을 만들어준다. <br />
+      인라인 스타일(Inline style)이 외부/내부 스타일 보다 우선한다. (계급이
+      높다.) <br />
+      javascript의 적용범위는 인라인 스타일(Inline style)이므로 외부/내부 스타일
+      보다 우선한다. <br />
+      style name role : attribute, property / props(리액트).
+    </p>
+  </body>
+</html>
+
+
+///////////
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>css 선택자 기본 / 기본 박스 02</title>
+    <style>
+      /* 모든 선택자 */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      /* tag 선택자 */
+      section li {
+        color: #f00;
+      }
+      section li:nth-child(1) {
+        color: #369;
+      }
+      section div:nth-child(2) {
+        /* 자식의 순서를 기준으로 하기 때문에 div:nth-childe(1)은 존재하지 않습니다. */
+        color: #ff0;
+      }
+      section div:nth-of-type(2) {
+        /* 태그 타입의 두번째를 기준으로 합니다. 2번째 div가 선택됩니다. */
+        color: #0ff;
+      }
+      /* class와 id모두에 적용될 때는 id가 우선됩니다. */
+      #color {
+        color: #0f0;
+      }
+      .color {
+        color: #359;
+      }
+      /* 아래쪽의 형제 : li 모두를 선택합니다. */
+      .color ~ li {
+        color: rgb(255, 30, 240);
+      }
+      /* 인접형제 선택자 : 가장 인접한 형제를 선택합니다. */
+      .color + li {
+        color: chocolate;
+      }
+      input {
+        outline: none;
+      }
+      /* attr 선택자는 [] 안에 입력하며, attr로 선택할 수 있습니다. */
+      input[type="text"] {
+        border: 1px solid #f00;
+      }
+      [class="color"] {
+        background: #ff0;
+      }
+      /* * 표시는 "모든"을 의미합니다. col 이란 class를 가진 모든 attr을 선택합니다.  */
+      [class*="col"] {
+        background: #ff0;
+      }
+      /* section 안의 ul, 그리고 모든 div 입니다.
+      section안의 ul과 section안의 div가 아닙니다/ */
+      section ul,
+      div {
+        background: #ddd;
+      }
+      /* 올바른 형태는 아래와 같습니다. 착각하기 쉬우니 주의합니다. */
+      section ul,
+      section div {
+        background: #ddd;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <ul>
+        <li>BOX01</li>
+        <li id="color" class="color">BOX02</li>
+        <li class="col">BOX03</li>
+        <li>BOX04</li>
+        <li>BOX05</li>
+      </ul>
+      <div>BOX08</div>
+      <div>BOX09</div>
+      <!-- input 기본 테두리는 border / focus 상태에서 가장 밖에 나타나는 테두리는 outline 입니다. -->
+      <input type="text" />
+      <input type="search" />
+    </section>
+    <div>BOX10</div>
+  </body>
+</html>
+
+
+다단메뉴를 만들기 전에 고정 메뉴를 구현해봅니다.
+      #header {
+        line-height: 100px;
+        background: #ddd;
+      }
+      #header .container {
+        display: flex;
+        width: 1200px;
+        margin: 0 auto;
+      }
+
+logo와 메뉴 사이를 벌립니다.
+      nav {
+        margin: 0 0 0 auto;
+      }
+메뉴 사이의 간격을 벌립니다.
+      nav > ul > li > a {
+        display: block;
+        padding: 0 40px;
+      }
+작은 메뉴의 위치를 absolute와 inset으로 조절합니다.
+    nav > ul > li {
+        position: relative;
+      }
+      nav > ul > li ul {
+        /* top, right, bottom, left 대신에 inset: 0 0 0 0; 을 사용할 수 있습니다. */
+        position: absolute;
+        inset: 0 auto auto 0;
+        background: #fff;
+        z-index: 999;
+        width: 100%;
+      }
+
+단메뉴 hover를 적용해봅니다.
+display: none;을 주어 고정 메뉴창을 보이지 않게 합니다.
+      nav > ul > li ul {
+        position: absolute;
+        inset: 90px auto auto 0;
+        background: #fff;
+        z-index: 999;
+        display: none;
+        width: 100%;
+      }
+hover가 될 경우 block을 주어 나타나도록 합니다.
+      nav > ul > li:hover ul {
+        display: block;
+      }
+가상요소 선택자로 메뉴의 윗부분을 뾰족하게 만들어 봅니다.
+우선 박스를 만듭니다.
+      nav > ul > li ul::before {
+        content: "";
+        position: absolute;
+        inset: -10px auto auto 50%;
+        transform: translateX(-50%) rotate(45deg);
+        width: 20px;
+        height: 20px;
+        border: 1px solid #333;
+        background: #fff;
+      }
+다음으로 박스를 가리기 위해 li에 position: relative; 와 background를 줍니다.
+      nav > ul > li ul li {
+        position: relative;
+        background: #fff;
+        border-bottom: 1px solid #ddd;
+      }
+
+동그랗게 만들어 주기도 합니다.
+      nav > ul > li:nth-child(2) ul::before {
+        content: "";
+        position: absolute;
+        inset: -10px auto auto 50%;
+        transform: translateX(-50%) rotate(45deg);
+        width: 20px;
+        height: 20px;
+        border: 3px solid #f00;
+        border-radius: 50%;
+        background: #fff;
+        z-index: 999;
+      }
+하지만 가상요소선택자 ::before는 box-sizing: border-box; 가 적용되어 있지 않습니다.
+        box-sizing: border-box;
+별도로 속성을 줍니다.
+
+아래에서 위로 나타나는 애니메이션을 적용해봅니다. 
+dispaly 속성을 없애고, inset으로 높이와 opacity로 보이지 않게 합니다.
+visibility로 아래에 위치해 있을 때 선택되지 않도록 합니다.
+      nav > ul > li ul {
+        position: absolute;
+        inset: 150px auto auto 50%;
+        z-index: 999;
+        width: 200px;
+        visibility: hidden;
+        transform: translateX(-50%);
+        background: #fff;
+        border: 4px solid #369;
+        opacity: 0;
+      }
+inset으로 높이를 조절하고 opacity로 다시 나타나게 합니다. 
+그리고 transition을 줍니다.
+      nav > ul > li:hover ul {
+        inset: 90px auto auto 50%;
+        opacity: 1;
+        visibility: visible;
+        transition: 0.5s;
+      }

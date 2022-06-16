@@ -1,0 +1,46 @@
+영어는 폰트 자간을 그대로 사용하고 한글 폰트 자간은 -25 를 사용합니다.
+
+포토샵에서 아이콘을 사용하기 위해서는 아이콘을 다운로드 받고 설치합니다.
+윈도우탐색 > 문자표 > xeicon > 복사할 문자 선택 > 붙여넣기
+
+logo 이미지 저장 방법입니다.
+logo를 자석 툴로 선택한 후 > ctrl+c > ctrl+n > ctrl+v > ctrl+alt+shift+w
+
+<grid img 있음>
+
+포토샵 앞으로 되돌리기 단축키 ctrl+shift + z
+/////////////////////////////////////////////////////////////////////////////////////
+& 문자는 &amp; 로 입력합니다.
+
+
+헤더의 높이는 line-height: 100px; 입니다. 
+      .header {
+        line-height: 100px;
+      }
+
+
+
+헤더의 로고-메뉴-버튼 구조에서 메뉴를 한 가운데로 이동시키기 위해서는
+로고와 버튼의 width를 같게 만들어주면 됩니다.
+      .header h1 {
+        width: 200px;
+      }
+      .header .btn {
+        width: 200px;
+        text-align: right;
+      }
+
+
+
+메뉴는 ul > li 후손을 확실하게 잡고 갑니다.
+      .header nav>ul 
+
+
+
+menu-logo-menu 구조에서 logo를 한 가운데로 이동시킵니다.
+      .header nav > * {
+        flex: 1;
+      }
+      .header nav > ul.service {
+        justify-content: flex-end;
+      }

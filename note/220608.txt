@@ -1,0 +1,94 @@
+디자인은 정해진 형식이 있습니다. 대형 프랜차이즈 사이트 디자인을 참고하면 됩니다.
+업계의 디자인을 파악해서 그 기준을 따라 가는 것이 중요합니다. 창조하지 맙시다.
+
+jpg 인접화소를 뭉쳐서 압축합니다. 60%로 맞춥니다.
+gif 최대 색상 수 제한, 투명
+png 투명, jpg 압축 장점 > LOGO는 png로 만듭니다.
+svg 브라우저에서 코드로 구현되는 이미지입니다. 벡터, 로고
+
+////////////////
+포토샵 단축키 
+tap 툴을 보이지 않게 합니다.
+f 캔버스 크기를 화면에 맞춰 조절합니다.
+
+그리드 시스템에 따라 박스를 위치합니다.
+ctrl + t 로 박스 크기를 조절할 수 있습니다.
+opacity를 낮춥니다.
+레이어를 합칩니다. > 잠급니다.
+캔버스를 늘립니다.
+그리드 레이아웃을 잠급니다.
+//////////////////////////////////////////////////////
+상자 이동 shift + 방향키
+포토샵 그룹 이름을 id로 지정합니다. #content
+
+section id="content" id를 설정하면 무엇을 만들어야 하는지 간단하게 알아볼 수 있습니다.
+
+crop 이미지 지정 > ctrl+alt+shift+s > jpg > 60% 저장
+
+코딩을 합니다.
+
+이쁜 글자 간격은 -0.025em 입니다.
+        letter-spacing: -0.025em;
+
+코딩을 시안에 따라서 한 뒤에 스크린샷을 따고 겹쳐봅니다.
+
+//////////////////////////
+nth-child(evev) 짝수에 적용됩니다. odd는 홀수에 적용됩니다.
+      section:nth-child(even) {
+        background: #f9f9f9;
+      }
+
+//////////////////////////////////
+가상요소선택자를 써서 icon을 넣는 방법입니다.
+아이콘을 넣고 검사를 해 보면 content= "코드" 가 나옵니다. 코드를 입력하고 font-family를 설정해주면 됩니다.
+      .psd04 h2::after {
+        content: "\e907";
+        font-family: xeicon !important;
+      }
+
+https://younghunkimm.github.io/xeicode/ xeicon의 코드를 알 수 있습니다.
+font awesome cheatsheet 를 통해서 아이콘의 코드를 알 수 있습니다.
+
+//////////////
+
+직접 attr를 만들 수 있습니다.
+        <figure data-num="01">
+          <img src="../img/lesedilarona01.jpg" alt="" />
+        </figure>
+        <figure data-num="02">
+          <img src="../img/lesedilarona02.jpg" alt="" />
+        </figure>
+인라인 스타일을 지정하고
+      .psd05 figure::after {
+        content: attr(data-num);
+      }
+attr을 content로 주면 됩니다.
+
+><>>slide , 배경고정 복습 >>>>>????????><<<<<<<<
+
+/////////////
+hr과 아이콘을 통해서 디자인을 할 수 있습니다.
+hr에 position: relative; 속성을 줍니다. hr은 기본적으로 overflow: hideen; 입니다.
+      hr.list_hr {
+        position: relative;
+        overflow: visible;
+      }
+content에 아이콘을 적용시키고 position: absolute; 로 위치를 정합니다.
+      hr.list_hr::after {
+        content: "\e907";
+        font-family: xeicon !important;
+        position: absolute;
+        top: -30px;
+        left: 50%;
+        transform: translateX(-50%) rotate(90deg);
+      }
+
+////////////////////////////
+가상요소 선택자에도 hover를 적용시킬 수 있습니다.
+      .psd05 figure:hover::after {
+        transform: rotateX(720deg);
+      }
+      .psd05 figure::after {
+        content: attr(data-num);
+        transition: 1s ease-in-out;
+      }

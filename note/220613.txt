@@ -1,0 +1,74 @@
+슬릭을 복습합니다.
+페이지가 넘어갈 때 까지의 시간입니다.
+    autoplaySpeed: 4000,
+슬라이드 애니메이션 지속 시간입니다. 0은 애니메이션 없이 이미지가 바뀝니다.
+    speed: 1000,
+
+이미지의 숫자와 slidesToShow의 값이 같으면 슬라이드가 기능하지 않습니다.
+    slidesToShow: 3,
+
+
+
+slogan을 띄우기 위해서는 기준을 잡아줄 box(<section class="main"?) 안에 slide를 넣으면 됩니다. 
+     <section class="main">
+      <div class="visual_slider">
+        <figure class="itm01"></figure>
+      </div>
+      <div class="slogan">
+        <h2>NY COMPANY</h2>
+      </div>
+    </section>
+
+
+
+dots를 만들고 가로로 배열하기 위해서는 dots li 를 inline-block으로 만듭니다.
+.main .slick-dots li {
+  display: inline-block;
+}
+
+현재 슬라이드의 class는 slick-active 입니다. 활성화 되었을 때는 색상을 다르게 해줍니다.
+.main .slick-dots li.slick-active {
+  background: #f00;
+}
+
+
+같은 형제끼리 공유하는 클래스는 붙여서 씁니다. 
+.main .slick-arrow.slick-prev {
+
+
+가상요소선택자를 이용해 현재 슬라이드 표시 남은 시간 게이지를 만듭니다.
+.main .slick-dots li::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 100%;
+  background: #f00;
+}
+
+.main .slick-dots li.slick-active::after {
+  width: 100%;
+  transition: 3s;
+}
+
+
+
+class나 id에 href를 걸어 해당 tag의 top:0; 으로 이동하는 버튼을 만듭니다. (목차에서 많이 이용합니다.) ★
+      <a href="#are" class="wheel">
+        <span>아래로가기</span>
+      </a>
+    </section>
+
+    <div class="slider" id="are">
+    
+    
+    
+버튼을 누르면 슬라이드로 이동하도록 구현하기 위해서는 js를 이용해야 합니다.
+"#"으로 id를 비워 놓은 뒤 preventDefault를 설정하게 되면 최상단으로 이동하게 됩니다.
+       <a href="#" class="wheel">
+        <span>아래로가기</span>
+      </a>
+그리고 ("html,body")에 .animate({ scrollTop: 0});으로 애니메이션을 적용합니다. 
+  $(".wheel").on("click", function (e) {
+    e.preventDefault();
+    $("html,body").animate({ scrollTop: 0 });
+  });
