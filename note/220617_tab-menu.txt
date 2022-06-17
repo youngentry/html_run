@@ -1,0 +1,108 @@
+tab menu를 만들고 slick을 적용합니다.
+js는 번호를 받아오는 것이 중요합니다.
+.index() 함수를 통해서 받아옵니다.
+        $(".tab_menu > li > a").on("click", function (e) {
+          e.preventDefault();
+          console.log($(this).parent().index());
+        });
+        
+        
+
+코드가 길어질 때는 가독성을 위해 변수와 함수로 만드는 것이 중요합니다.
+      $(function () {
+        $(".tab_menu > li > a").on("click", function (e) {
+          e.preventDefault();
+          var idx = $(this).parent().index();
+          //   const UL = document.querySelector("ul");
+          //   const setUL = function () {};
+          //   UL.addEventListener("click", setUL);
+          //   LI.addEventListener("click", setUL);
+          $(".tab_content>li").eq(idx).addClass("on").siblings();
+        });
+       
+               
+        
+        
+slick은 display: none; 을 사용하면 tab menu에서 오류가 납니다.
+visibility로 보이지 않게 하고, position을 활용하면 됩니다.
+      .tab_content > li {
+        visibility: hidden;
+        padding: 10px;
+      }
+      .tab_content > li.on {
+        visibility: visible;
+      }
+메뉴를 기준으로만들고 
+      .tab_content {
+        position: relative;
+      }
+position: ablsolute;로 위치를 잡아줍니다.
+      .tab_content > li {
+        position: absolute;
+        inset: 0 auto auto 0;
+        visibility: hidden;
+        padding: 10px;
+        width: 100%;
+      }
+      
+      
+      
+      
+      
+tab menu를 활용해 지도에 위치를 표시하는 기능을 구현합니다.
+        <ul class="tab_menu">
+          <li class="on"><a href="">seoul</a></li>
+          <li><a href="">busan</a></li>
+          <li><a href="">dokdo</a></li>
+        </ul>
+        <ul class="tab_content">
+          <li class="on">seoul</li>
+          <li>busan</li>
+          <li>dokdo</li>
+        </ul>
+        
+지도를 기준으로 만듭니다.
+      .tab_content {
+        position: relative;
+        background: #ddd;
+        height: 500px;
+      }
+li(seoul)로 위치를 잡습니다.
+      .tab_content > li {
+        position: absolute;
+        display: none;
+        font-size: 0;
+      }
+가상요소선택자를 통해 아이콘을 넣습니다.
+      .tab_content > li::before {
+        content: "\eb5f";
+        font-family: "xeicon";
+        font-size: 30px;
+        color: #00f;
+      }
+on 클래스가 붙으면 나타나도록 합니다.
+      .tab_content > li.on {
+        display: block;
+        animation: arrow 1s infinite;
+      }
+      .tab_content > li:nth-child(1) {
+        inset: 100px auto auto 100px;
+      }
+      .tab_content > li:nth-child(2) {
+        inset: 400px auto auto 300px;
+      }
+      .tab_content > li:nth-child(3) {
+        inset: 200px auto auto 400px;
+      }
+애니메이션을 적용합니다.
+      @keyframes arrow {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-5px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
