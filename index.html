@@ -5,9 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HTML BASIC</title>
+    <link rel="stylesheet" href="./css/xeicon.css" />
     <style>
       a {
+        position: relative;
         font-size: 19px;
+        font-weight: bold;
       }
       strong {
         color: red;
@@ -16,6 +19,9 @@
       }
       p {
         line-height: 0.5;
+      }
+      i {
+        font-size: 23px;
       }
     </style>
   </head>
@@ -56,10 +62,7 @@
       <li>
         <a href="./doc/multi-level_menu.html">이중 다단 메뉴</a>
         <p>메뉴 안에 다단메뉴를 구현합니다. menu01 에만 적용하였습니다.</p>
-        <p>
-          (나머지에 적용하는 과정은 단지 첫번째 리스트와 같은 구조로 복사 붙여넣기만 하면 되기
-          때문입니다.)
-        </p>
+        <p>(나머지에 적용하는 과정은 단지 첫번째 리스트와 같은 구조로 복사 붙여넣기만 하면 되기 때문입니다.)</p>
         <em>2022.06.02</em>
       </li>
     </ul>
@@ -75,7 +78,8 @@
         <p>position: sticky를 배웁니다.</p>
       </li>
       <li>
-        <a href="./doc/position03.html">position: sicky cloning a site<br /></a>
+        <a href="./doc/position03.html">position: sicky cloning a site</a>
+        <br />
         <strong>sticky를 활용하여 5:5 화면 분할 스크롤 기능을 구현합니다.<br /></strong>
         <strong>js를 활용하여 scrollTop 기능을 구현합니다.<br /></strong>
         <em>2022.06.03</em>
@@ -85,10 +89,9 @@
     <h2>hover: 이미지 위치 변환, 퍼져나가는 테두리, 네모로 회전하는 테두리</h2>
     <ul>
       <li>
-        <a href="./doc/hover01.html">hover with 가상요소선택자<br /></a>
-        <a href="./doc/hover01_sticky.html" style="font-size: 15px"
-          >(sticky-스크롤 이동 버튼 구현)<br
-        /></a>
+        <a href="./doc/hover01.html">hover with 가상요소선택자 </a>
+        <a href="./doc/hover01_sticky.html" style="font-size: 15px">(sticky-스크롤 이동 버튼 구현) </a
+        
         <p>hover와 가상요소선택자를 통해서 멋진 테두리를 구현합니다.</p>
         <em>2022.06.07</em>
       </li>
@@ -110,9 +113,7 @@
     <hr />
     <h2>header를 구성하는 5가지 방법</h2>
     <ul>
-      <li>
-        <a href="./doc/header01.html">메뉴 가로배치</a>
-      </li>
+      <li><a href="./doc/header01.html">메뉴 가로배치</a></li>
       <li>
         <a href="./doc/header02.html">메뉴와 아이콘까지 배치</a>
         <p>마진 auto를 활용하여 간격을 띄웁니다.</p>
@@ -121,9 +122,7 @@
         <a href="./doc/header03.html">메뉴를 가운데 배치</a>
         <p>space-between을 적용한 뒤 로고와 버튼의 width를 같게 만들어주면 됩니다.</p>
       </li>
-      <li>
-        <a href="./doc/header04.html">space-between으로 배치 (못생김)</a>
-      </li>
+      <li><a href="./doc/header04.html">space-between으로 배치 (못생김)</a></li>
       <li>
         <a href="./doc/header05.html">MENU-LOGO-MENU 구조 LOGO를 한 가운데로</a>
         <p>flex:1;과 우측메뉴 justify-content: flex-end;</p>
@@ -149,23 +148,21 @@
         <p>slide와 버튼을 구현합니다.</p>
         <p>href를 class나 id로 지정한 버튼을 클릭하면 해당 위치의 top: 0;으로 이동합니다.</p>
         <p>
-          href="#"으로 비워놓은 뒤 preventDefault로 새로고침 이벤트를 없애면, 브라우저 최상단으로
-          이동하는 기능을 구현할 수 있습니다.<strong>★★★</strong>
+          href="#"으로 비워놓은 뒤 preventDefault로 새로고침 이벤트를 없애면, 브라우저 최상단으로 이동하는 기능을 구현할
+          수 있습니다.<strong>★★★</strong>
         </p>
         <em>2022.06.13</em>
       </li>
     </ul>
-    <h2>슬라이드 구현 (2)</h2>
     <ul>
       <li>
         <a href="./doc/slick02.html">슬라이드 고급 구현</a>
         <p>slide와 버튼을 구현합니다.</p>
-        <p>asNavFor를 이용한 2단 슬라이드를 구현합니다.★</p>
+        <strong>asNavFor를 이용한 2단 슬라이드를 구현합니다.★</strong>
         <p>슬라이드위에 고정되어 변하는 글자를 구현합니다.★</p>
         <em>2022.06.14</em>
       </li>
     </ul>
-    <h2>슬라이드 구현 (3)★★★</h2>
     <ul>
       <li>
         <a href="./doc/slick03.html">슬라이드 왕고급 구현</a>
@@ -178,8 +175,9 @@
     <h2>fullpage 구현 ★★★</h2>
     <ul>
       <li>
-        <a href="./doc/fullpage01.html">fullpage 구현</a>
-        <p>hash를 이용한 최상단, 최하단, 해당하는 섹션으로 이동하는 버튼 구현</p>
+        <a href="./doc/fullpage01.html">fullpage 구현</a> <br /><strong
+          >hash를 이용한 최상단, 최하단, 해당하는 섹션으로 이동하는 버튼 구현</strong
+        >
         <p>menu버튼으로 커버화면 구현</p>
         <em>2022.06.16</em>
       </li>
@@ -188,10 +186,28 @@
     <ul>
       <li>
         <a href="./doc/movie01.html">비디오 삽입 구현</a>
-        <p>fixed이용하여 고정된 배경 구현</p>
-        <p>동영상을 배경으로 만드는 방법 구현</p>
+        <p>fixed를 이용하여 고정된 배경 구현</p>
+        <strong>동영상을 배경으로 만드는 방법 구현</strong>
         <p>동영상을 조작하는 버튼 구현</p>
         <em>2022.06.16</em>
+      </li>
+    </ul>
+    <hr />
+    <h2>Tab menu 구현</h2>
+    <ul>
+      <li>
+        <a href="./doc/tab01.html">1. 기본 tab menu</a>
+        <p>기본 형태입니다.</p>
+      </li>
+      <li>
+        <a href="./doc/tab02.html">2. slick 슬라이드를 삽인한 tab menu</a>
+        <p>쇼핑몰에서 자주 볼 수 있는 슬라이드 형태의 컨텐츠를 만듭니다.</p>
+        <p>slick은 display: none; 을 적용하면 오류가 생깁니다. visibility: hidden; 을 활용합니다.</p>
+      </li>
+      <li>
+        <a href="./doc/tab03.html">3. map 위치 표시</a>
+        <p>지도에 위치를 표시하는 기능을 구현합니다</p>
+        <em>2022.06.17</em>
       </li>
     </ul>
   </body>
