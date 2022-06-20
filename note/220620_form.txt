@@ -1,0 +1,65 @@
+html 에서 space는 &nbsp; 입니다.
+& 는 &amp; 입니다.
+
+
+
+
+search는 form 태그를 통해서 만듭니다.
+          <div class="searchForm">
+action에 입력받을 값이 들어가게 됩니다.
+            <form action="">
+input에 내용을 입력합니다.
+              <input type="text" />
+input에 입력한 값을 form의 action으로 전달하기 위해서는 button 태그를 이용합니다.
+              <button>
+                <i class="xi-search"></i>
+              </button>
+            </form>
+          </div>
+          
+          
+          
+#searchForm input[type="text"] 는 원하는 attr 만 가져옵니다.
+          #searchForm input[type="text"] {
+}
+
+placeholder attr 만 가져옵니다.
+#searchForm input[type="text"]::placeholder {
+  color: #aaa;
+}
+
+input을 focus 하였을 때 placeholder 를 보이지 않도록 합니다.
+#searchForm input[type="text"]:focus::placeholder {
+  opacity: 0;
+}
+
+js로 input으로 제출한 값을 받아올 수 있습니다.
+            <form action="javascript:searchAction()">
+              <input type="text" placeholder="검색어를 입력하세요." />
+              <button></button>
+            </form>
+            <script>
+              function searchAction() {
+                var searchValue = $('#searchForm input').val()
+                console.log(searchValue);
+              }
+          
+form을 초기화하려면 [idx].reset()함수를 적용하면 됩니다. 
+                $("#search")[0].reset();
+text 내용만을 비우려면 value 값을 수정합니다.
+                $("#searchForm input").val("");
+
+
+
+
+
+
+슬라이드 번호를 구하는 다른 방법입니다.
+div를 하나 만들어 text를 입력하고 div 안에 입력된 text를 직접 수정하는 방법입니다.
+          <div class="slideNum">slideNum</div>
+.text()로 입력된 내용을 수정할 수 있습니다.          
+    $(".slideNum").text((c ? c + 1 : 1) + " / " + s.slideCount);
+
+
+
+/* ↑↓  ↓↑ */
