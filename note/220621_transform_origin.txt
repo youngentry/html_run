@@ -1,0 +1,26 @@
+transform-origin 속성으로 rotate의 기준점을 정할 수 있습니다.
+bottom의 center를 기준으로 -30deg 회전시킵니다.
+      .container figure img {
+        transform-origin: bottom center;
+        transform: rotate(0);
+        transition: transform 0.5s;
+      }
+      .container figure:hover img {
+        transform-origin: bottom center;
+        transform: rotate(-30deg);
+      }
+      
+animation을 적용하면 다양한 효과를 줄 수 있습니다.
+      .container figure img {
+        transform-origin: bottom center;
+      }
+      .container figure:hover img {
+        animation: lanez 0.5s;
+        transform-origin: bottom center;
+      }
+      @keyframes lanez {
+        0% {transform: rotate(0);}
+        50% {transform: rotate(-15deg);}
+        75% {transform: rotate(5deg);}
+        100% {transform: rotate(0);}
+      }
