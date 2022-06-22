@@ -1,0 +1,122 @@
+유튜브 동영상을 반응형으로 만드는 방법입니다.
+iframe에 원하는 youtube 소스코드를 복사하고 붙여넣습니다.
+<iframe width="424" height="238" src="https://www.youtube.com/embed/21ZNI_fYw0s" title="utb - Chantiers d'avenir - Rosny-sous-bois" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+position을 잡고 padding-bottom: 56.25%를 줍니다. (9를 16으로 나눈 값은 0.5625입니다.)
+      .inner {
+        position: relative;
+        padding-bottom: 56.25%;
+      }
+      .inner iframe {
+        position: absolute;
+        inset: 0 0 0 0;
+      }
+      
+kakao map을 넣는 방법입니다.
+kakao map에서 펴시하기 원하는 장소를 선택하고 html보기 > 소스 생성하기 > 복사 > 붙여넣기
+<!-- * 카카오맵 - 지도퍼가기 -->
+<!-- 1. 지도 노드 -->
+<div id="daumRoughmapContainer1655857917626" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+
+<!--
+	2. 설치 스크립트
+	* 지도 퍼가기 서비스를 2개 이상 넣을 경우, 설치 스크립트는 하나만 삽입합니다.
+-->
+<script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+
+<!-- 3. 실행 스크립트 -->
+<script charset="UTF-8">
+	new daum.roughmap.Lander({
+		"timestamp" : "1655857917626",
+		"key" : "2ap3t",
+		"mapWidth" : "640",
+		"mapHeight" : "360"
+	}).render();
+</script>
+
+map의 class를 가져와 width와 height를 조절합니다.
+!important 속성을 적용할 필요가 없다고도 합니다.
+      .inner {
+        position: relative;
+        padding-bottom: 56.25%;
+        border-bottom: 2px solid #ddd;
+      }
+      .root_daum_roughmap {
+        position: absolute !important;
+        inset: 0 0 0 0;
+        width: 100% !important;
+        height: 100% !important;
+      }
+.wrap_map을 100%로 하지 않고 96.5%로 설정하면 kakaomap 로드뷰, 길찾기, 지도 크게 보기 하단 기능을 보이도록 합니다.
+      .root_daum_roughmap .wrap_map {
+        height: 96.5% !important;
+      }
+      
+      
+      
+YTPlayer를 이용하여 유튜브 영상을 background로 넣는 방법입니다.
+사용설명에 따라 아래의 div를 복사하여 붙여넣습니다.
+<div id="bgndVideo" class="player" data-property="{videoURL:'http://youtu.be/BsekcY04xvQ',containment:'body',autoPlay:true, mute:true, startAt:0, opacity:1}">My video</div>
+
+id를 원하는 이름으로 바꾸고, property는 가독성을 위해서 html이 아닌 js에 적용합니다.
+        <section class="utb">
+          <a class="zoom" href="">Zoom <i class="xi-expand-square zoom"></i></a>
+          <div id="utb" class="player"></div>
+        </section>
+        
+youtube 동영상의 주소를 입력합니다.
+containment 로 동영상을 담을 box를 지정할 수 있습니다.
+showControls: false, 로 컨트롤러를 보이지 않도록 합니다.
+playOnlyIfVisible: true, 화면에 들어왔을 때만 재생되도록 합니다.
+    $("#utb").YTPlayer({
+    videoURL: "https://youtu.be/dS9x5Ws67wI",
+    containment: ".utb",
+    autoPlay: true,
+    mute: true,
+    startAt: 0,
+    opacity: 1,
+    showControls: false,
+    playOnlyIfVisible: true,
+  });
+전체화면 버튼을 적용하려면 .YTPFullscreen() 속성을 만든 버튼에 적용하면 됩니다.
+  $(".utb .zoom").on("click", function (e) {
+    e.preventDefault();
+    $("#utb").YTPFullscreen();
+  });
+  
+  
+  
+  
+scrollme plugin을 사용해 멋진 스크롤 효과를 구현합니다.
+js를 받습니다.
+    <script src="./js/jquery.scrollme.min.js"></script>
+사용설명서에 따라 입력합니다.
+div class="scrollme"
+
+
+
+
+
+플랜트 - Plants
+화력발전소, 열병합발전소, 조력발전소, LNG 저장 시설, 원자력발전소 등
+건설을 주도하며 국가 경제 발전에 기여해왔습니다.
+ 
+글로벌시장에서 기업들과 어깨를 견주며 플랜트 건설 성과를 올리고 있습니다. 
+최근에는 신재생에너지 분야의 기술 개발 및 투자를 지속하며
+‘Global Top 20’을 향해 새롭게 도약하고 있습니다.
+
+건축  - Ahchitecture
+업무 시설부터 호텔, 전시, 의료, 체육 시설에 이르는
+다양한 영역에서 세계 건축문화를 선도해왔습니다.
+
+앞선 연구 개발과 도전 정신으로 
+세계의 초고층 빌딩과 인텔리전트 빌딩 건설의 선두주자로 자리 잡았습니다.
+앞으로도 스마트·친환경 기술 및 공법을 창안해 변화를 주도할 것입니다.
+
+
+주택 - housing
+국내 최초로 아파트에 친환경 개념을 도입,
+‘편안하고 살기좋은집’이라는 본질에 대한 메시지로 브랜드 신뢰감을 구축합니다.
+
+도심 주거 복합 오피스텔, 리모델링과 도시 재생 등
+다양한 분야에서 경쟁력을 발휘하고
+임대, 관리, 유통 등의 역량을 강화해 종합부동산회사로 성장할 것입니다.
