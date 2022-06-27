@@ -1,0 +1,2 @@
+넘치는 텍스트를 ... 으로 처리하는 속성은
+text-overflow: ellipsis; 입니다.
