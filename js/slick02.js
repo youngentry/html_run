@@ -1,9 +1,7 @@
 $(function () {
   $(".mian_slider").on("init afterChange", function (e, s, c) {
     console.log(e, s, c);
-    $(".slide01 .box .num").text(
-      "0" + (c ? c + 1 : 1) + " / " + "0" + s.slideCount
-    );
+    $(".slide01 .box .num").text("0" + (c ? c + 1 : 1) + " / " + "0" + s.slideCount);
     $(".slide01 .content>li").eq(c).addClass("on").siblings().removeClass("on");
   });
 
