@@ -1,0 +1,19 @@
+main 동영상을 main에 넣었다면 동영상을 100vh로 다 보여주도록 함
+strong 내가 선택하기 편리하도록 넣는 것
+h1 단 하나. 책의 제목. h1 안에 box를 넣지 않는다.
+h2 section의 제목
+h3,h4,h5,h6 section안에서 생기는 소제목, 안의 소제목, 안의 소제목, 안의 소제목
+footer 안에는 보통 section을 넣지 않는다. footer 자체가 하나의 section
+header 도 자체가 하나의 section
+scrollbar 가 x축으로 생겼다면 wrap이나 body에 max-width를 주고 overflow hidden으로 보이지 않도록 한다
+input은 form에 넣는다
+section의 공간이 너무 꽉 차서 버튼이 너무 아래로 내려가지 않도록
+font 한글은 폰트가 작으면 뭉쳐서 가독성이 떨어짐
+border를 animation을 줄 때 없애면서 흔들리지 않도록 하기 위해서는 border의 색을 보이지 않도록 하면 됨
+iframe 동영상을 넣을 때는 동영상의 설명을 rabel 형태로 덧붙인다
+font 사이즈가 너무 크지 않도록 
+wrap에 1900px을 주면 브라우저 크기를 줄였을 때 scroll bar가 생기는 문제를 막을 수 있다
+section이나 content에 번호를 전부 다 붙이는 것은 좋지 않다. 나중에 순서가 바뀔 것을 고려한다면 성질로 분류
+design 처음부터 브라우저 크기를 줄였을 때 보이는 균형까지 신경써서 코딩
+padding으로 간격은 가장 바깥 box에 주고, 그 안에서 간격을 주는 것은 margin-bottom 으로만
+auto로 사이즈를 주어야 반응형으로 만들 수 있음
