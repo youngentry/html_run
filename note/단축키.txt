@@ -1,0 +1,37 @@
+https://www.biew.co.kr/entry/Visual-Studio-CodeVS-Code-%EC%9C%A0%EC%9A%A9%ED%95%9C-%EB%8B%A8%EC%B6%95%ED%82%A4-%EC%82%AC%EC%9A%A9-%EB%B0%A9%EB%B2%95
+
+Ctrl + X
+커서 위치 행 삭제(잘라내기)
+
+Ctrl + Shift + K
+커서 위치 행 삭제
+
+Ctrl + C
+커서 위치 행 복사
+
+Ctrl + Shift + Enter
+커서 위 행 빈줄 생성
+
+Ctrl + alt + (↑,↓)화살표
+커서를 위, 아래에 추가(다중선택) (★)
+
+Ctrl + /
+한줄 주석처리 (★)
+
+Alt + Shift + A
+블럭 주석 처리 (★)
+
+Ctrl + H
+현재페이지 문자열 수정하기 (★)
+
+Ctrl + Shift + H
+폴더 모든 페이지 문자열 수정하기 (★)
+
+Ctrl + \
+파일 화면 창 분할 (★)
+
+Ctrl + N(숫자)
+화면 분할 창 위치 포커싱 (★)
+
+Alt + Shift + →,←
+선택 확장, 축소 (문단, 태그 단위)
