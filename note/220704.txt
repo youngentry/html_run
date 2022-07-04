@@ -1,0 +1,19 @@
+동그라미를 만들 때는 계단현상이 생기기 때문에 배경에 색을 주고 연한 색을 적용합니다.
+
+
+
+main에 video를 배경으로 주는 방법입니다.
+배경를 video로 만들고 높이를 header만큼 빼줍니다.
+.mainVisual {
+  height: calc(100vh - 140px);
+}
+
+현재 슬라이드의 index는 c 입니다.
+  $(".slider").on("afterChange", function (e, s, c) {
+    if (c == 0) {
+      $("#bgVideo01").YTPPlay();
+      $("#bgVideo02").YTPPause();
+    } else {
+      $("#bgVideo01").YTPPause();
+      $("#bgVideo02").YTPPlay();
+    }
