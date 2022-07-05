@@ -4,3 +4,14 @@ container 사이즈를 1230px로 늘려주고 요소에 padding을 15px만큼 �
 rtl을 적용하기 위해서는 attribute dir="rtl"을 포함시켜주면 됩니다.
 
 화살표 함수에는 this가 없습니다
+
+스크롤 이벤트로 header가 사라지고 나타나는 효과를 구현합니다.
+  $("html, body").on("mousewheel", function (e) {
+    var d = e.originalEvent.deltaY;
+    if (d > 0) {
+      $(".header").addClass("on");
+      // console.log("내림");
+    } else if (d < 0) {
+      $(".header").removeClass("on");
+      // console.log("올림");
+    }
