@@ -1,0 +1,97 @@
+git을 terminal로 이용하는 방법은 github에서 repository를 만들면 나타나는 설명을 따라하면 됩니다.
+
+…or create a new repository on the command line
+echo "# responsive_web" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/youngentry/responsive_web.git
+git push -u origin main
+
+…or push an existing repository from the command line
+git remote add origin https://github.com/youngentry/responsive_web.git
+git branch -M main
+git push -u origin main
+
+
+
+reset에 overflow-x: hidden을 설정해 놓으면 가로로 scroll bar가 생기지 않습니다.
+
+
+설정에서 css만 기본 format save를 해제할 수 있습니다.
+css > Format:Enable 체크박스 해제
+현장에서는 css를 가로로 길게 씁니다.
+
+
+
+container의 속성은 대부분 동일하기 때문에 전체에 적용되도록 합니다.
+.container {
+  display: flex;
+  gap: 1.5rem;
+  width: 60rem;
+  margin: 0 auto;
+}
+
+
+
+반응형 기본 폰트는 html 20px, body 0.8rem입니다.
+html {
+  font-size: 20px;
+}
+body {
+  font-size: 0.8rem;
+}
+
+반응형이 되었을 때 container는 width: auto로 설정합니다.
+@media (max-width: 1200px) {
+  .container {
+    width: auto;
+  }
+
+@media (max-width: 1200px) { 작은 화면
+@media (max-width: 768px) { 아이패드
+@media (max-width: 560px) { 스마트폰
+
+겹치는 속성은 지우고 format save를 없애 코드를 정리합니다.
+@media (max-width: 1200px) {
+  .container { width: auto; }
+  .step01 { background: #f00; }
+}
+@media (max-width: 768px) {
+  .container { padding: 0 0.75rem; }
+  .step01 { background: #369; }
+}
+@media (max-width: 560px) {
+  html { font-size: 16px; }
+  .container { flex-direction: column; }
+  .step01 { background: #369; color: #fff; }
+  .step01 h2 { font-size: 1.25rem; margin: 0 0 0.5rem 0; }
+  .step01 p { font-size: 0.75rem; margin: 0 0 1.5rem 0; }
+}
+
+
+vw는 pc버전에서는 스크롤 바가 생기기 때문에 잘 쓰지 않지만, 모바일 버전에서 font-size에 이용합니다.
+주로 mainVisual의 slogan에 적용하게 됩니다.
+@media (max-width: 560px) {
+  .step01 h2 { font-size: 8vw; }
+}
+
+
+
+nav는 global navigation bar의 약자를 class로 사용합니다.
+          <nav class="gnb">
+
+
+메뉴버튼을 만들고 560px이하의 사이즈에서 보이도록합니다.
+.mbtn {
+  display: none;
+}
+  .container {
+    flex-direction: column;
+  }
+  .mbtn {
+    position: fixed;
+    inset: 1rem 1rem auto auto;
+    display: block;
+  }
