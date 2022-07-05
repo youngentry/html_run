@@ -2,3 +2,5 @@ slick의 slides를 가운데로 이동시키는 방법입니다.
 container 사이즈를 1230px로 늘려주고 요소에 padding을 15px만큼 주면 됩니다.
 
 rtl을 적용하기 위해서는 attribute dir="rtl"을 포함시켜주면 됩니다.
+
+화살표 함수에는 this가 없습니다
