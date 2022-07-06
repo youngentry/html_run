@@ -95,3 +95,32 @@ nav는 global navigation bar의 약자를 class로 사용합니다.
     inset: 1rem 1rem auto auto;
     display: block;
   }
+  
+  
+  
+  
+  
+header를 세 구간으로 나누는 방법입니다.
+header안의 container가 absolute로 뜰 것이기 때문에 header에 height를 주어 공간을 차지하도록 합니다.
+.header { position: relative; line-height: 100px; height: 100px; } 
+container에 사이즈를 주지 않고 absolute로 띄우고 left, right를 주어 사이 만큼이 넓이가 되도록 합니다.
+.header .container { position: absolute; top: 0; left: 80px; right: 80px; background: #f00; } 
+width로 각각의 영역이 차지할 공간비를 정합니다.
+h1의 width: 20%;
+.header h1 { float: left; width: 20%; background: #ff0; } nav의 width: 60%;
+.header nav { float: left; width: 60%; background: #369; } 
+sns의 width: 20%;
+.header .sns { float: right; width: 20%; background: #f0f; } 
+li float: left;로 sns들을 가로로 배열 합니다.
+.header .sns ul>li { float: left; } 
+
+메뉴들을 가운데로 위치시키려면 text-align: center;를 이용하고 li를 inline-block으로 만들어 줍니다.
+.header nav>ul { text-align: center; } 
+li는 inline-block으로 가로로 배열합니다.
+.header nav>ul>li { display: inline-block; } 
+
+
+inline-block에 폰트 사이즈를 주었더니 글자가 내려가는 문제가 생겼습니다.
+vertical-align 으로 위치를 조절합니다.
+.header nav>ul { text-align: center; font-size: 0;} 
+.header nav>ul>li { display: inline-block; font-size: 20px; vertical-align:middle;} 
