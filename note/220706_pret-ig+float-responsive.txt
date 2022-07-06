@@ -1,7 +1,10 @@
-.prettierignore 를 사용하면 원하는 파일에 format save가 적용되지 않도록 할 수 있습니다.
+.prettierignore를 사용하면 원하는 파일에 format save가 적용되지 않도록 할 수 있습니다.
 css를 작성할 때는 format save를 적용해 실수 없이 편하게 작성하고,
 완성된 코드를 가로로 길게 쓰고 싶다면 .prettierignore에 *.css를 입력하여 저장한 뒤
 css-compact extension을 이용하여 한 줄로 바꾸어 저장하면 됩니다.
+
+
+
 
 float으로 display: flex; 처럼 가로로 배치하는 방법입니다.
 figure 각각에 float을 적용합니다.
@@ -21,6 +24,8 @@ float을 적용하면 떠오르게 되면서 figure를 싸고 있는 box의 heig
           </div>
           
           
+         
+
 
 header를 float으로 만드는 방법입니다.
 .header .container { width: 1200px; margin: 0 auto; }
@@ -32,7 +37,6 @@ nav안의 li를 left로 보내면 menu01 ~ menu05 순서대로 배열됩니다.
 .header .gnb > ul > li { float: left; } 
 .header .gnb > ul > li > a { display: block; padding: 0 15px; } 
 padding: 0 15px; 은 가운데로 정렬하기 위함입니다. width는 1170px이 됩니다.
-
 
 float을 반응형 메뉴로 만드는 방법입니다.
 header container의 width: auto; 속성을 auto로 바꿉니다.
@@ -49,6 +53,9 @@ figure의 width를 33% > 100%로 바꿉니다.
 메뉴 버튼을 만듭니다.
 .mopen { display: block; position: fixed; top: 30px; right: 10px; line-height: 1;} 
 
+
+
+
 hamburger menu 플러그인을 이용하면 메뉴버튼을 쉽게 만들 수 있습니다.
 다양한 메뉴 버튼이 있습니다.
 https://jonsuh.com/hamburgers/다운로드 링크입니다.
@@ -59,3 +66,19 @@ https://github.com/jonsuh/hamburgers
     <span class="hamburger-inner"></span>
   </span>
 </button>
+
+원하는 모양을적용시키기 위해서는 class를 추가하면 됩니다.
+            <button class="hamburger hamburger--collapse is-active" type="button">
+is-active를 js로 toggle해줍니다.
+  $(".hamburger").on("click", function () {
+    $(this).toggleClass("is-active");
+  });
+
+menu가 사라지고 나타나도록 left를 조절합니다.
+.header .gnb { left: -100%; transition: 0.5s; } 
+.header .gnb.on { left: 0; } 
+
+
+
+
+
