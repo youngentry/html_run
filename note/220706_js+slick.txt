@@ -1,0 +1,14 @@
+slick 클릭한 슬라이드로 이동하는 이벤트입니다. Enable focus on selected element (click)
+focusOnSelect
+default: false
+
+
+js로 선택을 하는 간편한 방법은 parent의 index를 이용하는 것입니다.
+  $(".pageNums li a").on("click", function (e) {
+    e.preventDefault();
+    $(this).parent().siblings().removeClass("on");
+    $(this).parent().addClass("on");
+    var idx = $(this).parent().index();
+    $(".promoPages>div").removeClass("on");
+    $(".promoPages>div").eq(idx).addClass("on");
+  });
