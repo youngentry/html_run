@@ -1,0 +1,107 @@
+다단메뉴를 반응형으로 만듭니다.
+
+다단메뉴 shortcut은 다음과 같습니다.
+          <nav>
+            ul>li*5>a{menu0$}+ul.smenu>li*5>a{smenu$$}
+          </nav>          
+          
+css 디자인을 합니다.
+.Wrap { } 
+.header { line-height: 100px; } 
+.header .container { display: flex; justify-content: space-between; width: 1200px; margin: 0; } 
+.header .gnb a { display: block; } 
+.header .gnb > ul { display: flex; gap: 40px; } 
+.header .gnb > ul > li { position: relative; } 
+.header .gnb > ul > li .smenu { position: absolute; top: 90px; left: 50%; transform: translateX(-50%); display: none; background: #fff; line-height: 35px; width: 150px; text-align: center; border: 3px solid #ddd; z-index: 999; } 
+.header .gnb > ul > li:hover .smenu { display: block; } 
+.main_visual { position: relative; display: flex; align-items: center; justify-content: center; background: #333; color: #fff; height: 600px; } 
+.footer { padding: 100px 0; text-align: center; }          
+
+
+
+
+
+이제 작은 화면에서 필요한 속성을 조절합니다.
+@media (max-width: 768px) {
+다단메뉴 디자인을 한 뒤에 @media 작은 화면에 붙여넣습니다.
+
+width: auto;로 바꿉니다.
+ .header .container { width: auto;} 
+ 
+메뉴 방향을 세로로 바꿉니다. 
+ .header .gnb > ul { flex-direction: column;} 
+
+fixed로 메뉴를 띄워줍니다.
+ .header .gnb { position: fixed; top: 0; left: 0; background: #fff; border-right: 1px solid #ddd; width: calc(100% - 90px); height: 100vh; z-index: 999; } 
+
+메뉴 사이의 gap을 없애고 간격을 맞춥니다.
+ .header .gnb > ul { display: flex; flex-direction: column; gap: 0; line-height: 35px; } 
+
+position: static; width: auto;로 바꿉니다.
+ .header .gnb > ul > li .smenu { position: static; transform: translateX(0%); display: none; background: #f1f1f1; width: auto; border: none; } 
+
+hover 효과를 없앱니다.
+ .header .gnb > ul > li:hover .smenu { display: none; } 
+
+js click 이벤트로 나타났다 사라지도록 합니다.
+  $(".gnb > ul > li>a").on("click", function (e) {
+    e.preventDefault();
+    $(".smenu").hide();
+    $(this).next().show();
+  });
+
+window 크기가 작을 때만 기능하도록 합니다.
+    if ($(window).width() < 769) {
+      e.preventDefault();
+      $(".smenu").hide();
+      $(this).next().show();
+    }
+
+window가 resize된다면 style attr(style= "display: block";)을 없애도록 합니다.
+  $(window).on("resize", function () {
+    $(".smenu").removeAttr("style");
+  });
+
+
+
+
+메뉴창을 on/off하는 버튼을 만듭니다.
+          </nav>
+          <div class="mbtn">
+            <i class="xi-bars"></i>
+          </div>
+          
+메뉴창을 숨기고 버튼을 누르면 나오도록 합니다.
+ .header .gnb { left: -100%; } 
+ .header .gnb.on { left: 0; } 
+
+  $(".mbtn").on("click", function () {
+    $(".gnb").toggleClass("on");
+  });
+  
+  
+  
+  
+jquery는 모든 브라우저에 지원이 되도록 만들어진 것이기 때문에 this를 사용하는 것이 꼭 좋은 것만은 아닙니다.
+화살표함수를 쓰면 {} 중괄호를 쓰지 않아도 되기 때문에 react에서 중괄호의 쓰임새가 있을 때 장점이 많습니다.
+
+
+
+
+jquery의 slideDown() 과 같은 효과가 버벅인다면 
+css에서 transition이 적용되어있어 충돌이 발생하기 때문입니다. transition: none; 
+
+
+
+선택되지 않은 메뉴는 올라가도록 합니다.
+  $(".gnb>ul>li>a").on("click", function (e) {
+    if ('.gnb').hasClass('on') {
+        e.preventDefault();
+        $(".smenu").stop().slideUp();
+        $(this).next().stop().slideToggle();
+        
+resize가 되면 on을 지워 큰 화면에서 적용되지 않도록 합니다.
+  $(window).on("resize", function () {
+    $(".gnb").removeClass("on");
+    $(".smenu").removeAttr("style");
+  });
