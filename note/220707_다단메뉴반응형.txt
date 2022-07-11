@@ -23,7 +23,7 @@ css 디자인을 합니다.
 
 이제 작은 화면에서 필요한 속성을 조절합니다.
 @media (max-width: 768px) {
-다단메뉴 디자인을 한 뒤에 @media 작은 화면에 붙여넣습니다.
+다단메뉴를 디자인 한 뒤에 @media 작은 화면에 붙여넣습니다.
 
 width: auto;로 바꿉니다.
  .header .container { width: auto;} 
@@ -57,7 +57,7 @@ window 크기가 작을 때만 기능하도록 합니다.
       $(this).next().show();
     }
 
-window가 resize된다면 style attr(style= "display: block";)을 없애도록 합니다.
+window가 resize된다면 style attr(style= "display: block";)을 없애도록 합니다.★★★
   $(window).on("resize", function () {
     $(".smenu").removeAttr("style");
   });

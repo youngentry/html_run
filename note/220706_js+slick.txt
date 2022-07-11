@@ -3,6 +3,7 @@ focusOnSelect
 default: false
 
 
+
 js로 선택을 하는 간편한 방법은 parent의 index를 이용하는 것입니다.
   $(".pageNums li a").on("click", function (e) {
     e.preventDefault();

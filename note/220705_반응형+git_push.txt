@@ -19,7 +19,7 @@ git push -u origin main
 reset에 overflow-x: hidden을 설정해 놓으면 가로로 scroll bar가 생기지 않습니다.
 
 
-설정에서 css만 기본 format save를 해제할 수 있습니다.
+설정에서 css의 format save를 해제할 수 있습니다.
 css > Format:Enable 체크박스 해제
 현장에서는 css를 가로로 길게 씁니다.
 
@@ -72,7 +72,7 @@ body {
 
 
 vw는 pc버전에서는 스크롤 바가 생기기 때문에 잘 쓰지 않지만, 모바일 버전에서 font-size에 이용합니다.
-주로 mainVisual의 slogan에 적용하게 됩니다.
+주로 mainVisual의 slogan에 적용하게 됩니다.★★★
 @media (max-width: 560px) {
   .step01 h2 { font-size: 8vw; }
 }
@@ -81,6 +81,7 @@ vw는 pc버전에서는 스크롤 바가 생기기 때문에 잘 쓰지 않지�
 
 nav는 global navigation bar의 약자를 class로 사용합니다.
           <nav class="gnb">
+
 
 
 메뉴버튼을 만들고 560px이하의 사이즈에서 보이도록합니다.

@@ -1,6 +1,0 @@
-흘러가는 슬라이드 https://sipossa.github.io/doc01/doc/02_slick_content05.html
-글자 하나 하나 나타나기 https://sipossa.github.io/doc01/doc/02_slick_visual07.html
-천천히 확대되기 https://sipossa.github.io/doc01/doc/02_slick_visual06.html
-슬라이드가 겹쳐서 나타나기 https://sipossa.github.io/doc01/doc/02_slick_visual09.html
-관성 슬라이드 https://sipossa.github.io/doc01/doc/02_slick_visual12.html
-

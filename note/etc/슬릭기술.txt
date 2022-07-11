@@ -1,0 +1,17 @@
+흘러가는 슬라이드 https://sipossa.github.io/doc01/doc/02_slick_content05.html
+글자 하나 하나 나타나기 https://sipossa.github.io/doc01/doc/02_slick_visual07.html
+천천히 확대되기 https://sipossa.github.io/doc01/doc/02_slick_visual06.html
+슬라이드가 겹쳐서 나타나기 https://sipossa.github.io/doc01/doc/02_slick_visual09.html
+관성 슬라이드 https://sipossa.github.io/doc01/doc/02_slick_visual12.html
+
+
+[touchThreshold]
+슬라이드의 어느 정도 너비 이상 움직였을 때 슬라이드를 이동할 지 선택합니다. 
+    touchThreshold: 5(default), [1/(the length of a slide width)]
+    
+    
+[slick의 slides를 가운데로 이동시키는 방법] 
+container 사이즈를 1230px로 늘려주고 요소에 padding을 15px만큼 주면 됩니다.
+
+[right to left]
+rtl을 적용하기 위해서는 attribute dir="rtl"을 포함시켜주면 됩니다.

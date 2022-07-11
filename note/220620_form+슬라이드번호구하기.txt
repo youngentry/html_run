@@ -61,5 +61,3 @@ div를 하나 만들어 text를 입력하고 div 안에 입력된 text를 직접
     $(".slideNum").text((c ? c + 1 : 1) + " / " + s.slideCount);
 
 
-
-/* ↑↓  ↓↑ */
