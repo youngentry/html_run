@@ -1,0 +1,4 @@
+스크롤 높이에 따라 효과를 주려면
+
+window.scrollY(스크롤높이)와 foreach문으로 el(섹션)을 구한 뒤 
+해당 section의 .offsetTop을 비교해 해당 높이로 이동했을 때의 효과를 구현할 수 있다.
