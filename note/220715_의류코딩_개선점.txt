@@ -4,4 +4,4 @@ more은 끝에 붙이고 라인을 아래와는 좀 띄우기
 
 footer는 p가 아니라 h태그를 넣고 내용물은 dl dt로 들어가기
 
-autoplay가 되면 화살표를 빼고, autoplay가 안되면 화살표를 넣기
+슬라이드 autoplay가 되면 화살표를 빼고, autoplay가 안되면 화살표를 넣기
