@@ -82,5 +82,15 @@ currentTarger을 출력하도록 하면
       <span>스팬</span>
       <a href="#">타겟</a>
     </div>
-    
-    
+
+
+
+콜백지옥(Callback Hell)이란 콜백함수 안에서 또 다시 콜백 함수를 부르는 것이 반복되는 것을 말합니다.
+이로 인해 가독성이 떨어지게 되며 promise then, es6 이후부터는 promise async await를 이용하여 콜백 지옥에서 벗어납니다.
+
+
+
+
+https://www.assuretee.co.kr/
+https://kr.ncsoft.com/kr/whatWeCreate/index.do
+https://www.plaync.com/kr/index
