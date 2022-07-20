@@ -1,0 +1,14 @@
+슬릭 센터모드를 이용하여 화면 한 가운데로 슬라이드를 위치하면서, 양 옆으로는 다음 슬라이드가 보이도록 하는 방법입니다.
+  $(".titleSlider").slick({
+    slidesToShow: 1,
+    centerMode: true,
+    centerPadding: "25%",
+  });
+centerMode와 centerPadding을 통해서 슬라이드 간의 간격을 조절합니다.
+
+현재 슬라이드를 가운데로 위치하기 위해서는
+.titleSlider img {
+  width: 400px;
+  margin: 0 auto;
+}
+block이 된 슬라이드에 margin: 0 auto; 속성을 주어 슬라이드가 지닌 너비의 가운데로 이동하도록 합니다.
