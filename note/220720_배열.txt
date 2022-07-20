@@ -1,3 +1,108 @@
 함수로 들어오는 것은 method, 그렇지 않은 것은 property(속성)이라 부릅니다.
 lastIndexOf: ƒ lastIndexOf()
 length: 0
+
+
+
+
+        // 1. 배열을 만드는 옛날 방법
+        const 걍배열 = new Array();
+        걍배열[3] = 1;
+        걍배열.push('마지막'); //배열에 마지막 요소로 추가
+        걍배열.unshift('처음'); // 배열의 처음 요소로 추가
+        걍배열.shift(); // 첫번째 배열을 삭제
+        걍배열.pop(); // 마지막 배열을 삭제
+        console.log(걍배열);
+        console.log(걍배열[3]);
+
+
+        // 2. 배열을 만드는 요즘 방법
+        const 배열 = [];
+        배열[0] = 1;
+
+        console.log(배열);
+
+
+
+
+
+        // for ... in문. i는 index key를 반환한다.
+        for (i in 걍배열) {
+            console.log(i);
+        }
+
+        // for ... of문. i는 value를 반환한다.
+        for (i of 걍배열) {
+            console.log(i);
+        }
+
+        //for문을 이용해서 html을 생성해보았다.
+        for (i of 걍배열) {
+            UL.innerHTML += '<li>' + i + '</li>';
+
+
+
+
+탭메뉴를 만들 때 on을 전체 li에서 제거하고, 클릭한 li에 on을 붙이는 과정을 forEach로 할 수 있습니다.
+        TUL.forEach((el, idx) => {
+            el.addEventListener('click', () => {
+                TUL.forEach(el => el.classList.remove('on'))
+                el.classList.add('on');
+                //console.log(idx);
+                TCON.forEach(el => el.classList.remove('on'))
+                TCON[idx].classList.add('on');
+            })
+        });
+
+
+
+        const 스프레드 = [...TUL];
+        console.log(스프레드);
+
+        const UL = document.querySelector('.tMenu');
+        const LI = [...UL.children];
+        console.log(LI);
+
+        // indexOf() ---- 배열의 번호를 반환한다.
+
+        UL.addEventListener('click', e => {
+            let idx = LI.indexOf(e.target);
+            console.log(idx)
+        });
+
+
+
+
+
+        const 걍배열 = ['하나', '두리', '서이', '너이', '다섯'];
+        const 숫자배열 = [10, 28, 4, 38, 6, 45]
+
+
+        // indexOf 으로 index 반환하기...
+        const idx = 걍배열.indexOf('서이');
+        console.log(idx);
+
+        //존재 여부를 판단해서 tr
+        const 있는가 = 걍배열.includes('너이');
+        console.log(있는가);
+
+        const 찾기 = 걍배열.find(el => el === '다섯');
+        console.log(찾기);
+
+        const 찾기2 = 숫자배열.find(el => el > 12);
+        console.log(찾기2);
+
+        const 찾기21 = 숫자배열.findIndex(el => el === "28");
+        console.log(찾기21);
+
+
+        // 새로운 배열을 반환한다.
+        const 찾기3 = 숫자배열.filter(el => el > 12);
+        console.log(찾기3);
+
+        //새로운 배열을 반환한다.
+        const 배열자르기 = 걍배열.slice(0, 3);
+        console.log(배열자르기);
+
+        const 배열순서바꾸기 = 걍배열.reverse(); // 배열자체의 순서를 바꿔버린다.
+        console.log(배열순서바꾸기);
