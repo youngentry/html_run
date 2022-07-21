@@ -1,0 +1,14 @@
+      // 화살표함수에 중괄호{}를 쓰려면 {} 안에 return을 넣어주어야 합니다.
+      const A = DATA.map((data) => {
+        return `<li>${data.content}</li>`;
+      });
+      
+      화살표함수의 장점은 한 줄로 표기가 가능하다는 것입니다. 가급적이면 가독성이 높은 방향으로 표현합니다.
+      const RESULT = DATA.map((data) => `<li>${data.content}</li>`);
+      console.log(RESULT);
+      
+      html에 출력을 하려면 선택된 객체에 .innerHTML 을 수정하면 됩니다.
+      html에서는 ","가 같이 나타나기 때문에 join 함수로 없애줍니다.
+      const RESULT = DATA.map((data) => `<li>${data.content}</li>`).join("");
+      console.log(RESULT);
+      document.querySelector("#UL").innerHTML = RESULT;
