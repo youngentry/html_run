@@ -16,3 +16,10 @@ toLocaleString() 함수는 위치한 지역의 시간대로 출력합니다.
       DATE.innerHTML += 날짜.getSeconds() + "초.<br/>"; // 초.
       DATE.innerHTML += 요일[날짜.getDay()] + "요일.<br/>"; // 요일.
     </script>
+    
+    
+    
+    
+    
+date함수를 이용해서 시계를 만듭니다.
+    
