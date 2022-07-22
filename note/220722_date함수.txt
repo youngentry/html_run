@@ -1,0 +1,18 @@
+date 내장함수를 이용해 현재 시간을 출력할 수 있습니다.
+toLocaleString() 함수는 위치한 지역의 시간대로 출력합니다.
+    <div class="date"></div>
+    <script>
+      const DATE = document.querySelector(".date");
+      const 날짜 = new Date();
+      const 요일 = ["일", "월", "화", "수", "목", "금", "토"];
+
+      DATE.innerHTML += 날짜.toLocaleString() + " 년. 월. 일. 시간<br/>"; // 년. 월. 일. 시간
+      DATE.innerHTML += 날짜.toLocaleDateString() + " 년. 월. 일.<br/>"; // 년. 월. 일.
+      DATE.innerHTML += 날짜.getFullYear() + "년.<br/>"; // 년.
+      DATE.innerHTML += 날짜.getMonth() + 1 + "월.<br/>"; // 월.
+      DATE.innerHTML += 날짜.getDate() + "일.<br/>"; // 일.
+      DATE.innerHTML += 날짜.getHours() + "시.<br/>"; // 시.
+      DATE.innerHTML += 날짜.getMinutes() + "분.<br/>"; // 분.
+      DATE.innerHTML += 날짜.getSeconds() + "초.<br/>"; // 초.
+      DATE.innerHTML += 요일[날짜.getDay()] + "요일.<br/>"; // 요일.
+    </script>
