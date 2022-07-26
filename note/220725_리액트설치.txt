@@ -4,11 +4,10 @@ node.js를 설치합니다.
 설치가 되었는지 확인하기 위해서는 터미널에 node -v를 입력하면 됩니다.
 >> v16.16.0
 
-리액트 app을 만듭니다.
+리액트 app을 react00 폴더에 만듭니다.
 npx create-react-app react00
 
-react00 폴더가 생성됩니다.
-package.json에는 설치한 파일들이 기록됩니다.
+react00 폴더가 생성되고 생성된 package.json에는 설치하게 되는 파일들이 기록됩니다.
 
 
 

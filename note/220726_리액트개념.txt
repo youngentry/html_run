@@ -1,0 +1,115 @@
+리액트의 virtual DOM을 이용하여 웹페이지를 새로고침하지 않고 파일을 다 실행시킵니다.
+리액트에서는 여러 페이지를 링크로 이동하는 것이 아닌 single page에서 모든 작업을 실행할 수 있습니다.
+이를 CSR(client side rendering)이라 하여 이용자가 작업을 웹페이지의 새로고침 없이 연속적으로 실행할 수 있습니다. (반댓말 Server Side Rendering)
+
+
+
+부모 태그는 하나만 존재해야 하는 규칙이 있기 때문에 <> </>로 싸줍니다.
+함수표현식
+function App() {
+  return (
+    <>
+      <Header />
+      <Main />
+      <Footer />
+    </>
+  );
+}
+함수선언식
+const App = () => {
+  return (
+    <>
+      <Header />
+      <Main />
+      <Footer />
+    </>
+  );
+};
+
+
+
+return 안에서는 문자로만 인식됩니다. js를 실행시키려면 {} 중괄호로 감싸주면 됩니다.
+props는 객체입니다.
+const Main = (props) => {
+  return (
+    <main>
+      main
+      {console.log(props)}
+      {console.log(props.lee) /* props의 lee 속성을 출력합니다. */} 
+    </main>
+  );
+};
+
+const Main = (props) => {
+  const { lee } = props;
+  return (
+    <main>
+      {lee}
+    </main>
+  );
+};
+
+const Main = ({ lee }) => {
+  return <main>{lee}</main>;
+};
+
+
+
+
+const Main = ({ lee, word }) => {
+  return (
+    <main>
+      {lee}는 {word}
+    </main>
+  );
+};
+
+// 전달받은 값이 없을 때 기본으로 전해주는 값입니다.
+Main.defaultProps = {
+  word: "사과",
+};
+
+
+Wrapper로 감싸줄 때는 감싸진 객체들이 나타나지 않기 때문에 props.children 함수를 이용합니다.
+
+
+
+
+$(window) .on('scroll', function )
+scrollTop() offset().top
+
+
+8.
+Error: Element figure not allowed as child of element a in this context. (Suppressing further errors from this subtree.)
+
+From line 219, column 19; to line 219, column 26
+
+          <figure><img s
+
+Contexts in which element figure may be used:
+Where flow content is expected.
+Content model for element a:
+Transparent, but there must be no interactive content descendant, a element descendant, or descendant with the tabindex attribute specified.
+
+9. ~ 11.
+Error: Element ul not allowed as child of element ul in this context. (Suppressing further errors from this subtree.)
+
+From line 309, column 15; to line 309, column 35
+
+          <ul class="gameList">↩     
+
+Contexts in which element ul may be used:
+Where flow content is expected.
+Content model for element ul:
+Zero or more li and script-supporting elements.
+
+15. ~ 16.
+Error: Element dl is missing a required instance of child element dd.
+
+From line 652, column 13; to line 652, column 17
+
+          </dl>↩     
+
+Content model for element dl:
+Either: Zero or more groups each consisting of one or more dt elements followed by one or more dd elements, optionally intermixed with script-supporting elements.
+Or: One or more div elements, optionally intermixed with script-supporting elements.
