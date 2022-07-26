@@ -113,3 +113,11 @@ From line 652, column 13; to line 652, column 17
 Content model for element dl:
 Either: Zero or more groups each consisting of one or more dt elements followed by one or more dd elements, optionally intermixed with script-supporting elements.
 Or: One or more div elements, optionally intermixed with script-supporting elements.
+
+
+
+css 버전관리를 하게 되면 업로드를 한 뒤에 휴대폰에 적용되기까지 시간이 오래 걸리는 것을
+캐시를 이용하여 변화된 파일만 새로 읽어들이도록 할 수 있습니다.
+css의 ver=1.0의 숫자를 바꾸고 업로드하기만 하면 됩니다.
+    <link rel="stylesheet" href="./css/main.css?ver=1.0" />
+    <link rel="stylesheet" href="./css/responsive.css?ver=1.111" />
