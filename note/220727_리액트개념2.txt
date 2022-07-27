@@ -1,0 +1,16 @@
+export로 function을 내보낼 수 있습니다.
+export default function header() {
+  return <>header</>;
+}
+
+component에 직접 style 속성을 주어도 적용이 안됩니다.
+    <header>
+      <Header style={{ color: "red" }} />
+    </header>
+
+react에서 스타일을 주는 규칙은 ;대신에 ,로 연결하고 -는 카멜케이스로 치환입니다.
+          <li><a href="" style={{ color: "red", fontSize: "40px" }}>menu01</a></li>
+
+속성을 react에서는 property라고 부르고 js에서는 attribut라고 부릅니다.
+react에서 속성에 숫자를 입력하려면 {} 중괄호로 감싸주어야 합니다.
+      <Header name='yh' age={3} />
