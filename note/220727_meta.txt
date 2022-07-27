@@ -1,0 +1,25 @@
+Abc    : 파스칼케이스
+aBc    : 카멜케이스
+a_bc   : 스네이크케이스
+a-bc   : 케밥케이스
+a__b-- : BEM
+
+meta tag를 이용하여 검색엔진에 나타날 홈페이지의 설명을 정할 수 있습니다.
+    <meta name="description" content="표시할컨텐츠가들어갈위치"/>
+
+naver, facebook, twitter, kakaotalk 등 사이트별로 meta를 지정할 수 있습니다.
+
+
+
+
+반응형으로 사이즈를 바꿀 때 left right를 주어 사이 값을 너비로 만드는 방법은 코드를 줄여주고 유용합니다.
+  .topBanner {
+    position: absolute;
+    top: 50%;
+    left: 1.5rem;
+    right: 1.5rem;
+    transform: translateY(-50%);
+  }
+  
+  
+popup 창 하나씩 사라지도록 하기

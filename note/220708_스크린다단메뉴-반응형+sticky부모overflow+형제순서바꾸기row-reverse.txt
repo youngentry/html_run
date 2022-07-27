@@ -60,3 +60,13 @@ main에는 class나 id를 주지 않습니다. 관습적으로도 그래왔고 �
 
 부드러운 스크롤
 마우스 따라다니는 효과
+
+
+
+
+
++
+sticky의 부모요소 중에 overflow가 적용된 부모가 있으면 sticky가 작동하지 않습니다.
+
++
+형제요소의 순서를 바꾸려면 flex-direction:row-reverse, column-reverse 를 이용하면 됩니다.
