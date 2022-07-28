@@ -1,0 +1,56 @@
+powershell로 react app만들기
+폴더안에서 shift + 우클릭 : 현재 폴더에 powershell을 열 수 있습니다.
+mkdir 폴더이름 : 폴더만들기
+npx create-react-app react03 : react app을 설치한 react03폴더를 만듭니다.
+cd react03 : react03 폴더로 이동합니다.
+npm start : react app을 실행합니다.
+
+
+
+virtual DOM 은 변화하는 특정한 값 만을 다시 render하게 되는데,
+그 특정한 값은 state(react에서의 변수)로, state가 변할 때만 다시 그려줍니다.
+
+react에서는 let의 값을 변경해도 state가 변한 것으로 인식하지 않습니다.
+react는 useState 함수로 변수를 선언합니다.
+useState(0)는 let [num, changeNum] = 0 과 동일하다고 생각하면 됩니다.
+import { useState } from "react"; 
+  const [num, setNum] = useState(0);
+        <i className="xi-heart"></i> {num}
+
+
+이벤트를 지정하기 위해서는 이벤트를 지정하고자 하는 요소에 곧바로 함수를 만들고 setNum()에 실행할 값을 입력하면 됩니다.
+아래는 onClick 함수를 지정한 예시입니다.
+i에 onClick={()=> setNum()} 으로 이벤트와 함수를 지정하고 i를 클릭하면 setNum 함수를 실행하게 됩니다.
+
+  const [num, setNum] = useState(0);
+  return (
+    <div>
+      <i className="xi-heart" onClick={() => setNum(3)}></i> {num}
+    </div>
+num을 3으로 바꿉니다.
+
+  const [num, setNum] = useState(0);
+  return (
+    <div>
+      <i className="xi-heart" onClick={() => setNum(num + 1, console.log(num))}></i> {num}
+    </div>
+클릭을 하면 num에 +1을 합니다.
+
+
+색을 변경합니다.
+div를 클릭하면 color의 상태를 true로 만듭니다.
+  const [color, setColor] = useState(false);
+  return (
+style은 color가 존재한다면(true라면) red로 바꿉니다.
+    <div onClick={() => setColor(true)} style={{ color: color && "red" }}>
+      <i className="xi-heart" onClick={() => setNum(num + 1, console.log(num))}></i> {num}
+    </div>
+     
+heart icon의 색을 빨갛게 만들었다가 되돌릴 수 있도록 false <-> true를 전환하도록 합니다.
+  const [color, setColor] = useState(false);
+  return (
+    <div>
+      <i className="xi-heart" 
+        onClick={() => (setNum(num + 1), setColor(!color))} 
+        style={{ color: color && "red" }}></i> {num}
+    </div>
