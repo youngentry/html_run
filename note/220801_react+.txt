@@ -1,0 +1,23 @@
+a태그는 inline태그입니다. box처럼 싸면 안됩니다.
+h1에 a링크를 주려면 h1 안에 a를 포함시켜야 합니다.
+id를 넣을 것이라면 header, footer, section에 한정합니다.
+
+
+
+
+리액트에서 이미지를 넣을 때는 public 폴더에 넣습니다.
+
+리액트에서는 한 번에 큰 하나의 태그만을 써야합니다.
+아래는 세 개의 태그가 같은 레벨에 있기 때문에 오류가 발생합니다.
+      <Header />
+      <Main />
+      <Footer />
+따라서, 아래와 같은 형태로 감싸주어야 합니다.
+    <div className="Wrapper">
+      <Header />
+      <Main />
+      <Footer />
+    </div>
+    
+className은 css작업 효율성을 높일 수 있도록 component의 이름과 똑같이 지어줍니다.
+    <header className="Header">header</header>;
