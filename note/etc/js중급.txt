@@ -1,0 +1,76 @@
+var는 한 번 선언된 변수를 다시 선언할 수 있지만,
+let은 오류가 생깁니다.
+
+변수의 생성과정입니다.
+var는 선언과 초기화가 동시에 일어납니다. 여기서 초기화란 undefined를 할당해주는 단계입니다.
+let도 호이스팅이 되면서 선언단계가 이루어지지만, 초기화 단계는 실제 코드의 위치에서 이루어지므로 refernce error가 발생합니다.
+const는 선언과 초기화 할당이 동시에 일어납니다.
+
+따라서 let과 var는 아래와 같이,
+let name;
+name = 'Young';
+var lang;
+lang = 'Korean';
+선언과 할당을 따로 할 수 있습니다.
+
+하지만 const는 아래와 같은 형태로 선언과 할당을 따로 할 수 없습니다.
+const gender;
+gender = 'male; 
+
+
+
+
+스코프
+var는 함수스코프입니다. 함수 내에서 선언된 변수만 지역변수가 됩니다.
+let과 const는 블록스코프입니다. 선언된 블록 내에서만 유효합니다. (지역변수)
+
+var는 함수스코프이기 때문에, if, for, while문 안에서 선언을 하여도 밖에서 사용할 수 있습니다.
+const name = 'Young';
+if (name = 'Young') {
+  var hi = "Hi.";
+}
+console.log(hi);
+
+하지만 let과 const가 예측가능한 결과를 만들고 버그를 줄일 수 있다는 장점을 갖기 때문에 var의 사용은 지양합니다.
+
+
+
+생성자함수
+생성자 함수를 이용하여 여러개의 같은 프로퍼티를 지닌 객체를 간단하게 만들 수 있습니다.
+생성자 함수는 첫글자를 대문자로 합니다.
+new 연산자를 사용해서 호출합니다.
+
+function Guest(name, age) {
+  this.name = name;
+  this.age = age;
+}
+let user1 = new Guest('guest01', 10);
+let user2 = new Guest('guest02', 11);
+let user3 = new Guest('guest03', 101);
+
+new 함수(); 를 실행하면 일어나는 순서는 다음과 같습니다.
+function Guest(name, age){
+  this = {} // this에 객체를 만듭니다.
+  
+  this.name = name;
+  this.age = age;
+  
+  return this; // name과 age 프로퍼티가 담긴 this 객체를 반환합니다.
+}
+new Guest();
+
+만일 new를 붙이지 않는다면 객체를 생성하지 않고, undefined를 반환하게 됩니다.
+function Product(name, price) {
+  this.name = name;
+  this.price = price;
+  this.showPrice = fuction () {
+    console.log(`${price}원.`)
+  };
+}
+const prodcut01 = new Product("톰", 100);
+const product02 = Product("제리", 50); // new를 붙여주지 않아 그냥 함수가 실행되는 것인데, return 값이 없으므로 undefined를 반환합니다.
+
+console.log(product01, product02);
+// Product {name: "톰", price: 100, showPrice: f}
+// undefined
+
