@@ -1,0 +1,82 @@
+피그마도 width를 1900px로 맞춥니다. 파일을 저장해 두면 자동저장을 해줍니다.
+
+layout grid 기능으로 gird 격자를 만들어 줍니다.
+columns, count : 12, type : center, width : 70, gutter : 30
+
+ruler를 표시하고 중앙선을 맞춥니다.
+
+alt를 누르고 박스를 이동하면 복사가 됩니다.
+
+박스를 만들어 두고 이미지 열기를 한 뒤 박스를 클릭하면 박스사이즈에 맞춰진 이미지가 만들어집니다.
+
+shift + r 로 ruler 표시를 전환할 수 있습니다.
+ctrl + shitf + 4 로 그리드 표시를 전환할 수 있습니다.
+이미지를 선택하고 export하여 png형식으로 저장할 수 있습니다.
+
+폰트를 다운받아 이용하려면 브라이우보다는 앱을 다운 받아 이용하면 편리합니다. 바로 설치한 폰트가 나타납니다.
+
+
+
+https://hosting.cafe24.com/ cafe24 호스팅센터
+dothome.co.kr 무료(무료아님)로 호스팅 서비스를 제공하는 사이트
+https://demo.sir.kr/gnuboard5/ 그누보드5 백엔드가 다 만들어진 홈페이지를 이용합니다. (9~10만원)
+
+
+https://daontheme.cafe24.com/ 테마사이트
+
+
+
+글씨 색을 부분적으로 바꾸려면 span으로 감싸 클래스를 줍니다.
+br은 줄바꿈 할 때에만 씁니다.
+
+테이블 만드는 방법입니다. 
+넘치는 사이즈는 스크롤로 만들어주기 위해서는 table을 감싼 뒤에 overflow-x:scroll;로 만듭니다.
+        <div class="responsive-table">
+          <table>
+            <tr>
+              <th>kkkk</th>
+              <td>kkkkew</td>
+            </tr>
+            <tr>
+              <th>kkkk</th>
+              <td>kkkkew</td>
+            </tr>
+          </table>
+        </div>
+
+colgroup으로 칸의 너비를 지정할 수 있습니다.
+            <colgroup>
+              <col style="width: 20%" />
+              <col style="width: 30%" />
+              <col style="width: 20%" />
+              <col style="width: 30%" />
+            </colgroup>
+            
+caption태그로 추가 사항을 달아줍니다.
+            <caption>
+              * description
+            </caption>
+
+border와 padding, background를 지정하여 칸의 경계를 구분하고 위치를 조절합니다.
+      .table {
+        width: 100%;
+        border-top: 3px solid #0d6efd;
+      }
+      .table td {
+        padding: 15px 15px;
+        border-left: 1px solid #ddd;
+      }
+      .table th {
+        padding: 15px 15px;
+        text-align: left;
+        background: #f7f7f7;
+        font-weight: 400;
+      }
+      .table tr {
+        border-bottom: 1px solid #ddd;
+      }
+      .table caption {
+        text-align: right;
+        caption-side: bottom;
+        margin: 10px 0 0 0;
+      }
