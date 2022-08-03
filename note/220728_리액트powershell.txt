@@ -54,3 +54,15 @@ heart icon의 색을 빨갛게 만들었다가 되돌릴 수 있도록 false <->
         onClick={() => (setNum(num + 1), setColor(!color))} 
         style={{ color: color && "red" }}></i> {num}
     </div>
+    
+    
+    
+react에서는 class가 아닌 className으로 바꾸면 됩니다.
+    <section className="about">
+
+style을 적용하려면 아래와 같이 중괄호 두개로 감싸고, 값을 " " 안에 넣어야 합니다.
+<col style={{ width: "20%" }} />
+
+css를 가져올 때는 컴포넌트에서 import를 하여 css를 적용시키고, css가 적용된 파일 전체를 export default합니다.
+
+img 폴더는 react폴더의 public 폴더 안에 넣습니다.
