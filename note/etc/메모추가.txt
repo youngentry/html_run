@@ -1,0 +1,19 @@
+가로 스크롤 이벤트
+const scrollContainer = document.querySelector(".mainPic");
+
+    scrollContainer.addEventListener("wheel", (e) => {
+        console.log(scrollContainer.scrollLeft, e.deltaY);
+        if (e.deltaY < 0 && scrollContainer.scrollLeft == 0) {
+            console.log(e.deltaY == -100);
+        } else if (e.deltaY > 0 && scrollContainer.scrollLeft > 1700) {
+        } else {
+            e.preventDefault();
+            scrollContainer.scrollLeft += e.deltaY * 2;
+        }
+    });
+
+
+
+slick 속성 변경
+
+마우스 따라다니는 이벤트 + 마우스 on 하면 이미지 나타나는 이벤트
