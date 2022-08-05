@@ -1,0 +1,35 @@
+리액트로 만들어진 페이지는 router 로딩에 딜레이가 없습니다.
+
+리액트 앱을 실행시키려면 npm install로 설치를 먼저 해야합니다.
+
+npm build를 하면 index.html 파일이 만들어집니다.
+
+
+float 사용방법입니다. top 100%, 아래에 위치한 div 각각 50%
+.About02 .top {
+  float: left;
+  width: 100%;
+}
+.About02 .left {
+  float: left;
+  width: 50%;
+}
+.About02 .right {
+  float: left;
+  width: 50%;
+}
+
+
+
+
+한 이미지를 클릭하면, 다른 태그에 있는 이미지를 클릭한 이미지로 바꾸는 기능을 구현했습니다.
+el.attr("속성이름") 으로 속성 값을 가져올수 있습니다.
+el.attr("속성이름", "바꿀값입력") 으로 속성 값을 바꿀 수 있습니다.
+  $(".necklace li").on("click", function () {
+    $(this).children("figure").addClass("on");
+    $(this).siblings().children("figure").removeClass("on");
+    $(this).parent().siblings().children().children().removeClass("on");
+
+    var imgSrc = $(this).children().children().attr("src");
+    $(".centerImg").attr("src", `${imgSrc}`);
+  });
