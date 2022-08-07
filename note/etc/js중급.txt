@@ -74,3 +74,60 @@ console.log(product01, product02);
 // Product {name: "톰", price: 100, showPrice: f}
 // undefined
 
+
+
+computed property : 키에 변수를 할당합니다.
+let a = 'age'
+const young = {
+  [1 + 2] : 3,
+  [a] : 10
+  ["na"+"me"] = "Young"
+}
+
+object Methods
+object.assign() : 객체 복제 *나중에 추가
+
+object.keys() : 키들을 배열로 만들어 반환합니다.
+const user = {
+  name : 'a',
+  age : 10,
+  gender :'male'
+}
+object.keys(user); // ['name', 'age', 'gender']
+
+object.values() : 값들을 배열로 만들어 반환합니다.
+const user = {
+  name : 'a',
+  age : 10,
+  gender :'male'
+}
+object.values(user); // ['a', 10, 'male']
+
+object.entries() : 키와 값들을 쌍으로 묶어서 배열로 반환합니다.
+const user = {
+  name : 'a',
+  age : 10,
+  gender :'male'
+}
+object.entries(user); 
+// 
+[ 
+  ['name','a'], 
+  ['age', 30],
+  ['gender','male']
+]
+
+object.fromEntries() : 배열에 담은 값들을 객체로 만들어 반환합니다. 
+const arr = 
+[ 
+  ['name','a'], 
+  ['age', 30],
+  ['gender','male']
+];
+object.fromEntries(arr); 
+// 
+{
+  name : 'a',
+  age : 10,
+  gender :'male'
+}
