@@ -1,0 +1,71 @@
+MPA(milti page application)
+
+FileZilla를 설치합니다.
+brave는 설치안합니다.
+
+사이트관리자 > 새 사이트 > 이름 짓기
+이름 > 호스트 > youngentry.pe.kr 주소입력
+로그온 유형 > 비밀번호 묻기
+사용자 > ftp 아이디 입력
+연결 > 비밀번호 저장 여부 선택 > 비밀번호 입력 > 확인
+파일은 html 폴더에 업로드합니다
+우클릭 > 디렉터리 만들기 > 폴더생성(무조건 영어로 한글 금지)
+
+
+
+서버에 업로드할 파일은 index.php 입니다. html이 아닙니다.
+index.php 파일을 만들고 나서 html 폴더 안으로 이동하거나, php파일을 더블클릭하여 실행합니다.
+파일을 수정한 뒤에 다시 업로드하면 바로 서버에서 적용이 됩니다.
+
+
+컴포넌트를 가져오는 방식은 <? include ""?> 입니다.
+    <? include "nav.php"?>
+
+
+php에서는 <? $변수이름="" ?> 와 같은 형태로 변수를 선언하고 가져올 수 있습니다.
+<?
+$title = "아이스크림맛있겠다";
+$num = 1;
+?>    
+    <title><?=$title?></title>
+    <script>
+        var num = <?= $num ?>
+        console.log(num)
+    </script>
+    
+    
+    
+    
+head.php 와
+<body>
+    <div class="Wrap">
+        <header class="Header">
+            <nav>
+                <ul>
+                    <li><a href="sub01.php">menu01</a></li>
+                    <li><a href="sub02.php">menu02</a></li>
+                    <li><a href="sub03.php">menu03</a></li>
+                    <li><a href="sub04.php">menu04</a></li>
+                    <li><a href="sub05.php">menu05</a></li>
+                </ul>
+            </nav>
+        </header>
+
+tail.php 를 잘라
+        <footer class="Footer">
+            &copy <?=$title?> <?=$address?> <?=$tel?>
+        </footer>
+    </div>
+    <script>
+        var num = <?= $num ?>;
+        console.log(num)
+    </script>
+</body>
+</html>
+
+이어주면 손쉽게 페이지를 만들 수 있습니다.
+<? include 'head.php' ?>
+        <main>
+            메인입니다.
+        </main>
+<? include 'tail.php' ?>
