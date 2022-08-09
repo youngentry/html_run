@@ -1,0 +1,33 @@
+GET 사용자가 입력한 정보가 눈에 보이는 것 검색창에 검색어를 입력했을 때 주소에 검색어가 포함되어 보이는 것
+POST 사용자가 입력한 정보가 서버로 전달돼서 사용자 눈에 안 보이는 것 비밀번호
+
+action form에서 이용자에게 받은 정보를 ~로(ex)/search) 전송하는 동작
+
+input에 type과 placeholder 활용하는 법
+<input type="text" placeholder="username">
+
+label과 input을 연결하려면 for와 id를 이용합니다. 
+label을 쓰면 이용자들에게 정보를 효과적으로 전달할 수 있습니다.
+placeholder 안에 적힌 정보만으로는 부정확할 뿐 아니라, label의 css를 수정할 수 있으니까.
+<label for="username">Enter your username:</label>
+<input type="text" placeholder="username" id="username">
+
+form안에 있는 button은 form에서 입력했던 값들을 제출하는 역할을 합니다.
+button의 속성으로 button을 적어주면 제출하는 역할 없이 그냥 버튼이 됩니다.
+input의 type을 submit으로 적어주면 button의 역할을 합니다.
+
+모든 input 안에는 name이 들어있어야 합니다. name은 서버로 전송되는 데이터 역할을 합니다.
+예를 들어 http://a.com/username=???paswrod=??? 이런 방식으로 표현됩니다.
+
+검색어를 입력했을 때 url에 action, name, 검색어가 아래와 같은 형태로 나옵니다.
+https://www.reddit.com/search?q=검색어
+<form action="https://www.reddit.com/search">
+  <input type="text" name="q">
+  <button>Search Reddit</button>
+</form>
+
+input의 type="range"를 이용하면 볼륨 바를 만들 수 있습니다.
+속성은 min최솟값설정, max최댓값설정, step단위, value최초값
+
+textarea는 범위를 설정할 수 있는 text input입니다. cols와 rows로 크기를 조절할 수 있습니다.
+<textarea id="requests" rows="10" cols="40" name="Requests?" placeholder="type here"></textarea>
