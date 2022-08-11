@@ -1,0 +1,56 @@
+tab
+shift tab
+
+  flex-wrap: wrap;
+ Flex 아이템이 Flex 컨테이너의 끝에 닿으면 문자의 표기 방향에 따라 줄 바꿈합니다.
+  flex-wrap: nowrap;
+줄 바꿈하지 않습니다. 한줄로 표시합니다. 초기 값입니다.
+  flex-wrap: wrap-reverse;
+  줄바꿈을 하며 순서를 반대로 배치합니다.
+  
+  
+ head에서 assets 가져오기
+ 
+ 
+ table 사용 방법입니다.
+     <table class="table01">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>구분</th>
+                <th>가격</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>오뎅</td>
+                <td>1억</td>
+            </tr>
+        </tbody>
+    </table>
+       
+.SubContent .table01 {
+  width: 100%;
+  line-height: 40px;
+  border-top: 2px solid var(--mc);
+  text-align: center;
+}
+.SubContent .table01 tr {
+  border-bottom: 1px solid var(--bl);
+}
+.SubContent .table01 th {
+  font-size: 18px;
+  font-weight: 500;
+  background: var(--wc);
+}
+.SubContent .table01 th ~ th {
+  border-left: 1px solid var(--bl);
+}
+.SubContent .table01 td ~ td {
+  border-left: 1px solid var(--bl);
+}
+
+
+https://greensock.com/motionpath
+구현

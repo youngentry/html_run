@@ -1,0 +1,27 @@
+body {
+  overflow: hidden;
+}
+.letter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  font-size: 100px;
+  white-space: nowrap;
+  text-transform: uppercase;
+  animation: streamLetters 5s infinite linear;
+}
+/* .letter p:nth-child(1) {
+  background: #f00;
+}
+.letter p:nth-child(2) {
+  background: #0f0;
+} */
+@keyframes streamLetters {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
