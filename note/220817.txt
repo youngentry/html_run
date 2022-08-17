@@ -1,0 +1,31 @@
+헤더의 logo - menu - puls 구조에서 menu를 가운데로 위치하는 가장 쉬운 방법은
+logo와 puls의 사이즈를 같게 만들어 주는 것입니다.
+
+
+
+flex-wrap: wrap; 으로 배열을 자동으로 바뀌게 합니다.
+#Premium .container {
+  flex-wrap: wrap;
+  gap: 30px;
+}
+#Premium .container figure {
+  position: relative;
+  width: calc(50% - 15px);
+}
+
+
+border를 활용하여 라벨 모양을 쉽게 만들 수 있습니다.
+#Premium .container figure::after {
+  content: "";
+  position: absolute;
+  width: 150px;
+  height: 0px;
+  border-top: 20px solid burlywood;
+  border-bottom: 20px solid burlywood;
+  border-left: 20px solid burlywood;
+  border-right: 20px solid transparent;
+  top: 0;
+  left: 0;
+}
+attr(attr이름) 으로 속성값을 불러올 수 있습니다.
+  content: attr(data-title);
