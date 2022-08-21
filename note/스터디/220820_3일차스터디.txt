@@ -1,0 +1,85 @@
+220820
+
+유데미 스터디
+
+154. 문자열 규칙
+.length 처럼 괄호가 없는 것은 함수를 실행시키는 것이 아니라, attr속성값 에 접근하는 것입니다.
+
+.toUpperCase() 대문자로 만들기 <-> .toLowerCase() 소문자로 만들기 
+
+.trim() 양 끝의 공백 없애기
+
+method는 연달아 작성할 수 있습니다.
+let greeting = "hi  "
+greeting.trim().toUpperCase() 를 하면 "HI" 이 됩니다.
+
+155. 인수가 있는 문자열 규칙 (argument)
+.indexOf()
+let tvShow = 'catdog';
+tvShow.indexOf('cat'); // 0
+tvShow.indexOf('dog'); // 3
+tvShow.indexOf('z'); // -1
+
+값 안에서 찾고자 하는 문자열과 최초로 일치하는 문자열의 위치를 반환합니다. 
+존재하지 않는다면 -1을 반환합니다.
+.indexOf('cet')은 -1을 반환합니다. 값과 정확히 일치하는 인수를 입력해야 index를 출력합니다.
+
+.slice(시작 인덱스, 끝 인덱스)
+문자열에서 지정한 범위의 인덱스를 반환합니다.
+const msg = "haha that is so tickle";
+msg.slice(5) // "haha t"
+msg.slice(0, 5) // "haha t"
+
+음수를 이용해 문자열의 뒤에서부터 셀 수 있습니다.
+msg.slice(-6) // "tickle"
+msg.slice(-7, -9) // "so "
+
+PRACTICE
+const message = "    TASTE THE RAINBOW!  "; //DON'T CHANGE THIS LINE PLEASE!
+const whisper = message.toLowerCase().trim()
+
+.replace(찾는문자, 바꾸려는문자) 함수로 문자열을 바꿀 수 있습니다.
+msg.replace("h", "H") // "Haha that is so tickle"; 첫 번째로 찾은 문자열만 바뀌었습니다.
+.replaceAll() 함수는 찾는 모든 문자열을 바꿀 수 있지만, 일부 브라우저에서 적용되지 않습니다.
+
+"lol".repeat(5) 함수는 문자열을 인수만큼 반복합니다. // "lollollollollol"
+
+PRACTICE
+const word = "skateboard"; //Don't change this line!
+const facialHair = word.slice(-5).replace('o', 'e')
+
+
+156. 엄청나게 유용한 문자열 템플릿 
+``을 쓰면 ${}로 변수를 입력하거나 함수를 실행하고 수식을 계산할 수도 있습니다.
+
+
+157. Undefined와 Null
+
+158. 난수와 Math객체 
+Math.PI // 3.14159
+Math.round(4.9) // 5 반올림
+Math.abs(-456) // 456 절댓값 absolte
+Math.pow(2, 5) // 32 제곱 power
+Math.floor(3.999) // 3 내림 <-> Math.ceil() 올림
+
+PRACTICE : 주사위 두 개를 굴려 나온 눈을 표시하고, 둘의 합을 출력합니다.
+const die1 = Math.floor(Math.random() * 6) + 1; //random number from 1-6
+const die2 = Math.floor(Math.random() * 6) + 1; //random number from 1-6
+
+const roll = `"You rolled a ${die1} and a ${die2}. They sum to ${die1 + die2}"`
+
+161. 비교연산자
+
+163. Console, Alert, Prompt 코드
+
+168. 조건부 네스팅 (nesting) 조건문 안에서 실행하는 조건문
+
+PRACTICE : 논리연산자 AND 와 .indexof()
+const mystery = 'P77777'; //CHANGE THIS VALUE TO MAKE THE CONDITIONAL BELOW TRUE
+
+// LEAVE THIS CODE ALONE! (pretty please)
+if(mystery[0] === 'P' && mystery.length > 5 && mystery.indexOf('7') !== -1){
+    console.log("YOU GOT IT!!!");
+}
+
+~~~~~ 173. 까지 들었따~!
