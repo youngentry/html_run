@@ -1,0 +1,14 @@
+prettier (코드 줄 정리)
+
+ESLint (맞춤법을 검사하여 오류를 찾아줌)
+
+Material Theme (코드에 시각적 효과 추가)
+
+Material Icon Theme (확장자 icon 으로 시각적 효과 추가)
+
+color highlight 색상이 글자의 배경에 담겨 눈에 띄도록 바꿔줍니다.
+
++
+
+
+code runner : js 코드 실행결과 출력 (node.js 설치 요구)

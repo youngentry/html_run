@@ -1,0 +1,121 @@
+1. target 으로 새 창을 여는 방식을 정할 수 있습니다 +++++++++
+        <a href="./doc/box01.html" target="_blank">box 01</a>
+형제 레벨의 doc 폴더 안의 box01.html 파일을 엽니다.
+target="_blank" : 새 탭에서 열기
+
+
+2. 주석 정리 방법
+        <!-- { 2022.05.30 young -->
+        <header class="header"></header>
+        <!-- 2022.05.30 young } -->
+        
+
+3. a에 전화번호와 이메일 입력하는 방법입니다. tel: / mailto:
+                <li><a href="tel:051-325-0355">051-325-0355</a></li>
+                <li>Fax : 051-326-0356</li>
+                <li>
+                  <a href="mailto:kgbds97@naver.com">
+                  e-mail : kgbds97@naver.com
+                  </a>
+                </li>
+
+
+4. <address> 태그는 회사 정보를 나타낼 때 씁니다. 글자기울기 효과가 들어갑니다.
+
+
+5. slick dots를 하단 버튼으로 만듭니다.
+.main_visual .main_slider .slick-dots li {
+    display: inline-block;
+    width: 80px;
+    height: 5px;
+    background: #333;
+    margin: 0 3px;
+}
+.main_visual .main_slider .slick-dots button {
+    display: none;
+}
+현재 슬라이드의 버튼 색을 바꿉니다.
+.main_visual .main_slider .slick-dots li.slick-active {
+    background: #f00
+}
+
+
+6. slick slide 페이지 숫자를 나타나도록 해봅니다.
+새로고침 했을 때는 나타나지 않습니다. 항상 나올 수 있도록 합니다.  
+첫 페이지는 NaN이 출력되길래 삼항연산자로 수정을 합니다.
+$(function () {
+  $(".main_slider").on("init reInit afterChange", function (e, s, c) {
+    console.log(e, s, c);
+    $(".num").text((c ? c + 1 : 1) + " / " + s.slideCount);
+  });
+});
+
+
+7. slick 글자가 올라오는 애니메이션을 만듭니다.
+.main_visual .main_slider figure a {
+  transform: translateY(100px);
+  opacity: 0;
+}
+.main_visual .main_slider figure.on a {
+transform: translateY(0);
+opacity: 1;
+transition: 0.5s 1s;
+}
+
+$(function () {
+  $(".main_slider").on("init reInit afterChange", function (e, s, c) {
+    let cur = $(".slick-current");
+    cur.addClass("on").siblings().removeClass("on");
+  });
+});
+
+
+8. 
+외부 스타일 시트(External style sheet) 모듈화
+외부 스타일 시트는 모듈화의 개념입니다. css 파일을 불러와 스타일을 적용시킵니다.
+내부 스타일 시트(Internal style sheet)
+내부 스타일 시트란 style 태그를 이용하여 해당 html 문서에 스타일을 적용시키는 것입니다.
+인라인 스타일(Inline style)
+인라인 스타일이란 html 요소 내부에서 style 속성을 사용하여 CSS 스타일을 적용하는 방법입니다.
+
+인라인 스타일(Inline style)이 외부/내부 스타일 보다 우선합니다.
+javascript의 적용범위는 인라인 스타일(Inline style)이므로 외부/내부 스타일보다 우선합니다.
+
+
+9. inline 태그 (글자 그림 등 내용에 관여하는 태그)
+<span></span>
+<strong></strong>
+<em></em>
+<i></i>
+<button></button>
+<input />
+
+나머지는 block 속성을 가집니다.
+
+
+10. 
+attribute란 html 태그안에서 명시되는 속성들을 가리킵니다. ( class, id, href, src, etc. )
+property란 CSS  스타일 적용을 위해 사용하는 속성들을 가리킵니다. ( width, display, position, etc. )
+
+
+11. 선택자
+~li 아래쪽의 형제 li 모두를 선택합니다.
+      .color ~ li {
+        color: rgb(255, 30, 240);
+      }
+
++li 인접형제 선택자 : 가장 인접한 아래의 형제를 하나 선택합니다.
+      .color + li {
+        color: chocolate;
+      }
+attr 선택자는 [ ] 안에 입력하며, attr로 선택할 수 있습니다.
+      input[type="text"] {
+        border: 1px solid #f00;
+      }
+      [class="color"] {
+        background: #ff0;
+      }
+class*="class_name" : * 표시는 "모든"을 의미합니다. col 이란 class를 가진 모든 attr을 선택합니다. 
+      [class*="col"] {
+        background: #ff0;
+      }

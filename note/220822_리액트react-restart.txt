@@ -1,0 +1,54 @@
+1. 
+cd 로 react를 시작할 경로로 이동합니다.
+
+
+2. npx create-react-app . 
+react app을 만듭니다.
+
+
+3.
+App.js 에서 작성한 코드들을 index.js에서 import하고,
+index.js에서 작성한 코드들이 index.html로 갑니다.
+
+
+4. 
+public의 index.html 과 src의 App.js, index.js 만 남겨줍니다.
+
+
+5.
+npm start를 입력하여 react app이 정상적으로 구동하는지 확인합니다.
+
+
+6. 리액트에서는 querySelector 선택자를 사용하지 않고, 태그에 직접 기능을 넣습니다.
+            {num}
+            <button
+                onClick={() => {
+                    num = num + 1;
+                    console.log(num);
+                }}
+            >click</button>
+
+
+7. react에서는 state가 변하는 것을 감지할 때마다 실행합니다.
+useState() 함수로 state를 변하게 합니다.
+    const [num, setNum] = useState(1);
+
+
+8. 변수(num)를 변화시킬 때는 변화시키는 변수(setNum)를 이용합니다.
+const [num, setNum] = useState(1)
+                    setNum(num + 1);
+
+
+9. 클래스 "on"을 붙이고 떼는 기능을 true와 false 전환으로 구현합니다.
+    const [toggle, setToggle] = useState(true);
+    
+            <section className={toggle ? "" : "on"}>
+                {toggle ? "loading" : <Test />}
+            </section>
+
+            <button
+                onClick={() => (
+                    setToggle(!toggle),
+                )}
+            >click
+            </button>
