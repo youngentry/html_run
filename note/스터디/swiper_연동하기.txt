@@ -1,0 +1,29 @@
+swiper 슬라이더를 연동하려면 슬라이더를 선언한 뒤에 
+    MainSlider.controller.control = MainSlogan;
+    MainSlogan.controller.control = MainSlider;
+로 연결을 시켜주면 됩니다.
+
+window.addEventListener("DOMContentLoaded", () => {
+    const MainSlider = new Swiper(".MainSlider", {
+        loop: true,
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+    });
+
+    const MainSlogan = new Swiper(".MainSlogan", {
+        loop: true,
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+        },
+    });
+
+    MainSlider.controller.control = MainSlogan;
+    MainSlogan.controller.control = MainSlider;
+});

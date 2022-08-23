@@ -1,0 +1,119 @@
+리액트 
+
+1. App.js 컴포넌트에 작성됩니다.
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+    <React.StrictMode>
+        <App />
+    </React.StrictMode>
+);
+
+2. App.js에서 html 구조를 만들며 section을 이루는 component들을 가져오게 됩니다.
+import Test from "./list";
+
+const App = () => {
+    return (
+        <>
+            <Test list="우영우" name="동그라미" age={21} onClick={numHandler} />
+            <Test list="스위스" name="동그라미" age={21} />
+            <Test list="토마토" name="동그라미" age={21} />
+            <Test list="별똥별" name="동그라미" age={21} />
+        </>
+    );
+};
+export default App;
+
+3. react에서는 tag에 직접 function을 줍니다.
+const Test = ({ list, age, name, onClick }) => {
+    return (
+        <div>
+            <button onClick={onClick}>click</button>
+            <h2>
+                my {list} {age} 친구 {name} list
+                <button onClick={() => alert(list)}>click</button>
+            </h2>
+        </div>
+    );
+};
+
+export default Test;
+
+
+
+리액트에서 아이콘을 쓰는 방법입니다.
+https://react-icons.github.io/react-icons
+사이트에 접속합니다.
+
+npm install react-icons --save
+설치 방법을 따라 설치합니다.
+
+import { IconName } from "react-icons/bs";
+원하는 사이트를 import 합니다.
+
+BsFillArrowDownRightCircleFill
+아이콘 이름을 복사하여
+import { BsBagFill } from "react-icons/bs";
+import 하고
+            <BsBagFill />
+component로 원하는 위치에 붙여넣습니다.
+
+
+
+true / false 스위치
+import { useState } from "react";
+import { BsBagFill } from "react-icons/bs";
+
+const TopBanner = () => {
+    // 1. 아이콘을 클릭한다.
+    // 2. 아이콘을 클릭하면 TopBanner에 class 'on'을 붙이고 뗀다.
+    // 3. 변수를 만들어서 true / false 스위치를 만들고
+    // 4. true / false 에 따라서 class 'on'을 붙이고 뗀다.
+    const [toggle, setToggle] = useState(false);
+    return (
+        <>
+            <div className={`TopBanner ${toggle ? "on" : ""}`}>
+                <h2>h2 tag</h2>
+                <p>
+                    Lorem ipsum dolor sit amet,{" "}
+                    {`TopBanner ${toggle ? "on" : ""}`} consectetur adipisicing
+                    elit.
+                    <br />
+                    Quos, accusamus.
+                </p>
+                <a href="">more</a>
+            </div>
+            <div
+                onClick={() => {
+                    setToggle(!toggle);
+                }}
+            >
+                <BsBagFill />
+            </div>
+        </>
+    );
+};
+
+export default TopBanner;
+
+
+
+css 는 import 하여 사용합니다.
+import TopBanner from "./pages/TopBanner";
+import "./basic.css";
+
+const App = () => {
+    return (
+        <>
+            <TopBanner />
+        </>
+    );
+};
+
+export default App;
+
+
+
