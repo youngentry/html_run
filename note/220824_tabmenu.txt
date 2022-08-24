@@ -1,0 +1,46 @@
+for ( i=0; i < 3; i++ ) {
+    <li>i.</li>;
+}
+
+//     <li>DATA[0].name</li>;
+    <li>DATA[1].name</li>;
+    <li>DATA[2].name</li>;
+
+
+
+react에서 API 자료를 가져와 이용하려면 useState를 사용해야 합니다.
+    const [data, setData] = useState([]);
+    useEffect(() => {
+        fetch("https://jsonplaceholder.typicode.com/todos/1")
+            .then((response) => response.json())
+            .then((json) => setData(json));
+    }, []);
+    return (
+        <>
+            {/* <TopBanner /> */}
+            {/* <List /> */}
+            {console.log(data)}
+        </>
+    );
+    
+무한 루프가 도는 상황에서 useEffect()를 사용하면 콜백함수를 한 번만 실행하도록 합니다.
+
+
+산돌구름 pretendard 폰트 적용 방법입니다. 글꼴을 다운로드 받습니다.
+https://cactus.tistory.com/306
+
+web폴더의 static폴더 안의 pretendard.css 파일안의 font 를 복사하여 css에 붙여넣으면 됩니다.
+
+
+
+swiper 기능
+    const mainSlogan = new Swiper(".mainSlogan", {
+        loop: true, // loop 시킵니다.
+        autoplay: { // autoplay 시킵니다.
+            delay: 2500, // 화면이 전환되는 속도입니다.
+            disableOnInteraction: false, 
+        },
+        touchRatio: 0, // 드래그를 못하도록 합니다.
+    });
+    
+    mainSlider.controller.control = mainSlogan; // 슬라이드 전환을 연동합니다.
