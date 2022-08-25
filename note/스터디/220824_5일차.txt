@@ -1,0 +1,48 @@
+스터디 5일차
+
+188. 객체 수정, 추가하기
+const midterms = {a : 100, b: 78}
+
+수정 : 존재하는 키와 값을 적으면 수정합니다.
+midterms.b = 79 또는 midterms["b"] = 79
+midterms // {a : 100, b: 79}
+
+추가 : 없는 키와 값을 적으면 추가합니다.
+midterms.c = 88  또는 midterms["c"] = 88
+midterms // {a : 100, b: 79, c: 88}
+
+
+191. for loop
+192. for루프 예제 더보기
+// Write a loop that prints:
+// 25
+// 20
+// 15
+// 10
+// 5
+// 0
+for (let i=25; i>=0; i -= 5) {
+    console.log(i)
+}
+
+
+193. 무한루프 
+const people = ["Scooby", "Velma", "Daphne", "Shaggy", "Fred"]; 
+for ( let i = 0; i < people.length ; i ++ ) {
+   console.log( people[i].toUpperCase() )
+}
+
+
+195. 네스트 구성 루프
+const seatingChart = [ 
+    [ "Kristen", "Erik", "Namita"],
+    [ "Geoffrey", "Juanita", "Antonio', "Kevin"],
+    [ "Yuma", "Sakura", "Jack", "Erika"]
+]
+
+for (let i = 0; i < seatingChart.length; i++) {
+    const row = seatingChart[i]
+    console.log(`ROW #${i + 1}`)
+    for (let j = 0; j < row,length; j++) {
+        console.log(row[j])
+}

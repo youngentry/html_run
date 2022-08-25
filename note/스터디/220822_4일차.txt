@@ -1,0 +1,119 @@
+220822 4일차
+
+175. 배열 개요
+
+176. 배열 임의 접근
+배열의 인덱스로 접근하여 값을 변경할 수 있습니다.***
+let colors = ['rad', 'orange']
+colors[0] = 'red' // 배열의 인덱스 0 을 'red' 로 정의하면
+colors = ['red', 'orange'] // 배열 안의 인덱스 0 에 해당하는 값을 바꿀 수 있습니다.
+
+배열을 넘어선 인덱스에 값을 지정하게 되면 사이의 값들은 empty가 됩니다.
+colors[10] = 'indigo' 
+colors = ['red', 'oragne', empty x 8, 'indigo']
+colors[5] // undefiend 가 출력됩니다.
+
+PRACTICE
+const leaderboard = ['Harry', 'Lua', 'Hermione', 'Bellatrix']; //DON'T TOUCH THIS LINE!
+
+leaderboard[1] = 'Luna'
+leaderboard[3] = 'Draco'
+
+
+
+177. ***
+const arr = ['tom']
+arr.push('oliver') // 맨 뒤에 추가하기 arr = ['tom', 'oliver']
+arr.pop() // 맨 뒤의 요소 제거하기 arr = ['tom']
+arr.shift() // 맨 앞의 요소 제거하기 arr = []
+arr.unshift('jerry') // 맨 앞에 요소 추가하기 arr = ['jerry']
+
+PRACTICE
+const planets = ['The Moon','Venus', 'Earth', 'Mars', 'Jupiter']; //DO NOT TOUCH THIS LINE!
+
+planets.shift()
+planets.push('Saturn')
+planets.unshift('Mercury')
+
+179. Concat, indexOf, includes, reverse
+let cats = ['blue', 'kitty']
+let dogs = ['rusty', 'wyatt']
+
+-- concat()***
+cats.concat(dogs) // [ 'blue', 'kitty', 'rusty', 'wyatt'] 둘을 합친 배열이 반환됩니다.
+cats = ['blue', 'kitty'] // cats 배열을 바꾸지 않습니다.
+let comboParty = dogs.concat(cats) 
+comboParty = ['rusty', 'wyatt', 'blue', 'kitty']
+
+-- includes()***
+cats.includes('blue')
+true
+cats.includes('Blue')
+false
+
+--indexOf()*** 최초로 찾은 인덱스의 번호를 반환합니다. 없으면 -1
+cats.indexOf('kitty') // 1
+
+comboParty.reverse()
+comboParty = ['wyatt', 'rusty', 'kitty', 'blue'] // 배열 자체의 순서를 뒤집습니다. 바꿉니다.
+
+-- slice(시작 지점부터 끝까지 ) slice(시작지점, 끝지점 -1 )
+let nums = [1, 2, 3, 4, 5, 6, 7]
+nums.slice(5) // [6, 7] 5부터 끝까지
+nums.slice(3,5) // [4, 5] 3부터 5 전까지니까 3부터 4까지
+
+nums.slice(-3) // [5, 6, 7] 뒤에서 3개
+
+-- splice(시작지점, 제거할 수, 추가할 값)
+let nums = [1, 2, 3, 4, 5, 6, 7]
+
+nums.splice(2, 2) // nums = [1, 2, 5, 6, 7] 인덱스 2부터 2개의 숫자가 지워집니다.
+
+nums.splice(2, 0, '추가할 값1', '추가할 값2') // nums = [ 1, 2, '추가할 값1', '추가할 값2', 5, 6, 7] 값을 추가하려면 0을 입력하고 추가할 값을 연달아 작성합니다. 솔직히 잘 쓸 일은 없습니다.
+
+nums.splice(2, 2, '삭제됨') // nums = [ 1, 2, '삭제됨', 5, 6, 7] 값을 대체하려면 이렇게 작성합니다.
+
+-- sort() UTF-16 에 따라 첫 문자를 기준으로 정렬을 합니다. 
+let nums = [ -12, 0, 1, 5000, 25, 6]
+nums.sort() // -12, 0, 1, 25, 5000, 6]
+
+
+182. 배열 + const 
+배열을 const로 선언하면 배열 자체를 바꿀 수는 없지만, 배열 안의 요소를 제거하거나 추가하는 것은 됩니다.
+
+PRACTICE
+const airplaneSeats = [
+    ['Ruth', 'Anthony', 'Stevie'],
+    ['Amelia', 'Pedro', 'Maya'],
+    ['Xavier', 'Ananya', 'Luis'],
+    ['Luke', null, 'Deniz'],
+    ['Rin', 'Sakura', 'Francisco']
+];
+
+airplaneSeats[3][1] = 'Hugo'
+
+
+
+186. 객체 리터럴 생성하기
+
+PRACTICE
+const product = {
+    name : "Gummy Bears",
+    inStock : true,
+    price : 1.99,
+    flavors : ["grape", "apple", "cherry"]
+    true : "dad"
+}
+
+
+187. 객체 외부 데이터에 엑세스하기
+객체의 속성인 키는 모두 문자열로 변하기 때문에 문자열로 접근해야 합니다. 객체의 키는 모두 문자열로 변환됩니다. true 도 "true"로 변환됩니다.
+product["name"] // "Gummy Bears"
+product["true"] // "dad"
+
+객체 리터럴에서 []안에는 변수를 쓸 수 있습니다. 
+let 이름변수 = "name"
+product[이름변수] // "Gummy Bears"
+그런데 product.이름변수 // .으로는 변수를 이용한 객체 리터럴의 접근이 불가능합니다.
+
+까찌햬따
