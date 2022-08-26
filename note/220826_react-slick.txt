@@ -1,0 +1,111 @@
+react slick 활용
+
+slick을 import 합니다.
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+
+import한 Slider 태그 안에 슬라이드를 넣으면 됩니다.
+            <Slider>
+                <figure>01</figure>
+                <figure>02</figure>
+                <figure>03</figure>
+            </Slider>
+
+
+
+
+ref 를 사용하여 태그를 다룰 이름을 지어줄 수 있습니다.
+    const s1 = useRef();
+    return (
+        <>
+            <Slider ref={s1}>
+                <figure>01</figure>
+                <figure>02</figure>
+                <figure>03</figure>
+            </Slider>
+                 
+slick의 속성 중에서 slickPrev(), slickNext()를 이용하여 버튼 기능을 추가할 수 있습니다.
+                <i className="xi-arrow-left"
+                    onClick={() => s1.current.slickPrev()} >
+                </i>
+                <i className="xi-arrow-right"
+                    onClick={() => s1.current.slickNext()}>
+                </i>
+                
+      
+화살표를 없애는 속성 입력 방법입니다.          
+    const set = {
+        arrows: false,
+    };
+
+
+
+
+useEffect의 두번째 인자 []는 렌더 이후 처음 한 번 실행하라는 명령입니다.
+    useEffect(() => {
+        setNum(0);
+    }, []);
+
+[]안에 변수를 입력하면 변수 안의 값이 업데이트 될 때 실행됩니다.
+    useEffect(() => {
+        setNum(0);
+    }, [num]);
+
+
+
+
+slider의 번호를 출력하도록 합니다.
+const SyncSlick = () => {
+    const slideElm = [
+        { id: 1, content: "H1" },
+        { id: 2, content: "H2" },
+        { id: 3, content: "H3" },
+        { id: 4, content: "H4" },
+    ];
+    const s1 = useRef();
+    const [slnum, setSlnum] = useState();
+
+    useEffect(() => {
+        setSlnum(0);
+    }, []);
+
+    const set = {
+        afterChange: (idx) => {
+            setSlnum(idx);
+        },
+    };
+
+    return (
+        <>
+            {slnum + 1} / {slideElm.length}
+            <Slider ref={s1} {...set}>
+                {slideElm.map((slide, idx) => (
+                    <figure
+                        key={slide.id}
+                        className={`itm0${slide.id} ${
+                            idx == slnum ? "on" : ""
+                        }`}
+                    >
+                        {slide.content}
+                    </figure>
+                ))}
+            </Slider>
+
+
+
+
+react에서 이미지를 넣는 방법입니다.
+public폴더 안에 index.html이 있고 이 위치에 이미지 폴더나 파일을 넣어주면 됩니다.
+            <img alt="logo" src="./assets/mainvisual01.jpg" />
+
+
+
+
+&&연산자로 원하는 값을 반환할 수 있습니다.
+// 첫 번째 피연산자가 truthy이면, AND는 두 번째 피연산자를 반환합니다.
+alert( 1 && 0 ); // 0
+alert( 1 && 5 ); // 5
+
+// 첫 번째 피연산자가 falsy이면, AND는 첫 번째 피연산자를 반환하고, 두 번째 피연산자는 무시합니다.
+alert( null && 5 ); // null
+alert( 0 && "아무거나 와도 상관없습니다." ); // 0
