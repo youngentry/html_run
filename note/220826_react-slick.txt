@@ -24,7 +24,7 @@ ref 를 사용하여 태그를 다룰 이름을 지어줄 수 있습니다.
                 <figure>03</figure>
             </Slider>
                  
-slick의 속성 중에서 slickPrev(), slickNext()를 이용하여 버튼 기능을 추가할 수 있습니다.
+slick의 속성 중에서 slickPrev(), slickNext()를 이용하여 태그에 버튼 기능을 추가할 수 있습니다.
                 <i className="xi-arrow-left"
                     onClick={() => s1.current.slickPrev()} >
                 </i>
@@ -33,7 +33,7 @@ slick의 속성 중에서 slickPrev(), slickNext()를 이용하여 버튼 기능
                 </i>
                 
       
-화살표를 없애는 속성 입력 방법입니다.          
+react slick 화살표를 없애는 속성 입력 방법입니다.          
     const set = {
         arrows: false,
     };
@@ -50,6 +50,19 @@ useEffect의 두번째 인자 []는 렌더 이후 처음 한 번 실행하라는
     useEffect(() => {
         setNum(0);
     }, [num]);
+
+
+
+
+react slick 에서 afterChange를 이용하는 방법입니다.
+    const set = {
+        afterChange: (idx) => {
+            setSlnum(idx);
+        },
+    };
+
+...set로 
+            <Slider ref={s1} {...set} className="MainVisual">
 
 
 
@@ -109,3 +122,12 @@ alert( 1 && 5 ); // 5
 // 첫 번째 피연산자가 falsy이면, AND는 첫 번째 피연산자를 반환하고, 두 번째 피연산자는 무시합니다.
 alert( null && 5 ); // null
 alert( 0 && "아무거나 와도 상관없습니다." ); // 0
+
+
+
+
+사이 간격 30px로 넓히기
+
+푸터 메뉴들은 ul li로 감싸기
+
+메인이 시원하게 보일 것 같으면 섹션도 간격을 확확 넓혀서 시원시원하게 보이도록 합니다.
