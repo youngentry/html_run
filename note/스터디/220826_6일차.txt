@@ -1,0 +1,57 @@
+196. while 루프
+
+198. 추측 게임 만들기
+
+parseInt() 함수는 숫자로 인식되는 입력값이 있으면 숫자를 반환합니다.
+parseInt('213asdas')
+
+Math.random() 함수는 랜덤한 0~1 사이의 숫자를 반환합니다.
+정수를 받기 위해서는 floor로 내림을 했습니다.
+Math.floor(Math.random() * 10) + 1
+
+
+
+
+199. For 루프의 유용함
+
+PRACTICE : 자기 자신을 곱한 값을 콘솔 창에 출력하세요. 
+const numbers = [1,2,3,4,5,6,7,8,9]; 
+
+for (let number of numbers) {
+    console.log(number*number)
+}
+
+200. 객체 루프 for ... in 
+const testScores = {
+    keenan: 80,
+    damon: 67,
+    kim: 89,
+}
+for (let person in testScores) {
+    console.log(`${person} scored ${testScores[person]}`);
+}
+// keenan scored 80
+// damon scored 67
+// kim scored 89
+
+Object.keys(testScores)
+["keenan", "damon", "kim"]
+
+Object.values(testScores)
+[80, 67, 89]
+
+Object.entries(testScore)
+[Array(2), Array(2), Array(2)]
+idx 0 ["keenan", 80] // Array(2)
+idx 1 ["damon", 67]
+idx 2 ["kim", 89]
+
+예시
+let total = 0;
+let scores = Object.values(testScores);
+for (let score of scores) {
+    total += score;
+}
+console.log(total / socres.length)
+
+

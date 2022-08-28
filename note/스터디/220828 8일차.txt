@@ -1,0 +1,127 @@
+220828 8일차 스터디
+
+221. forEach 메서드
+
+배열에 사용하는 forEach함수는 아래와 같은 형태로 사용합니다.
+movies.forEach( function ( el ) ) {
+	console.log(el)
+}
+
+const movies = [ 
+{ title : "마블", score : 100 }, 
+{ title : "멈블", score : 0 }, 
+]
+
+movies.forEach( function ( movie ) ) {
+	console.log(`영화제목 : ${movie.title} 스코어 : ${movie.score}`)
+}
+//
+영화제목 : 마블 스코어 : 100
+영화제목 : 멈블 스코어 : 0
+
+222. map 메서드
+
+PRACTICE 
+map 함수를 이용하여 firstNames라는 변수에 first만을 저장한 배열을 반환합니다.
+
+const fullNames = [{first: 'Albus', last: 'Dumbledore'}];
+
+const firstNames = fullNames.map( function(name){
+    return name.first
+} )
+
+223. arrow function 화살표 함수 표현 방법
+PRACTICE
+const greet = (name) => {
+    return `Hey ${name}!`
+}
+
+224. 화살표 함수의 반환 방식
+중괄호를 사용하면 반드시 return을 써야합니다.
+중괄호 안에는 여러 줄의 코드를 넣고, 맨 마지막에 실행될 코드를 return 하면 됩니다.
+const isEven = num => {
+	let a = 0
+	let b = 0
+	let c = 0
+
+	return num % 2 === 0;
+}
+
+화살표 함수에서는 return 대신에 ()를 이용할 수 있습니다.
+하지만 소괄호 안에서는 하나의 코드만이 return 됩니다.
+const isEven = num => (
+	return num % 2 === 0;
+);
+
+심지어는 괄호도 쓰지 않고 한 줄로 표현할 수 있습니다.
+const isEven = num => num % 2 === 0;
+	
+	
+
+226. setTimeout과 setInterval
+아래와 같이 콜백함수로 작성하고, 지연 시간은 , 뒤에 ms 단위로 작성합니다. (3000 = 3초)
+3 초 있다가 실행합니다.
+setTimeout( () => {
+	console.log("HELLO!!!")
+}, 3000)	
+
+setInterval( () => {
+	console.log(Math.random())
+}, 2000);
+
+setInterval을 멈추는 함수는 clearInterval입니다.
+const id = setInterval() 
+setInterval을 id 변수에 저장하면, 해당 setInterval 함수에 무작위의 id(99217같은)가 주어집니다.
+clearInterval함수의 인자로 해당 id의 값(99217)을 입력하면 setInterval함수가 멈추게 됩니다. 
+clearInterval(99217) // 멈춤!
+	
+	
+227. filter 메서드
+filter는 배열에 사용하여 조건과 일치하는 인자들만 쏙쏙 골라내어 배열로 반환하는 함수입니다.
+	
+const movies = [
+	{ title : "movieA", genre : "action" },
+	{ title : "movieB", genre : "romance" },
+	{ title : "movieC", genre : "action" },
+]
+const actionMovie = movies.filter( (movie) => 
+	return ( movie.genre === 'action' )
+})	
+actionMovie // [{ title : "movieA", genre : "action" },
+			{ title : "movieC", genre : "action" }]
+	
+PRACTICE : 10글자 보다 적은 문자열을 담은 배열을 반환하는 "함수 만들기"
+function validUserNames(arr) {
+    return arr.filter((name) =>  (name.length < 10))
+}
+
+validUserNames(['mark', 'staceysmom1978', 'q29832128238983', 'carrie98', 'MoanaFan']);
+	
+	
+228. every와 some 메서드
+const movies = [
+{title: "Amadeus",
+ year: 1984,
+ },
+{title: "Perasite",
+ year: 2019,
+ },
+]	
+every() 메서드는 모든 값이 참이면 true를 반환하고 그렇지 않으면 false를 반환합니다.
+movies.every( year => year > 2015 ) // false	
+some() 메서드는 하나 이상의 값이 참이면 true를 반환하고 그렇지 않으면 false를 반환합니다.
+movies.some( year => year > 2015 ) // false	
+
+	
+PRACTICE
+function allEvens (arr) {
+    return (arr.every((num) => num % 2 === 0))
+}
+	
+	
+230. 화살표 함수와 this 
+
+까지 해따~~
+	
+	
+	

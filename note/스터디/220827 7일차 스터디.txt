@@ -1,0 +1,144 @@
+220827 7일차 스터디
+
+202. 할 일 목록 프로젝트 따라하기
+
+204. 함수 개요
+
+205. 함수 설명
+
+206. 인수 개요
+
+매개변수(firstName)는 일종의 플레이스홀더입니다.
+function greet(firstName) {
+	console.log(`Hey there, ${firstName}!`)
+}
+
+인수('Elvis')는 함수를 실행할 때 괄호 안에 전달하는 값입니다.
+greet('Elvis')
+
+207. 
+
+PRACTICE
+문자열을 3번 출력하는 함수
+function rant(message) {
+    for ( i=0 ; i<3 ;i++) {
+    console.log(message.toUpperCase())
+    }
+}
+rant("I hate beets")
+//"I HATE BEETS"
+"I HATE BEETS"
+"I HATE BEETS" // toUpperCase()로 대문자로 바뀌어서 출력됨
+
+208. 인수가 여러개인 함수
+
+매개변수를 여러 개 쓸 경우 쉼표로 구분한다.
+function repeat(str, numTimes) {
+	let result = '';
+	for (let i = 0; i < numTimes; i++) {
+		result += str;
+	}
+	console.log(result)
+}
+repeat("Hi", 3)
+//HiHiHi
+repeat("Hi ", 3)
+//Hi Hi Hi
+
+첫번째 인수에 문자열을 입력하고 두번째 인수에 숫자를 입력하면
+	for (let I = 0; i < numTimes; i++) {
+	console.log(str)
+	}
+문자열 * 숫자 만큼 한 줄에 하나씩 출력한다.
+
+그리고 한 줄에 다 출력하기 위해서는 함수 안에 변수를 선언하고 변수에 문자열을 더하도록 하여
+		result += str;
+		result = result + str;
+result를 한 번 출력하면 됩니다.
+
+매개변수가 있지만 인수를 입력하지 않아도 함수는 실행이 된다.
+인수를 입력하지 않으면 매개변수에 undefined가 뜬다.
+
+PRACTICE : snakeEyes 게임!
+
+function isSnakeEyes (diceNum1, diceNum2) {
+	if (diceNum1 === 1 && diceNum2  === 1) {
+	    console.log("Snake Eyes!")
+    }else{
+	    console.log("Not Snake Eyes!")
+    }
+}
+let diceNum = Math.floor(( Math.random() * 6 )) + 1
+isSnakeEyes(diceNum)
+
+
+208. 반환 키워드
+function add(x, y) {
+	if (typeof x !== 'number' || typeof y !== 'number') {
+		return false;
+	}
+	return x + y;
+}
+1. 	if (typeof x !== 'number' || typeof y !== 'number') {
+typeof 는 타입을 반환하기 때문에 숫자를 넣으면 'number' 문자를 넣으면 'string'을 반환합니다.
+이 값이 number가 아니면 true를 반환하고, 조건문 안의 return false; 를 실행합니다.
+
+return을 만나면 함수를 거기서 종료됩니다.
+
+2. return의 반환되는 값은 하나 뿐 입니다.
+1, 2, 3을 반환받고 싶어도 받을 수 없기 때문에 배열, 객체와 같은 형태로 하나로 만들어 주어 반환해야 합니다.
+return [1, 2, 3] 
+
+3. 함수의 인수로 함수를 사용할 수 있습니다.
+add(add(1,5), 9)
+// 15
+
+PRACTICE
+// DEFINE YOUR FUNCTION BELOW:
+function sumArray(arr) {
+    let result = 0;
+    for (let i = 0 ; i < arr.length; i++) {
+    result = result + arr[i]
+    }
+    return result
+}
+
+210. 범위 함수(scope), 조건문if, for 문, while (전역변수 / 지역변수)
+함수 밖에서 선언된 변수 : 전역변수.
+함수 안에서 선언된 변수 : 지역변수.
+let bird = '앵무새'; // 전역변수
+function birdWatch() {
+	let bird = '왜가리'; // 지역변수
+	console.log(bird);
+}
+birdWatch()
+
+console.log(bird) // 지역변수는 함수 내에서만 존재하므로 "앵무새"가 출력됩니다.
+ 
+var는 전역변수 사용됩니다.
+
+213. 함수 표현식 
+function add(x, y) {
+	return x + y;
+}
+/ 함수 선언식
+const add = function (x, y) {
+	return x + y;
+}
+return 값이 add라는 변수에 저장됩니다.
+
+
+218. try & catch 는 오류예외 처리입니다.
+
+
+
+
+
+
+
+
+
+
+
+
+
