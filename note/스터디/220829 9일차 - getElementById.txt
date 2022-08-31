@@ -14,5 +14,39 @@ const banner = document.getElementById('banner')
     <img src="https://devsprouthosting.com/images/unicorn.jpg" id="unicorn" alt="unicorn">
 </body>
 
+PRACTICE : unicorn, mainheading 이라는 id를 가진 태그를 image, heading 변수에 저장하기
 const image = document.getElementById("unicorn")
 const heading = document.getElementById("mainheading")
+
+244. getElementsByTagName & className : 여러개의 tag나 class를 찾습니다.
+예를 들어서 html 안에 img 태그가 4개 있다고 하면
+const allImages = document.getElementsByTagName('img')
+0: img#banner
+1: img.square
+2: img.square
+3: img.square
+와 같이 모든 이미지 태그를 찾고, 순서대로 index를 줍니다.
+그리고 이를
+console.dir(allImages[1]) 처럼 인덱스를 이용해 선택할 수 있습니다.
+하지만 배열은 아니기 때문에 (map, forEach같은) 배열 메서드를 사용할 수는 없습니다.
+
+이 img 태그들의 이미지 주소를 찾으려면 다음과 같이 img.src 로 src 에 접근하면 됩니다.
+for (let img of allImages) {
+    console.log(img.src)
+}
+img의 주소를 수정할 수도 있습니다.
+for (let img of allImages) {
+    img.src = "http://이미지주소"
+}
+그러면 for...of 로 인해 모든 img 태그의 src 주소가 같은 이미지 주소로 바뀝니다.
+
+마찬가지로 getElementsByClassName()을 이용하여 같은 클래스를 가진 태그를 찾을 수 있습니다.
+document.getElementsByClassName('square')
+0: img.square
+1: img.square
+2: img.square
+이것들도 역시 index를 가지고 있고, 배열처럼 생겼지만 배열은 아니기 때문에 배열 메서드를 사용할 수는 없습니다.
+
+존재하지 않는 id나 tag, class를 입력하면 null 또는 빈 집합[] 을 반환합니다.
+
+245. querySelector & querySelectorAll
