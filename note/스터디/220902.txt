@@ -73,3 +73,25 @@ form.addEventListener("submit", function (e) {
     qty.value = ""; // input에 입력된 값을 없애는 초기화 작업을 합니다.
     product.value = ""; // input에 입력된 값을 없애는 초기화 작업을 합니다.
 });
+
+
+
+263. 입력과 변경 이벤트 : .addEventListener('change',function) .addEventListener('input',function)
+1. 'change' 이벤트
+const input = document.querySelector('input'); // input을 선택합니다.
+
+input.addEventListener('change',function(e) { // input에 'change' 이벤트를 줍니다.
+    console.log("Changed!") // 코드를 실행합니다.
+})
+change 이벤트는 input에 뭔가를 입력하고 "포커스를 떠날 때(다른 곳을 클릭 했을 때)"실행됩니다.
+
+
+2. 'input' 이벤트 
+const input = document.querySelector('input'); // input을 선택합니다.
+const h1 = document.querySelector('h1'); // h1을 선택합니다.
+
+input.addEventListener('input',function(e) { // input에 'input' 이벤트를 줍니다.
+    h1.innerText = input.value; // input에 입력한 값이 변경될 때마다 h1의 텍스트를 바꾸는 코드를 실행합니다.
+})
+input이벤트는 input에 "글자를 입력하는 매 순간" 실행됩니다. 
+h1 안의 텍스트가 input에 한글자 한글자 입력한 값으로 즉시 바뀝니다.
