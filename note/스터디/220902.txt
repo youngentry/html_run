@@ -56,3 +56,20 @@ input 안에 입력할 text가 "인덱스 1 인 input에 입력할 값입니다.
 input.value = '';
 tweet.value = '';
 
+PRACTICE : 1.form의 input에 입력한 내용을 >>>>> 2.li로 만들어 >>>>> 3.ul의 자식으로 추가하기
+
+const form = document.querySelector("form"); // form을 선택합니다.
+const ul = document.querySelector("#list"); // ul을 선택합니다.
+
+form.addEventListener("submit", function (e) {
+    e.preventDefault(); // submit 이벤트(새로고침)를 막습니다.
+    const qty = form.elements.product; // form에서 name="product"인 태그(여기서는 input)를 선택합니다.
+    const product = form.elements.qty; // form에서 name="qty"인 태그(여기서는 input)를 선택합니다.
+
+    const newLi = document.createElement("li"); // 빈 li 태그를 만듭니다.
+    ul.append(newLi); // ul의 자식으로 빈 li 태그를 추가합니다.
+    newLi.append(`${product.value} ${qty.value}`); // li에 text(input에 입력된 값)를 추가합니다.
+
+    qty.value = ""; // input에 입력된 값을 없애는 초기화 작업을 합니다.
+    product.value = ""; // input에 입력된 값을 없애는 초기화 작업을 합니다.
+});
