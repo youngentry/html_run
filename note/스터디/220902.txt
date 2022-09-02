@@ -1,0 +1,58 @@
+258. addEventListener 이벤트 주기
+const btn = document.querySelector('button'); // 태그를 선택합니다.
+btn.addEventListener('click', function () { // click 이벤트를 줍니다.
+    console.log("Clicked!") // 이벤트가 발생하면 실행할 코드입니다.
+})
+
+쓸만한 이벤트 종류입니다.
+click : 클릭 
+mouseenter : 마우스가 들어갈 때
+mouseleave : 마우스가 떠날 때
+mousedown : 클릭버튼을 누른 순간
+mouseup : 클릭을 하고 뗀 순간
+
+함수를 직접 만들지 않고, 아래와 같이 만들어 둔 함수를 넣을 수도 있습니다.
+function printClicked() { // 함수를 만들고
+    console.log("Clicked!")
+}
+btn.addEventListener('click', printClicked) // 함수 이름을 넣습니다.
+
+
+
+
+260. 이벤트와 this
+
+
+
+
+261. 키보드 이벤트와 이벤트 객체 keydown, keyup
+const input = document.querySelector('input'); // 태그를 선택합니다.
+input.addEventListener('keydown', function () { // keydown 이벤트를 줍니다.
+    console.log("KEYDOWN") // 키가 눌리는 순간에 KEYDOWN을 출력합니다.
+})
+const input = document.querySelector('input'); // 태그를 선택합니다.
+input.addEventListener('keyup', function () { // keydown 이벤트를 줍니다.
+    console.log("KEYUP") // 키가 눌리는 순간에 KEYUP을 출력합니다.
+})
+
+이제 무슨 키가 눌렸는지 알아냅시다.
+
+input.addEventListener('keydown', function (e) { // event를 가져옵니다.줍니다.
+    console.log(e.key) // e.key를 출력합니다. w,a,s,d와 같이 실제로 출력되는 키입니다. 
+    console.log(e.code) // e.code를 출력합니다. KeyW,KeyA,KeyS,KeyD와 같이 실제 키보드에서의 자판 위치입니다.
+    
+    // 사람마다 키보드 커스텀이 달라 키보드와 키의 위치가 다를 수 있기 때문에 구분합니다.
+})
+
+
+
+262. form 이벤트와 preventDefault()
+
+input의 입력 값에 접근하는 속성은 value 입니다.
+document.querySelectorAll('input')[1].value = "인덱스 1 인 input에 입력할 값입니다." 
+input 안에 입력할 text가 "인덱스 1 인 input에 입력할 값입니다." 로 바뀝니다.
+
+제출을 하고 나서 input의 value를 초기화합니다.
+input.value = '';
+tweet.value = '';
+
