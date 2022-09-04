@@ -1,0 +1,7 @@
+레포지토리 주소 앞에 https://vscode.dev/ 를 입력하면 됩니다.
+https://vscode.dev/github/youngentry/imdb
+
+그리고 수정을 하고 나서,
+왼쪽의 소스제어 (Ctrl+ Shift + G) 를 눌러
+
+위에 Message에 commit 을 하고, 체크 표시를 눌러 push하면 업데이트 됩니다.
