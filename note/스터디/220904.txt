@@ -1,0 +1,39 @@
+264. 이벤트 버블링 : 공기방울이 바닥에서 올라가듯이 자식태그 > 부모태그로 이벤트가 연달아 발생하는 것
+button 이벤트동작 > p 이벤트동작 > .container 이벤트동작 > section 이벤트동작 
+
+자식을 클릭하더라도 부모의 이벤트가 실행되어버립니다.
+
+버블링을 막으려면(button을 클릭할 때 button의 이벤트만 실행하고 부모의 이벤트의 실행을 막으려면)
+e.stopPropagation(); 함수를 실행하면 됩니다.
+
+button.addEventListener('click', function(e) { // button에 click이벤트를 줍니다.
+    container.style.backgrounColor = 'red'; // container의 style 중에서 backgroundColor를 red로 바꿉니다.
+    e.stopPropagation(); // 버블링을 막습니다. 
+});
+
+
+
+
+265. 이벤트 위임 .target 으로 ul 안에서 내가 클릭한 li에 이벤트 주기
+ul.addEventListener('click', function(e) { // ul에 click 이벤트를 줍니다.
+    e.tartget.remove(); // 클릭한 태그를 지웁니다.
+    // e.target.nodeName === 'LI' && e.tartget.remove(); // 클릭한 태그가 li라면 그 li를 지웁니다.
+});
+
+
+
+267. 점수관리자 프로젝트
+<select> 태그로 선택 박스를 만들 수 있습니다.
+<select name="" id="">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+</select>
+
+change 함수를 이용하여 박스의 선택한 옵션의 변화에 따라 이벤트를 주는게 보통입니다.
+this를 이용하여 선택한 option의 value를 이용하도록 합니다.
+select.addEventListener('change', function(e) { // change 이벤트는 변화가 생길 때 동작합니다.
+    this.value // select태그 안의 option이 'this'가 되고, 해당 option의 value를 선택할 수 있게 됩니다.
+});
+
