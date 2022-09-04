@@ -1,0 +1,59 @@
+246. innerHTML > textContent > innerText
+innerHTML은 태그까지 다 가져옵니다.
+<ul> 
+  <li>가나다</li>
+</ul>
+ul을 가져오면 "<li>가나다</li>"
+
+textContent는 display:none; 처리된 글자도 다 가져옵니다.
+<p><span>나는디스플레이논</span>나는P안의글자</p>
+span이 display: none; 이어도
+p를 가져오면 "나는디스플레이논나는P안의글자"가 모두 가져와집니다.
+
+innerText는 display:none;으로 보이지 않는 글자는 가져오지 못합니다.
+p를 가져오면 "나는P안의글자"만 가져와집니다.
+
+span delicious 라는 녀석을 disgusting으로 바꿉니다.
+
+247. 속성 (attribute) 
+객체의 속성에 접근하여 속성을 수정할 수 있습니다.
+document.querySelector('a').href = "http://google.com" // 이제 선택된 a의 href 주소가 구글로 바뀝니다.
+
+그리고 속성에 접근하는 메소드는 .getAttribute()입니다.
+const a = document.querySelector('a')
+a.getAttribute('href') = "http://google.com" // 위의 코드와 이 코드는 같습니다.
+
+a.getAttribute('class', 'on') 이렇게 속성을 선택하고, 값을 추가하거나 수정할 수 있습니다.
+
+
+248. 스타일 변경하기 css를 변경하는 방법을 기억하셔야합니다. 채가영님.
+const H1 = document.querySelector('h1')
+H1.style.color = "red"
+H1.style.fontSize = "15px" // 카멜케이스로
+
+PRACTICE textAlign center로 바꾸고, width 150px, borderRadius는 50%로 바꿔주세요.
+document.querySelector('#container').style.textAlign = 'center'
+document.querySelector('img').style.width = "150px"
+document.querySelector('img').style.borderRadius = "50%"
+
+PRACTICE rainbow컬러로 바꾸기 for문을 이용
+const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet']; //PLEASE DON'T CHANGE THIS LINE!
+const spans = document.querySelectorAll('span')
+
+for (i=0; i < colors.length; i++){
+    spans[i].style.color = colors[i] // 배열에 style을 적용하는 것이 아니라 각각에 적용해야 합니다.
+}
+
+249. classLiss
+h2.classList.contains('on') // 클래스 on을 포함하고 있는지 true / false의 boolean형태로 반환합니다.
+
+PRACTICE class를 포함하고 있다면 지우고, class를 포함하고 있지 않다면 추가합니다.
+const lis = document.querySelectorAll('li')
+
+for ( i=0; i < lis.length ; i++) {
+    if (lis[i].classList.contains("highlight")){
+    lis[i].classList.remove('highlight')
+    } else {
+    lis[i].classList.add('highlight')
+    }
+}

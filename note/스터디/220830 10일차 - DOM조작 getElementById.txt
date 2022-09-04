@@ -50,3 +50,5 @@ document.getElementsByClassName('square')
 존재하지 않는 id나 tag, class를 입력하면 null 또는 빈 집합[] 을 반환합니다.
 
 245. querySelector & querySelectorAll
+
+star.innerText = '사실네모임'
