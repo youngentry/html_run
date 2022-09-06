@@ -1,14 +1,6 @@
 243. getElementById : id로 찾습니다.
 const banner = document.getElementById('banner')
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unicorn</title>
-</head>
 <body>
     <h1 id="mainheading">I &hearts; unicorns</h1>
     <img src="https://devsprouthosting.com/images/unicorn.jpg" id="unicorn" alt="unicorn">
@@ -17,6 +9,8 @@ const banner = document.getElementById('banner')
 PRACTICE : unicorn, mainheading 이라는 id를 가진 태그를 image, heading 변수에 저장하기
 const image = document.getElementById("unicorn")
 const heading = document.getElementById("mainheading")
+
+
 
 244. getElementsByTagName & className : 여러개의 tag나 class를 찾습니다.
 예를 들어서 html 안에 img 태그가 4개 있다고 하면

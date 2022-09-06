@@ -19,9 +19,7 @@ btn.addEventListener('click', printClicked) // 함수 이름을 넣습니다.
 
 
 
-
 260. 이벤트와 this
-
 
 
 
@@ -38,7 +36,7 @@ input.addEventListener('keyup', function () { // keydown 이벤트를 줍니다.
 이제 무슨 키가 눌렸는지 알아냅시다.
 
 input.addEventListener('keydown', function (e) { // event를 가져옵니다.줍니다.
-    console.log(e.key) // e.key를 출력합니다. w,a,s,d와 같이 실제로 출력되는 키입니다. 
+    console.log(e.key) // e.key를 출력합니다. w,a,s,d와 같이 실제로 출력되는 키입니다.
     console.log(e.code) // e.code를 출력합니다. KeyW,KeyA,KeyS,KeyD와 같이 실제 키보드에서의 자판 위치입니다.
     
     // 사람마다 키보드 커스텀이 달라 키보드와 키의 위치가 다를 수 있기 때문에 구분합니다.
@@ -69,7 +67,9 @@ form.addEventListener("submit", function (e) {
     const newLi = document.createElement("li"); // 빈 li 태그를 만듭니다.
     ul.append(newLi); // ul의 자식으로 빈 li 태그를 추가합니다.
     newLi.append(`${product.value} ${qty.value}`); // li에 text(input에 입력된 값)를 추가합니다.
-
+ul
+  <li>apple 1</li>
+ul
     qty.value = ""; // input에 입력된 값을 없애는 초기화 작업을 합니다.
     product.value = ""; // input에 입력된 값을 없애는 초기화 작업을 합니다.
 });
@@ -83,8 +83,7 @@ const input = document.querySelector('input'); // input을 선택합니다.
 input.addEventListener('change',function(e) { // input에 'change' 이벤트를 줍니다.
     console.log("Changed!") // 코드를 실행합니다.
 })
-change 이벤트는 input에 뭔가를 입력하고 "포커스를 떠날 때(다른 곳을 클릭 했을 때)"실행됩니다.
-
+change 이벤트는 input에 뭔가를 입력하고 "포커스를 떠날 때(다른 곳을 클릭 했을 때)"실행됩니다. : value가 변할 때
 
 'input' 이벤트 
 const input = document.querySelector('input'); // input을 선택합니다.
@@ -106,3 +105,10 @@ input.addEventListener("input", function (e) { // input에 'input' 이벤트를 
         h1.innerText = "Enter Your Username"; // h1안의 텍스트를 "Enter Your Username"로 바꿉니다. 
     }
 });
+
+
+
+
+
+
+

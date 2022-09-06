@@ -26,25 +26,39 @@ a.getAttribute('href') = "http://google.com" // 위의 코드와 이 코드는 �
 a.getAttribute('class', 'on') 이렇게 속성을 선택하고, 값을 추가하거나 수정할 수 있습니다.
 
 
-248. 스타일 변경하기 css를 변경하는 방법을 기억하셔야합니다. 채가영님.
+248. 스타일 변경하기 css를 변경하는 방법. 문자열로 입력해야 합니다.
 const H1 = document.querySelector('h1')
-H1.style.color = "red"
-H1.style.fontSize = "15px" // 카멜케이스로
+H1.style.color = "red" 
+H1.style.fontSize = "15px" // font-size와 같이 - 는 카멜케이스로 표기합니다.
+
+
 
 PRACTICE textAlign center로 바꾸고, width 150px, borderRadius는 50%로 바꿔주세요.
 document.querySelector('#container').style.textAlign = 'center'
 document.querySelector('img').style.width = "150px"
 document.querySelector('img').style.borderRadius = "50%"
 
+
+
 PRACTICE rainbow컬러로 바꾸기 for문을 이용
+<span>R</span>	　
+<span>A</span>
+<span>I</span>
+<span>N</span>
+<span>B</span>
+<span>O</span>
+<span>W</span>
+
 const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet']; //PLEASE DON'T CHANGE THIS LINE!
-const spans = document.querySelectorAll('span')
+const spans = document.querySelectorAll('span') // ['<span>R</span>',<span>A</span>,...,<span>W</span>]
 
 for (i=0; i < colors.length; i++){
     spans[i].style.color = colors[i] // 배열에 style을 적용하는 것이 아니라 각각에 적용해야 합니다.
 }
 
-249. classLiss
+249. classList
+h2.classList.add('on') // $('h2').addClass('on')
+h2.classList.remove('on')
 h2.classList.contains('on') // 클래스 on을 포함하고 있는지 true / false의 boolean형태로 반환합니다.
 
 PRACTICE class를 포함하고 있다면 지우고, class를 포함하고 있지 않다면 추가합니다.
@@ -57,3 +71,10 @@ for ( i=0; i < lis.length ; i++) {
     lis[i].classList.add('highlight')
     }
 }
+
+
+
+
+
+
+
