@@ -6,7 +6,7 @@ https://intrepidgeeks.com/tutorial/everything-deployed-by-gh-pages#5
 3.깃 연결하기
 4.npx create-react-app . 리액트 앱 만들기
 5.깃허브 푸쉬하기
-6.npm install gh-pages --save-dev 설치하기
+6.npm install gh-pages --save-dev 설치하기 (이 과정으로 만든 페이지는 Pages에서 gh-pages로 자동으로 연결이 됩니다. main으로 연결이 되면 README가 나타납니다.)
 7.배포하기
 package.json 안에
 private 밑에 
@@ -22,7 +22,7 @@ scripts 안에
 백업을 잊지 맙시다.
 
 
-react는 li가 반드시 key를 가져야 합니다.
+react는 list가 반드시 key를 가져야 합니다.
                 {DB.map((el, idx) => (
                     <li key={idx}>
                         {idx + 1 + ". "}
