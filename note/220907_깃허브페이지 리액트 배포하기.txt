@@ -1,0 +1,95 @@
+https://intrepidgeeks.com/tutorial/everything-deployed-by-gh-pages#5
+
+깃허브 페이지스에 리액트 배포하기
+1.폴더만들기
+2.레포지토리 만들기
+3.깃 연결하기
+4.npx create-react-app . 리액트 앱 만들기
+5.깃허브 푸쉬하기
+6.npm install gh-pages --save-dev 설치하기
+7.배포하기
+package.json 안에
+private 밑에 
+"homepage": "https://username.github.io/repository/"
+
+scripts 안에
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d build"
+  
+8.터미널에 npm run deploy
+
+배포를 했다고 해서 깃허브에 업로드를 한 것은 아닙니다.
+백업을 잊지 맙시다.
+
+
+react는 li가 반드시 key를 가져야 합니다.
+                {DB.map((el, idx) => (
+                    <li key={idx}>
+                        {idx + 1 + ". "}
+                        {el.name}
+                    </li>
+                ))}
+                
+                
+                
+
+리액트로 다단메뉴 만들기
+const DB = [
+    {
+        id: 1,
+        content: "menu01",
+        link: "/",
+        submenu: [
+            { content: "submenu01", link: "/1" },
+            { content: "submenu02", link: "/2" },
+            { content: "submenu03", link: "/3" },
+        ],
+    },
+    {
+        id: 2,
+        content: "menu02",
+        link: "/",
+        submenu: [
+            { content: "submenu01", link: "/1" },
+            { content: "submenu02", link: "/2" },
+            { content: "submenu03", link: "/3" },
+        ],
+    },
+    {
+        id: 3,
+        content: "menu03",
+        link: "/",
+        submenu: [
+            { content: "submenu01", link: "/1" },
+            { content: "submenu02", link: "/2" },
+            { content: "submenu03", link: "/3" },
+        ],
+    },
+];
+
+function App() {
+    return (
+        <nav className="GNB">
+            <ul>
+                {DB.map((it, idx) => (
+                    <li key={idx}>
+                        <a href={it.link}>{it.content}</a>
+                        <ul className="smenu">
+                            {it.submenu.map((smenu, idx) => (
+                                <li key={idx}>
+                                    <a href={smenu.link}>{smenu.content}</a>
+                                </li>
+                            ))}
+                        </ul>
+                    </li>
+                ))}
+            </ul>
+        </nav>
+    );
+}
+
+토글 만들기
+    const [TG, setTG] = useState(false); // false를 변수에 저장합니다.
+        return (
+            <h2 className={`abc ${TG ? "on" : ""}`}>Toggle Class</h2> // TG의 상태에 따라 on을 붙이고 뗍니다.
+            <button onClick={() => setTG(!TG)}>Class 토글</button> // 클릭하면 TG의 상태(true <-> false)를 바꿉니다.
