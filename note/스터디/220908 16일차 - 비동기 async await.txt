@@ -1,0 +1,125 @@
+278. 비동기 키워드 async await
+const sing = async () => {
+    throw "problem"
+    return 'return value'
+}
+오류가 없으면 promise 상태는 resolved가 뜨면서 retrun의 값을 반환하고
+오류가 있으면 promise 상태는 rejectec가 뜨면서 에러가 발생합니다.
+
+sing() 
+    .then(data => {
+        console.log("resolved", data) // promise 상태가 resolved면 .then()을 실행합니다.
+    })
+    .catch(err => {
+        console.log("rejected", err) // promise 상태가 rejected면 .catch()를 실행합니다.
+    })
+
+좀 더 와닿는 예시로 로그인 함수를 만들어봅시다.
+const login = async( id, password ) => { // 로그인에 async를 쓰는 이유는 실제로 로그인을 할 때는 서버와의 통신을 기다려야 하기 때문입니다.
+    if (!id || !password) throw "id 또는 password를 입력해주세요." // id또는 password가 입력되지 않다면 실행합니다.
+    if (password === '1234') return "로그인 되었습니다." // password가 1234라면 실행합니다.
+    throw "비밀번호가 일치하지 않습니다." // 그렇지 않다면 실행합니다.
+    
+login('young', '1234')
+    .then(msg => {
+        console.log("성공.", msg) // 아이디를 입력했고, 비밀번호가 1234라면 return을 반환하고 >>> promise상태가 resolve가 되어 .then()이 실행됩니다. // "성공." "로그인 되었습니다."가 출력됩니다.
+    })
+    .catch(err => {
+        console.log("실패.", err) // 아이디 또는 비밀번호를 입력하지 않거나, 비밀번호가 1234가 아니라면 >>> promise상태가 rejected가 되어 .catch()가 실행됩니다. // "실패." "id 또는 password를 입력해주세요." 또는 "실패." "비밀번호가 일치하지 않습니다."가 출력됩니다.
+        
+        
+        
+279. await 비동기 함수 실행 대기시키기 > promise 값의 반환을 기다립니다.
+await는 promise가 값을 반환할 때까지 기다리도록 비동기 함수의 실행을 일시정지 시킵니다.
+
+.then()을 대신해서 await를 사용한다고 보면 됩니다.
+async function rainbow() {
+    await delayedColorChange('red', 1000) 
+    await delayedColorChange('orange', 1000)) 
+    await delayedColorChange('yellow', 1000)) 
+    await delayedColorChange('green', 1000))
+
+이전에 쓴 .then() 코드와 비교하면 훨씬 가독성이 좋아졌습니다.
+delayedColorChange('red', 1000)    
+    .then(() => delayedColorChange('orange', 1000))     
+    .then(() => delayedColorChange('yellow', 1000)) 
+    .then(() => delayedColorChange('green', 1000))
+
+
+return을 마지막으로 주고 .then()을 실행해봅니다.
+async function rainbow() {
+    await delayedColorChange('red', 1000) 
+    await delayedColorChange('orange', 1000)
+    await delayedColorChange('yellow', 1000)
+    await delayedColorChange('green', 1000)
+    return "끝남"
+    
+rainbow().then((result) => console.log(result + "RAINBOW FINISHED")) // await 함수의 실행이 다 끝나고나면 "끝남RAINBOW FINISHED"가 출력됩니다.
+
+async function printRainbow() {
+    await rainbow();
+    console.log("끝나고 출력됨")
+}
+printRainbow() // 색깔이 다 바뀌고 나서 "끝나고 출력됨" 이 출력됩니다.
+
+
+
+data1 변수에 await를 실행한 값을 저장할 수 있습니다.
+async function makeTwoRequests() {
+    let data1 = await fakeRequest('/ppap1');
+    console.log(data1);
+}
+
+
+
+280. 비동기 함수가 rejected 되었을 때 오류 처리하기
+async function twoRea() {
+    try {
+        let data1 = await fakeReq("/p1");
+        console.log(data1); // resolved 된 결과가 출력됩니다.
+        let data2 = await fakeReq("/p2"); // 바로 위의 fakeReq코드의 결과를 기다린 뒤에 실행됩니다.
+        console.log(data2); // resolved 된 결과가 출력됩니다.
+    } catch (e) {
+        console.log("에러")
+        console.log("에러는 :", e) // "에러는 :"과 e에는 rejected된 결과가 출력됩니다.
+    }
+}
+
+
+
+
+281. AJAX 요청함수와 API 서버에서 실제 데이터 요청하기
+
+
+
+
+282. AJAX API JavaScript로 요청하기
+AJAX는 비동기식 JavaScript와 XML입니다.
+
+JavaScript로 AJAX에 요청을 할 때 순수한 데이터가 필요합니다. 
+이 때 필요한 것이 API입니다. 
+일반적으로 웹 개발자들이 말하는 API는 WebAPI로 HTTP를 기반으로 하는 인터페이스 입니다.
+이는 특정 엔드포인트를 제공하고, 사용되는 코드에 정보로 응답하거나 다른 소프트웨어에 정보로 응답합니다.
+WebAPI는 다른 앱이나 데이터베이스로 가는 입구입니다.
+
+그리고 JSON은 다른 코터나 컴퓨터가 쓸 수 있도록 만들어진 데이터 포맷입니다.
+예를 들어서 https://www.cryptonator.com/api 사이트에서 제공하는 비트코인 시세를 볼 수 있습니다.
+https://api.cryptonator.com/api/ticker/btc-usd 에 접속해 보면 다음과 같은 데이터를 얻을 수 있습니다.
+{"ticker":{"base":"BTC","target":"USD","price":"19237.26068690","volume":"10958.37590084","change":"-62.86038928"},"timestamp":1662622923,"success":true,"error":""}
+
+API는 이와 같이 HTTP CSS JS를 제외하고 필요한 정보만을 요청할 수 있도록 하는 방식입니다.
+
+
+
+284. JSON : 계속해서 데이터를 전송하거나 정보는 전송하는 포맷으로 JavaScript 객체 구문을 기반으로 합니다.
+JSON과 JavaScript는 유사하지만 차이가 있습니다. JSON은 키에 큰따옴표 "" 를 사용합니다.
+{
+ "price": 123,
+}
+
+JavaScript는 사용하지 않습니다.
+{
+ price: 123,
+}
+
+JSON은 JavaScript에만 이용할 수 있는 것이 아니라, 고유의 언어코드로 변환하는 과정이 필요합니다. 이를 파싱이라 합니다.
