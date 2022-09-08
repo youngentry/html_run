@@ -1,0 +1,175 @@
+리액트 슬라이더 만들기
+
+
+
+
+
+src 폴더에 component, pages 폴더를 만들어 이용하는 것이 관습입니다.
+
+
+
+
+
+슬라이더 component를 만듭니다.
+const MainSlider = () => {
+    return <div>main slider</div>;
+};
+export default MainSlider;
+
+
+
+
+
+react slick 을 설치합니다. (https://www.npmjs.com/package/react-slick)
+npm install react-slick --save 
+npm install slick-carousel
+
+package.json 의 dependencies에 설치된 것을 확인할 수 있습니다.
+        "react-slick": "^0.29.0",
+        "slick-carousel": "^1.8.1",
+        
+        
+        
+        
+
+파일을 import 해줍니다.
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+
+
+
+
+
+Slider 태그 안에 슬라이드를 넣어줍니다.
+    return (
+        <Slider>
+            <li>01</li>
+            <li>02</li>
+            <li>03</li>
+        </Slider>
+    );
+
+
+
+
+
+슬라이드에 필요한 정보를 객체로 만듭니다.
+const SLIDE = [
+    { slideId: 1, content: "01 슬라이드 제목", des: "01 슬라이드 내용", link: "/1", },
+    { slideId: 2, content: "02 슬라이드 제목", des: "02 슬라이드 내용", link: "/2", },
+    { slideId: 3, content: "03 슬라이드 제목", des: "03 슬라이드 내용", link: "/3", },
+];
+
+
+
+
+
+슬라이드 데이터를 넣습니다.
+const MainSlider = () => {
+    return (
+        <Slider>
+            {SLIDE.map((slide, idx) => (
+                <figure className={`item0${slide.slideId}`}>
+                    <div className="slide-box">
+                        <h2>{slide.content}</h2>
+                        <p>{slide.des}</p>
+                        <a href={slide.link}>more</a>
+                    </div>
+                </figure>
+            ))}
+        </Slider>
+    );
+};        
+
+
+
+
+
+슬라이드 설정을 만듭니다.
+const MainSlider = () => {
+    const slideSet = {
+        dots: false, // 버튼을 없앱니다.
+        arrows: false, // 화살표를 없앱니다.
+        afterChange: (index) => console.log(index), // afterChange로 index를 가져옵니다.
+    };
+    return (
+        <>
+            <Slider {...slideSet}> // slideSet을 Slider 태그에 스프레드합니다.
+            
+
+            
+            
+            
+            
+이제 슬라이드 번호를 만들어 줍니다.
+우선 useState로 변수를 만듭니다.
+import { useState } from "react";
+
+setNum(index)로 num의 값을 슬라이드의 index로 바꿔줍니다.
+    const [num, setNum] = useState(0);
+    const slideSet = {
+        afterChange: (index) => setNum(index),
+    };
+
+num을 이용해 현재 슬라이드 번호를 주고, SLIDE.length로 최대 슬라이드 번호를 적어줍니다.    
+            <div> 0{num + 1} / 0{SLIDE.length} </div>
+
+
+
+
+
+
+슬라이드 버튼을 만듭니다.
+우선 useRef로 SLIDE를 선택할 수 있도록 합니다.
+import { useRef, useState } from "react";
+
+const MainSlider = () => {
+    const slideRef = useRef();
+
+Slider태그에 ref={slideRef} ref를 전달합니다.
+            <Slider {...slideSet} ref={slideRef}>
+            
+버튼에 click 이벤트를 주고, slideRef.current.slickPrev()로 버튼 이벤트를 만들어줍니다.
+            <div className="arrows">
+                <button onClick={() => slideRef.current.slickPrev()}>prev</button>
+                <button onClick={() => slideRef.current.slickNext()}>next</button>
+            </div>
+            
+            
+            
+            
+
+슬라이드 번호 버튼을 만듭니다.
+            <ul className="dots">
+                {SLIDE.map((dots, idx) => (
+                    <li
+                        className={idx === num ? "on" : ""} // idx가 num과 같은 슬라이드에는 on을 붙입니다.
+                        onClick={() => slideRef.current.slickGoTo(idx)} // 클릭 이벤트를 주고 slideRef.current.slickGoTo(idx)로 클릭한 슬라이드 idx로 이동하도록 만듭니다.
+                        key={dots.slideId} // key={dots.slideId}로 key를 줍니다.
+                    >
+                        {dots.slideId} // 숫자 1,2,3을 li에 담아 넣습니다.
+                    </li>
+                ))}
+            </ul>
+
+
+
+
+
+fiugre에도 className={idx === num ? "on" : ""} // idx가 num과 같은 슬라이드에는 on을 붙입니다.
+                    <figure className={`item0${slide.slideId} ${idx === num ? "on" : "" }`}>
+                    
+새로고침을 하면 on이 붙지 않은 채로 새로고침 됩니다. 초기값을 useEffect를 사용하여 정해줍니다.
+useEffect는 보통 데이터를 가져올 때나, 최초에 한 번 실행해야하는 경우에 사용합니다.
+    useEffect(()=>{}) : mount하면 최초에 실행하고, 페이지가 업데이트 될 때마다 다시 실행합니다.
+    useEffect(()=>{}, []) : mount하면 최초에 실행하고, []안의 값이 변할 때만 실행합니다.
+
+    useEffect(() => {
+        setNum(0); // 초기값을 0으로 설정합니다.
+    }, []); // 페이지를 로딩하고 단 한 번만 합니다.
+
+
+
+
+
+react에서 image는 public폴더에 넣습니다.
