@@ -100,6 +100,8 @@ JavaScript로 AJAX에 요청을 할 때 순수한 데이터가 필요합니다.
 이 때 필요한 것이 API입니다. 
 일반적으로 웹 개발자들이 말하는 API는 WebAPI로 HTTP를 기반으로 하는 인터페이스 입니다.
 이는 특정 엔드포인트를 제공하고, 사용되는 코드에 정보로 응답하거나 다른 소프트웨어에 정보로 응답합니다.
+엔드포인트란 제공하는 정보와 비슷합니다. 
+예를 들어서 영화 API의 경우 (일자별 관객 수, 매출, 평점, 상영관정보, 이 모든것을 제공 등등)이 있습니다.
 WebAPI는 다른 앱이나 데이터베이스로 가는 입구입니다.
 
 그리고 JSON은 다른 코터나 컴퓨터가 쓸 수 있도록 만들어진 데이터 포맷입니다.
@@ -111,7 +113,7 @@ API는 이와 같이 HTTP CSS JS를 제외하고 필요한 정보만을 요청�
 
 
 
-284. JSON : 계속해서 데이터를 전송하거나 정보는 전송하는 포맷으로 JavaScript 객체 구문을 기반으로 합니다.
+284. JSON 파싱(parsing) : 계속해서 데이터를 전송하거나 정보는 전송하는 포맷으로 JavaScript 객체 구문을 기반으로 합니다.
 JSON과 JavaScript는 유사하지만 차이가 있습니다. JSON은 키에 큰따옴표 "" 를 사용합니다.
 {
  "price": 123,
@@ -123,3 +125,32 @@ JavaScript는 사용하지 않습니다.
 }
 
 JSON은 JavaScript에만 이용할 수 있는 것이 아니라, 고유의 언어코드로 변환하는 과정이 필요합니다. 이를 파싱이라 합니다.
+JSON데이터를 변수에 저장합니다.
+const data = {"ticker":{"base":"BTC","target":"USD","price":"19237.26068690","volume":"10958.37590084","change":"-62.86038928"},"timestamp":1662622923,"success":true,"error":""}
+JSON.parse(data) 함수로 JavaScript에서 사용할 수 있는 구조로 파싱을 합니다.
+const parsedData = JSON.parse(data)
+이제 객체의 속성에 접근하듯이 키 값을 가져오면 됩니다.
+parsedData.ticker.price // "19237.26068690"
+
+반대로 JavaScript 객체를 JSON 형태로 만들 수 있습니다.
+const young = {name:'young', gender:'male', hair:'black', IQ:undefined}
+JSON.stringify(young) // {"name":"young", "gender":"male", "hair":"black"}
+
+
+
+
+서버상태 
+200 : 접근 허용 (좋은 것)
+300 : 리다이렉션, 다른 주소로 이동 시켜야 함 (좋지도 나쁘지도 않음)
+400 : 클라이언트 오류 (나쁜 것, 대부분의 오류는 400번대 오류)
+500 : 서버 오류 (나쁜 것)
+
+
+
+286. 문자열 및 헤더 쿼리
+API를 제공하고 있다면 홈페이지의 개발자를 위한 페이지로 이동하여 찾아볼 수 있습니다.
+쿼리(query)문자열은 URL의 한 부분으로써 URL에 ?가 있다면 쿼리문자열 입력을 받겠다는 뜻입니다.
+q=:query의 ":" 다음에 오는 문자는 변수를 의미합니다.
+
+/shows?:imdb=tt47138304&color=purple 
+imdb 변수에 tt47138304 정보와, color 변수에 purple 을 찾겠다는 것입니다.
