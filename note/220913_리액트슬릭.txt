@@ -1,0 +1,131 @@
+public 폴더의 index.html에서 필요한 것만 남겨줍니다.
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <!-- <link rel="icon" href="%PUBLIC_URL%/favicon.ico" /> -->
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+            name="description"
+            content="Web site created using create-react-app"
+        />
+        <title>현대엘리베이터</title>
+    </head>
+    <body>
+        <noscript>You need to enable JavaScript to run this app.</noscript>
+        <div id="root"></div>
+    </body>
+</html>
+
+
+img를 넣는 방법입니다.
+App.js
+function App() {
+    return (
+        <div className="App">
+            <h1>리액트</h1>
+            <img src={process.env.PUBLIC_URL + "/assets/img/logo.png"} alt="" />
+        </div>
+    );
+}
+또는 css 백그라운드를 이용합니다.
+h1 {
+    background: url(../public/assets/img/logo.png);
+}
+
+
+
+
+reset은 index.css에 붙여넣습니다.
+
+
+
+
+
+forEach와 map함수 차이
+
+forEach()
+아무 값도 반환하지 않습니다. = 리턴값이 없습니다. = undefined를 반환합니다.
+기존의 배열을 변경합니다.
+
+map()
+리턴값이 있습니다.
+새로운 배열을 반환합니다.
+
+
+
+
+
+
+리액트슬릭 만드는 방법
+1. 설치
+npm install react-slick --save
+npm install slick-carousel
+
+2. import
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+
+3. Slider 
+            <Slider dots={true} arrows={false}>
+                <li>01</li>
+                <li>02</li>
+                <li>03</li>
+            </Slider>
+            
+           
+            
+            
+const MainVisual = () => {
+    const [IDX, setIDX] = useState();
+    useEffect(() => {
+        setIDX(0);
+    }, []);
+    const setting = {
+        arrows: false,
+        dots: true,
+        afterChange: (index) => setIDX(index),
+        autoplay: true,
+        autoplaySpeed: 5000,
+        fade: true,
+    };
+    return (
+        <section className="MainVisual">
+            <Slider {...setting}>
+                <figure className="itm01">
+                    <div className="inner">
+                        <h2>{SLIDE[0].content}</h2>
+                    </div>
+                </figure>
+
+                {SLIDE.map((slide, idx) => {
+                    return (
+                        <figure
+                            key={slide.id}
+                            className={
+                                "itm0" + slide.id + (idx === IDX ? " on" : "")
+                            }
+                        >
+                            <div className="inner">
+                                <h2>{slide.content}</h2>
+                                <p>{slide.desc}</p>
+                                <a href="slide.link" target="_blank">
+                                    VIEW MORE
+                                </a>
+                            </div>
+                        </figure>
+                    );
+                })}
+            </Slider>
+        </section>
+    );
+};
+            
+            
+            
+            
+슬릭 깜빡이 문제 해결
+.MainVisual .slick-track,
+.MainVisual .slick-slide {
+    transition-duration: 5ms;
+}
