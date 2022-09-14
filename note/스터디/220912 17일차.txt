@@ -30,7 +30,7 @@ axios
         console.log(e);
     });
 
-보통 async 비동기 함수를 사용합니다.
+async 비동기 함수와 함께 사용합니다.
 const getData = async (id) => {
     try {
         const res = await axios.get(`http://주소이름/${id}`);
