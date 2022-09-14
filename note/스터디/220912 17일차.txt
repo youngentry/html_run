@@ -16,3 +16,27 @@ fetch('https://주소')
     .catch(e => {
         console.log("error", e) // 문제가 있다면 에러를 출력합니다.
     })
+
+
+
+
+Axios 함수는 Fetch로 요청을 생성하고 JSON으로 분석하는 과정을 한번에 합니다.
+axios
+    .get("https://주소")
+    .then((res) => {
+        console.log(res);
+    });
+    .catch((e) => {
+        console.log(e);
+    });
+
+보통 async 비동기 함수를 사용합니다.
+const getData = async (id) => {
+    try {
+        const res = await axios.get(`http://주소이름/${id}`);
+        console.log(res.data);
+    } catch (e) {
+        console.log("ERROR", e);
+    }
+};
+getData(1);
