@@ -15,7 +15,6 @@ module.exports = { // 현재 파일을 내보냅니다.
     add: add,
     sub: sub,
 };
-
 const calc = require('./calc'); // calc 파일을 불러옵니다.
 console.log(calc); // 위의 객체가 출력됩니다.
 
