@@ -1,0 +1,42 @@
+1. JavaScript 싱글스레드 작업 수행 방식 
+코드가 작된 순서대로 한 번에 하나의 작업을 실행합니다.
+-> 동기 방식의 처리
+처리까지 걸리는 시간이 A(1초) B(10초) C(15초) 와 같다면 C를 위해서는 15초만을 기다리는 것이 아니라 A+B+C 총 26초를 기다리게 됩니다.
+
+2. 비동기 작업 수행 방식
+동기 방식의 처리의 단점을 극복하기 위해서 여러 개의 작업을 동시에 실행시킵니다.
+작성된 코드의 "결과를 기다리지 않고" 다음 코드를 바로 실행합니다.
+그리고 작업이 끝나게 되면 그 때 결과를 나타나도록 합니다.
+
+func A setTimeout 1초 (cosnole.log(A 작업 끝))
+func B setTimeout 3초 (cosnole.log(B 작업 끝))
+func c setTimeout 2초 (cosnole.log(C 작업 끝))
+출력 결과 //
+A 작업 끝
+C 작업 끝
+B 작업 끝
+
+
+
+비동기 수행을 이해하기 위한 JS엔진
+JS는 Heap(메모리 할당)과 Call Stack(코드 실행)으로 이루어져 있습니다.
+
+Call Stack은 콜백함수를 쌓아 두는 것을 말합니다.
+
+비동기로 수행되는 setTimeout(3000)과 같은 함수는 Web APIs로 해당 시간 만큼 맡겨둡니다.
+그리고 3000ms가 지나게 되면 Callback Queue로 콜백 함수가 들어가게 되고, Call Stack에 쌓이면서 콜백함수의 작업을 수행하게 됩니다.
+
+
+
+
+비동기 작업의 3가지 상태 : pending(대기) resolved(해결) rejected(실패)
+async는 함수의 리턴 값으로 promise를 반환하도록 합니다.
+
+async function showAsync() {
+    return "Async는 프로미스 객체를 반환하게 한다.";
+}
+showAsync().then((res) => {
+    console.log(res);
+}); 
+// 출력결과 : Async는 프로미스 객체를 반환하게 한다.
+
