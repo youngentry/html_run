@@ -42,3 +42,15 @@ const Promotion = () => {
             <button onClick={() => setUrl("zSuVdcYkSnc")}>
                 movie03
             </button>
+            
+            
+            
+            
+            
+            
+            
+            
+디자인은 냅두고,
+링크를 #!로 동작하지 않도록 하기,
+실제 데이터 API로 받아와서 만들기,
+라우터 더하기,
