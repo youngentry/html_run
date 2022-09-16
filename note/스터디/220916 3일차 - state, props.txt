@@ -1,0 +1,60 @@
+1. state란 무엇인가?
+state는 컴포넌트가 갖는 계속 값이 바뀌는 동적인 데이터이고, 
+상태를 바꾸는 관리는 useState로 합니다.
+
+
+2. props란?
+props는 부모에서 컴포넌트에 전달한 값입니다.
+<Counter a={1} initialValue={5} />
+
+그러면 props는 Counter 컴포넌트 안에서
+const Counter = (props) => {
+    console.log(props) // 출력결과는 객체로 전달됩니다.
+    // {a: 1, initialValue: 5}
+    
+    
+하지만 전달하는 값이 많아지면 객체에 담아서 전달합니다.
+const counterProps = {
+    a: 1,
+    b: 2,
+    c: 3,
+    d: 4,
+    e: 5,
+    initialValue: 5,
+};
+
+<Counter {...counterPros} /> 객체는 스프레드 연산자로 펼쳐서 전달합니다.
+
+
+Counter.defaultProps 로 오류를 방지하거나 까먹을 것을 대비해 디폴트값을 정해둘 수 있습니다.
+Counter.defaultProps = {
+    initialValue: 0,
+};
+
+
+
+
+3. rerender되는 상황 세가지
+첫째. state가 변한다.
+둘째. props가 변한다.
+셋째. 자기 자신이 안 변해도, 부모의 state가 변하면 변한다.
+
+
+
+
+4. 컴포넌트 안에 컴포넌트를 위치시킬 수 있습니다.
+const Container = ({ children }) => {
+  return (
+    <div>
+      {children} // 감쌀 컴포넌트들의 위치
+    </div>
+
+App.js
+<Container>
+  <Counter /> // 컴포넌트가 위치하는 곳
+</Container>
+
+
+
+
+
