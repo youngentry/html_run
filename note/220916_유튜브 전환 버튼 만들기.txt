@@ -1,19 +1,38 @@
 리액트로 유튜브 동영상 전환 기능 만들기
 
-1.유튜브 모듈을 import 합니다.
+1. react-youtube를 설치합니다.
+npm install react-youtube
+
+2. 유튜브 모듈을 import 합니다.
 import YouTube from "react-youtube";
 
-2. 유튜브 url을 변수로 만듭니다.
+3. 동영상을 만듭니다.
+    const opts = {
+        height: '100%',
+        width: '100%',
+        playerVars: {
+            autoplay: 0,
+            loop: 1,
+            controls: 0,
+            showinfo: 0,
+            rel: 0,
+            mute: 1,
+            paused: 1,
+        },
+
+    };
+
+4. 유튜브 영상에 ref를 주고, url을 변수로 만듭니다.
 const Promotion = () => {
     const MOVIE = useRef();
     const [url, setUrl] = useState("raw3Nu0_mBQ");
 
-3. videoId에 url 변수를 넣어줍니다.
+5. videoId에 url 변수를 넣어줍니다.
         <div className="movie" ref={MOVIE} id="player">
             <YouTube videoId={url} opts={opts} className="u" />
         </div>
    
-4. url을 useState를 이용해 바꿔줍니다.     
+6. url을 useState를 이용해 바꿔줍니다.     
             <button onClick={() => setUrl("raw3Nu0_mBQ")}>
                 movie01
             </button>
