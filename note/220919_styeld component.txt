@@ -1,0 +1,88 @@
+stlyed components라는 CSS-in-JS 라이브러리를 통해서 CSS도 손쉽게 JavaScript에 삽입할 수 있습니다.
+
+1. 패키지를 설치합니다.
+$ npm i styled-components
+
+2. styled 함수를 import 합니다
+import styled from "styled-components";
+
+3. css를 다음과 같이 백틱(``) 안에 작성합니다.
+styled.button`
+  color: red;
+`;
+
+4. 스타일을 컴포넌트로 만들로 children을 props로 각 css 스타일을 적용합니다.
+function Button({ children }) {
+  return <StyledButton>{children}</StyledButton>;
+}
+
+5. 이를 export하고나서 가져다 쓰면 됩니다.
+import Button from "./Button";
+<Button>Default Button</Button>;
+
+6. props를 이용하여 전달을 할 수 있습니다. props가 넘어오지 않는 경우에는 기본 색상이 유지되도록 합니다.
+<Button /> 컴포넌트는 props를 <StyledButton /> 컴포넌트로 전달합니다.
+
+color와 background의 값을 props로 정의하고
+const StyledButton = styled.button`
+  color: ${(props) => props.color || "gray"};
+  background: ${(props) => props.background || "white"};
+`;
+
+<StyledButton /> 컴포넌트에 전달합니다.
+function Button({ children, color, background }) {
+  return (
+    <StyledButton color={color} background={background} Î>
+      {children}
+    </StyledButton>
+  );
+}
+
+컴포넌트에서 props의 값을 주면 css 스타일이 적용됩니다.
+import Button from "./Button";
+<Button color="green" background="pink">
+  Green Button
+</Button>;
+
+6. 이제 css속성 여러개를 props에 담아 스프레드로(...props) 여러개를 한 번에 전달해봅니다.
+primary를 prop으로 전달하고 그 안에 color, background, bordr-color 스타일을 모두 담습니다.
+&& 연산자로(&& css) primary가 있을 때만 적용되도록 합니다
+const StyledButton = styled.button`
+  color: ${(props) => props.color || 'gray'};
+  background: ${(props) => props.background || 'white'};
+  
+  ${(props) =>
+    props.primary &&
+    css`
+      color: white;
+      background: navy;
+    `}
+`;
+
+스프레드 구문을 이용해 children을 제외한 모든 prop을 전달합니다.
+function Button({ children, ...props }) {
+  return <StyledButton {...props}>{children}</StyledButton>;
+}
+
+primary만을 전달해주면 css 속성이 모두 적용됩니다.
+import Button from "./Button";
+<Button primary>Primary Button</Button>;
+
+7. 이제 컴포넌트를 가져오면 됩니다.
+function Buttons() {
+  return (
+    <>
+      <Button color="green" background="pink"> // color와 background가 존재합니다. 초록색 글씨에 분홍색 배경이 적용됩니다.
+        Green Button
+      </Button>
+      <Button primary>Primary Button</Button> // primary가 존재합니다. primary의 흰글씨, 남색 배경이 적용됩니다.
+    </>
+  );
+}
+
+
+
+
+
++ 
+styled components 에서는 sass를 바로 이용할 수 있습니다.
