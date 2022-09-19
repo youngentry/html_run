@@ -1,0 +1,70 @@
+(1) 컴포넌트와 데이터 구조
+리액트에서는 같은 레벨에서 데이터를 주고받는 것이 불가능 합니다.
+부모에서 자식으로 내려가는 단방향으로방 데이터를 전달할 수 있습니다.
+이를 트리형 구조라고 합니다.
+
+(2) 데이터를 전달하는 방법
+부모에서 만든 [data, setData] = useState();를 이용하여 data와 setData 각각을 전달하면 됩니다.
+data는 DiaryList로 전달하고  
+setData는 DiaryEditor로 전달하여 수정하는 방식으로 같은 레벨간에 state를 수정하고 렌더링하게 됩니다.
+
+다시 말해, setData와 같은 Event는 부모로 올려 보내고, data는 아래로 내려보내는 구조라 할 수 있습니다.
+state 끌어올리기라고 할 수 있습니다. (역방향 Event, 단방향 Data)
+
+
+
+(3) 실제로 작동하는 구조
+setData 역할을 할 컴포넌트에 함수를 props로 전달할 것입니다.
+            <Editor onCreate={onCreate} />
+data가 수정될 컴포넌트에는 data를 props로 전달합니다.
+            <List diaryList={data} />
+
+
+그리고 useState에 빈 배열을 만들어 줍니다.
+    const [data, setData] = useState([]);
+
+
+전달할 값의 name을 객체로 전달합니다.
+    const onCreate = (author, content) => {
+        const newItem = {
+            author,
+            content,
+        };
+        
+        
+리액트에서 변수처럼 사용할 값은 useRef()로 만듭니다. 
+    const dataId = useRef(0);
+dataId.current로 값에 접근합니다.
+
+    const onCreate = (author, content) => {
+        const newItem = {
+            author,
+            content,
+            id: dataId.current,
+        };
+        dataId.current += 1;
+
+
+setData를 이용하여 새로운 아이템을 제일 위에 생성하고, 기존의 데이터는 아래에 이어 붙일 것입니다.
+        setData([newItem, ...data]);
+    };
+        
+
+이제 Editor 컴포넌트로 이동하여 submit 함수에 onCreate함수를 추가합니다.
+			// onCreate함수가 실행되면 newItem에 전달된 data를 객체로 저장하게 되고
+			// onCreate 함수 안의 setData([newItem, ...data]);함수가 실행되면서 data에 newItem 객체가 추가됩니다.
+    const handleSubmit = () => {
+        onCreate(state.author, state.content);
+
+
+                // 입력을 한 뒤에는 입력창을 초기화합니다.
+        setState({
+            author: "",
+            content: "",
+        });
+    };
+    
+
+App.js에서 onCreate 함수를 Editor 컴포넌트에 props로 전달한다. >
+Editor 컴포넌트에서 setState 함수로 값을 수정한다. >
+List 컴포넌트의 data의 값이 바뀐다.
