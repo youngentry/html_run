@@ -1,0 +1,100 @@
+scss 사용방법입니다.
+
+설치를 합니다.
+$ npm i -D sass 
+
+들여쓰기를 통해 코드를 작성하고, 연달아 붙는 클래스는 &로 연결합니다.
+.App {
+    color: #f00;
+    strong {
+        font-size: 100px;
+    }
+
+    &:hover {
+        color: #369;
+    }
+
+    &.on {
+        color: #ff0;
+    }
+}
+
+scss는 @문자로 함수를 사용할 수 있습니다.
+    @for $i from 1 through 3 {
+        .itm#{$i} {
+            background: url(../../public/assets/images/main_visual0#{$i}.jpg);
+        }
+    }
+
+
+
+
+module.css를 사용하는 이유는 서로 다른 키를 가진 동일한 클래스명을 가질수 있도록 할 수 있기 때문입니다.
+
+module.css를 사용하는 방법입니다.
+styles를 가져옵니다.
+import styles from "./App.module.scss";
+
+적용할 태그의 클래스와 파일의 이름이 동일해야 합니다.
+App.module.scss 
+        <div className={styles.App}>
+            <strong>sass</strong>
+        </div>
+
+
+
+
+ES7 React/ 어쩌고 extention을 설치하면
+rafc 를 입력하여 react 컴포넌트 구조를 바로 만들 수 있습니다.
+
+
+
+
+리액트 라우터 이용하는 방법입니다.
+npm install react-router-dom 을 설치합니다.
+
+1. App컴포넌트를 BrowserRouter 컴포넌트로 감쌉니다.
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+    <React.StrictMode>
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+    </React.StrictMode>
+);
+
+2. Routes 컴포넌트 안에 Route 컴포넌트를 위치시킵니다.
+path에는 라우트 주소를 넣습니다.
+element에는 컴포넌트를 넣습니다.
+/* 를 라우트 주소로 설정하면 정해진 주소로 이동되지 않은 경우에는 <NotFound /> 컴포넌트를 출력합니다.
+            <Header />
+            <Routes>
+                <Route path="/" element={<Main />} />
+                <Route path="/sub01" element={<Sub01 />} />
+                <Route path="/sub02" element={<Sub02 />} />
+                <Route path="/*" element={<NotFound />} />
+            </Routes>
+            <Footer />
+
+
+3. Link 컴포넌트로 라우트 주소로 보낼 수 있습니다.
+<Routes> 컴포넌트로 둘러싸여 있어야 적용됩니다.
+import { Link } from "react-router-dom";
+
+            <ul>
+                <li>
+                    <Link to="/">main</Link>
+                </li>
+                <li>
+                    <Link to="/Sub01">sub01</Link>
+                </li>
+                <li>
+                    <Link to="/Sub02">sub02</Link>
+                </li>
+            </ul>
+
+
+깃허브페이지 라우터 문제 해결방법
+BrowserRouter에 기본 URL을 제공합니다 basename으로 깃허브 레포지토리 주소로 이동하도록 합니다.
+<BrowserRouter basename={process.env.PUBLIC_URL}>
+

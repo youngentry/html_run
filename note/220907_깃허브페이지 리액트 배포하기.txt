@@ -93,3 +93,5 @@ function App() {
         return (
             <h2 className={`abc ${TG ? "on" : ""}`}>Toggle Class</h2> // TG의 상태에 따라 on을 붙이고 뗍니다.
             <button onClick={() => setTG(!TG)}>Class 토글</button> // 클릭하면 TG의 상태(true <-> false)를 바꿉니다.
+
+
