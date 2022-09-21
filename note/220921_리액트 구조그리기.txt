@@ -50,4 +50,84 @@ container 같은 구조는 component로 만들어 사용합니다.
 
 
 
-swiper사용법 정리
+swiper사용법 정리하기 
+////////
+Autoplay, Pagination, Navigation은 따로 import를 하고 modules를 적용해야합니다.
+       import { Autoplay } from "swiper";
+         <Swiper
+                className="MainSlide"
+                direction={"vertical"}
+                loop={true}
+                autoplay={{
+                    delay: 2500,
+                    disableOnInteraction: false,
+                }}
+                modules={[Autoplay]}
+            >
+            
+            
+            
+            
+            
+dots에 on 구현
+현재 슬라이드 on 구현은 아래로 다 해결합니다.
+className={num === idx && 'on'}
+
+dots 클릭 시 이동 구현
+useRef()를 이용합니다.
+
+useRef()를 선언합니다.
+    const MS = useRef(null);
+
+변수를 전달합니다.
+ref는 MS.current로 접근합니다.
+MS.current.Swiper.slideTo(idx)로 슬라이드 dots를 구현할 수 있습니다.
+                onClick={() => {
+                    MS.current.Swiper.slideTo(idx);
+                }}
+////////
+
+
+
+styled-components 사용법 정리하기
+////////
+const SlideItm = styled.div`
+    .tit {
+        font-size: 80px;
+        font-weight: 800;
+        margin: 0 0 20px 0;
+    }
+    .con {
+        font-size: 20px;
+        font-weight: 300;
+        margin: 0 0 20px 0;
+    }
+    .des {
+        font-size: 15px;
+        word-break: keep-all;
+        margin: 0 0 20px 0;
+    }
+`;
+
+컴포넌트 이름을 <SlideItm> 으로 정합니다.
+////////
+
+
+
+변수에 컬러, 폰트 사이즈 저장하기
+$main-color: #032777;
+$color-gray: #dddddd;
+$font-small: 13px;
+$font-midume: 17px;
+$font-big: 20px;
+
+
+
+
+글자에 그라데이션 적용하기
+1. 글자는 투명하게 만듭니다.
+2. 백그라운드에서 그래디언트로 색상을 적용합니다.
+3. 웹킷으로 백크라운드는 텍스트에만 적용되도록 합니다.
+background: linear-gradient(to right top, #0a96ba, #032777, #333333);
+color: transparent;
+-webkit-background-clip: text;
