@@ -1,3 +1,13 @@
+src폴더에 css, pages, components 폴더를 만듭니다.
+
+css폴더에
+reset 파일을 만들니다.
+basic 파일을 만듭니다. (Header, Hooter작업과 body, Wrapper, inner와 같은 작업은 여기서 합니다.)
+
+public폴더에 assets 폴더를 만듭니다.
+
+
+
 구조를 먼저 그립니다.
 const App = () => {
     return (
