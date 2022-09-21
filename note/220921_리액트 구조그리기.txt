@@ -1,0 +1,53 @@
+구조를 먼저 그립니다.
+const App = () => {
+    return (
+        <Wrapper>
+            <Header />
+            <Main />
+            <Sub01 />
+            <Sub02 />
+            <Sub03 />
+            <Sub04 />
+            <Board />
+            <Footer />
+        </Wrapper>
+    );
+};
+
+
+
+라우터를 붙입니다.
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
+            <App />
+        </BrowserRouter>
+
+
+const App = () => {
+    return (
+        <Wrapper>
+            <Header />
+            <Routes>
+                <Route path="/" element={<Main />} />
+                <Route path="/sub01" element={<Sub01 />} />
+                <Route path="/sub02" element={<Sub02 />} />
+                <Route path="/sub03" element={<Sub03 />} />
+                <Route path="/sub04" element={<Sub04 />} />
+                <Route path="/board" element={<Board />} />
+            </Routes>
+            <Footer />
+        </Wrapper>
+    );
+};
+
+
+
+
+header footer는 전역 css로 사용합니다
+main이나 sub는 전용 css를 만들어 사용합니다.
+
+container 같은 구조는 component로 만들어 사용합니다.
+.inner나 .container 같은 공통 css는 전역 css에 작성합니다
+
+
+
+swiper사용법 정리
