@@ -1,0 +1,21 @@
+작업환경 세팅하기
+npm i react-router-dom@6
+npm i -D sass
+npm i styled-components
+npm i swiper
+npm i gh-pages
+
+package.json에 "homepage" 추가하기
+
+"predeploy": "npm run build",
+"deploy": "gh-pages -d build", 추가하기
+
+
+질문
+1. 공공데이터포털에서 공공데이터를 사용
+2. 프로젝트 경험 중에서 어려웠던 부분과 그 부분 해결
+3. 학원에서 배운 것들이 어떤 것이 있는가
+4. 질문 중에 답변으로 사용했던 기능 또는 기술
+5. 학원 교육과정 이름이 무엇인가
+6. 스프링 프레임워크를 사용해보니 어떻던가
+7. 웹 페이지 구현에서 중요하게 생각한 것은 무엇인가
