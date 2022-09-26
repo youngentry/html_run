@@ -1,0 +1,172 @@
+data폴더에 받아온 data를 담아 이용합니다.
+변수를 만들고 변수명으로 export 해줍니다.
+const company = {
+    name: "쇼핑몰",
+    adress: "부산",
+    tel: "00000000",
+    fax: "11111111",
+};
+
+const profile = {
+    slogan: "슬로건입니다.",
+};
+
+const content = [
+    { con: "슬로건01", des: "내용01" },
+    { con: "슬로건02", des: "내용02" },
+    { con: "슬로건03", des: "내용03" },
+];
+
+export { company, profile, content };
+
+
+
+
+
+변수를 import 하여 props로 전달합니다.
+import React from "react";
+import { company, profile, content } from "./data/data";
+import Header from "./pages/Header";
+
+const App = () => {
+    return (
+        <div>
+            <Header data={company} />
+        </div>
+    );
+};
+
+export default App;
+
+
+
+
+
+useParams를 이용하면 주소에서 변수로 지정한 값을 받아올 수 있게 됩니다.
+파라미터는 여기서 path="/list/:num"의 :num에 해당됩니다.
+            <Routes>
+                <Route path="/list/:num" element={<Detail list={content} />} />
+            </Routes>
+
+import React from "react";
+import { useParams } from "react-router-dom";
+
+const Detail = ({ list }) => {
+    const { num } = useParams();
+    return <div>{num}</div>;
+};
+
+export default Detail;
+
+
+
+
+
+Link로 /list/it.id 주소로 보냅니다.
+            <Header data={company} />
+            {content.map((it) => {
+                return (
+                    <div key={it.id}>
+                        <Link to={"/list/" + it.id}>{it.id}</Link>
+                    </div>
+                );
+            })}
+
+it.id와 route에서 생성한 num과 일치하는 데이터를 출력합니다.
+import React from "react";
+import { useParams } from "react-router-dom";
+
+const Detail = ({ list }) => {
+    const { num } = useParams();
+    const match = list.find((it) => it.id === Number(num));
+
+    return <div>{match.des}</div>;
+};
+
+export default Detail;
+
+
+
+
+
+
+데이터를 가져옵니다. fetch로 res.json()으로 promise를 받아올 수 있습니다.
+const App = () => {
+    const [con, setCon] = useState();
+    const [loading, setLoading] = useState(false);
+    useEffect(() => {
+        setLoading(false);
+        fetch(process.env.PUBLIC_URL + "/data.json")
+            .then((res) => res.json())
+            .then((data) => {
+                setCon(data);
+                setLoading(true);
+            });
+    }, []);
+    
+이제 받아온 데이터를 렌더링합니다.
+데이터가 존재할 경우에만 렌더링하도록 삼항연산자를 이용합니다.
+            <ul>
+                {loading ? (
+                    con.map((el) => {
+                        return (
+                            <li key={el.id}>
+                                <Link to={"/link/" + el.id}>
+                                    <img
+                                        src={process.env.PUBLIC_URL + el.img}
+                                        alt=""
+                                    />
+                                </Link>
+                            </li>
+                        );
+                    })
+                ) : (
+                    <div>없음</div>
+                )}
+            </ul>
+
+
+
+
+
+
+axios를 이용해 데이터를 받아옵니다.
+axios는 .json()함수로 데이터를 객체로 변경할 필요가 없습니다. 
+res.data 속성에 접근하면 바로 데이터를 읽을 수 있습니다.
+    useEffect(() => {
+        setLoading(false);
+        axios(url).then((res) => {
+            setCon(res.data);
+            setLoading(true);
+        });
+    }, []);
+
+
+
+
+보통 async await를 이용합니다.
+    useEffect(() => {
+        setLoading(false);
+        const getData = async () => {
+            const res = await axios.get(url);
+            setCon(res.data);
+            setLoading(true);
+        };
+        getData();
+    }, []);
+
+
+여기서 API에 따라서 CORS 에러가 발생하는 경우가 있는데
+프록시서버로 해결
+
+
+
+
+
+
+
+
+서버만들기
+https://desipossa.github.io/shop_cra/assets/data.json
+
+https://blog.naver.com/PostView.naver?blogId=ks2414e&logNo=222138655647&parentCategoryNo=93&categoryNo=&viewDate=&isShowPopularPosts=false&from=postView
