@@ -167,6 +167,6 @@ res.data 속성에 접근하면 바로 데이터를 읽을 수 있습니다.
 
 
 서버만들기
-https://desipossa.github.io/shop_cra/assets/data.json
+https://m.blog.naver.com/objconsolelog/222080587338
 
 https://blog.naver.com/PostView.naver?blogId=ks2414e&logNo=222138655647&parentCategoryNo=93&categoryNo=&viewDate=&isShowPopularPosts=false&from=postView

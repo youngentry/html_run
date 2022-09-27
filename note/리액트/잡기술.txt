@@ -1,0 +1,28 @@
+echo "# 레포이름" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/youngentry/레포이름.git 
+git push -u origin main
+
+npx create-react-app .
+npm i react-router-dom@6
+npm i sass
+npm i slick
+npm i slick-carousel
+npm i styled-components
+npm i react-icons
+npm i gh-pages
+npm i axios
+npm install react-icons --save
+npm run deploy
+
+package.json에 "homepage" 추가하기
+
+"predeploy": "npm run build",
+"deploy": "gh-pages -d build", 추가하기
+
+git add .
+git commit -m ""
+git push

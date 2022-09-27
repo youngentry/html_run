@@ -1,0 +1,43 @@
+scss @mixin @include로 css를 저장해 불러올 수 있습니다.
+
+
+
+@import사용방법
+https://www.biew.co.kr/entry/Sass%E3%86%8DSCSS-SASS-%EB%AC%B8%EB%B2%95-5%ED%8E%B8-mixin-extend-import
+
+@import '파일경로/파일명'
+@import 'font.scss'
+@import 'font' //scss 파일 확장자명 생략가능
+
+@import  실무에서 유용하게 사용하는 Tip
+첫 번째, 변수와 @mixin은 따로 모듈화 분리하여 Sass 파일로 만들어서 @import 합니다.
+이때 파일명 앞에 '_' 를 붙이면 CSS로 컴파일될 때 '_' 로 시작하는 파일명의 파일은 컴파일되지 않습니다.
+예를 들어 _mixin.scss, _header.scss 파일명을 만들고, 주 파일에서 @import 하면 2개(_mixin.scss, _header.scss)의 파일 내용은 주 파일에 적용되지만 _mixin.scss, _header.scss 파일은 css로 컴파일 되지 않기 때문에 관리하기가 편리합니다.
+ 
+두 번째, 하나의 @import로 여러 파일을 불러올 수 있습니다.
+파일은 ',' 로 구분합니다.
+@import '_mixin', 'header';
+ 
+ 세 번째, 파일 확장자를 지정할 필요가 없습니다.
+Sass에서는 당연히 파일명.scss 를 불러온다고 가정하기 때문입니다. 
+그러나 CSS 파일을 불러와야 할 경우에는 확장자명을 꼭 지정해 주어야 합니다.
+
+
+
+
+예시)
+basic.scss에서 mixin을 만듭니다.
+@mixin positionAbsCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+파일을 import하고,
+@import "basic";
+
+include로 불러오면 적용이 됩니다.
+        h1 {
+            @include positionAbsCenter;
+        }
