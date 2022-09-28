@@ -1,0 +1,163 @@
+API로 데이터를 받아와 itm에 useState로 저장합니다.
+const [itm, setItm] = useState();
+
+useEffect(() => {
+        const url = "https://desipossa.github.io/shop_cra/assets/data.json";
+        const getProduct = async () => {
+            const res = await axios.get(url);
+
+            const shopdata = res.data.slice(50, 140).map((it) => {
+                return {
+                    id: it.id,
+                    name: it.name,
+                    src: it.image_link,
+                    brand: it.brand,
+                    cate: it.category,
+                    price: it.price * 1450,
+                    des: it.description,
+                    color: it.product_colors,
+                    time: it.created_at,
+                    type: it.product_type,
+                };
+            });
+            setItm(shopdata);
+            console.log(res.data);
+            console.log(shopdata);
+        };
+        getProduct();
+    }, []);
+
+
+
+
+
+
+<Route path="/shopList" element={<List shopList={itm} />} /> 로 itm을 props로 전달합니다.
+
+
+
+
+
+
+<List/>에서 데이터를 받아와 html태그로 만듭니다.
+const List = ({ shopList }) => {
+    return (
+        <section className='shopList'>
+            <div className='inner'>
+                {
+                    shopList.map(it => {
+                        return (
+                            <figure>
+                            
+<Link to={}> 태그로 아이템의 id를 링크로 만들어줍니다.
+                                <Link to={'/shopItem/' + it.id}>
+                                    <div className="box">
+                                        <img src={it.src} alt="" />
+                                    </div>
+                                    <div className='name'>{it.name}</div>
+                                    <div className='des'>{it.des.substring(0, 100)} ...</div>
+                                    <div className='price'><span>{it.price.toLocaleString()}</span> 원</div>
+                                </Link>
+                            </figure>
+                        )
+                    })
+                }
+            </div>
+        </section>
+
+
+
+
+아직 링크로 이동한 주소가 존재하지 않기 때문에 이를 만들어주도록 합니다.
+Route에서 path를 [ path="/shopItem/:아무이름 ] 와 같이 설정하면 /shopItem/1 2 3 a b c... 와 같이 페이지를 무한히 생성해 해당페이지로 이동할 수 있게 됩니다. 페이지가 존재하지 않을 경우에는 404페이지로 이동하도록 만들어 주는 방식으로 에러를 처리하도록 합니다.
+                    <Route
+                        path="/shopItem/:itm"
+                        element={
+                            <Itm shopList={itm} cart={cart} setCart={setCart} />
+                        }
+                    />
+                </Routes>
+
+
+
+
+
+
+이제 url의 파라미터를 useParams()로 받아와서 아이템 리스트의 it.id와 파라미터가 일치하는 객체를 변수에 저장합니다.
+const Itm = ({ shopList, cart, setCart }) => {
+    const { itm } = useParams();
+    const navigate = useNavigate();
+    const matchItm = shopList.find((it) => itm == it.id);
+
+
+
+
+
+
+그리고 해당 객체 데이터를 html태그로 만들어줍니다.
+        <section className="shopItm">
+            <div>
+                <div className="box">
+                    <img src={matchItm.src} alt="" />
+                </div>
+                <div className="name">{matchItm.name}</div>
+                <div className="des">{matchItm.des.substring(0, 100)} ...</div>
+                <div className="price">
+                    <span>{matchItm.price.toLocaleString()}</span> 원
+                </div>
+
+
+
+
+
+
+장바구니에 담기 기능을 구현합니다. App.js에서 객체의 데이터를 담을 수 있도록 useState로 만듭니다.
+    const [cart, setCart] = useState([
+        { id: 1, itm: "ssssssssssssssssssss", price: 5000 },
+    ]);
+    
+
+
+
+
+Route로 /cart 페이지를 만듭니다.
+                    <Route path="/cart" element={<Cart cart={cart} />} />
+    
+    
+    
+
+Itm페이지에서 데이터를 갱신해줄 것입니다. <Itm shopList={itm} cart={cart} setCart={setCart} /> 로 props를 전달합니다.
+button을 만들어 setCart로 cart에 담겨져 있는 데이터에 새로운 데이터를 저장시킵니다.
+navigate 함수를 이용하여 /cart 페이지로 이동하게 합니다.
+                <button
+                    onClick={() => {
+                        setCart([
+                            ...cart,
+                            { id: matchItm.id, itm: matchItm.name },
+                        ]);
+                        navigate("/cart");
+                    }}
+                >
+                    장바구니 담기
+                </button>
+
+
+
+
+
+cart에 저장 된 데이터를 map함수를 이용해 html로 펼쳐줍니다.
+const Cart = ({ cart }) => {
+    return (
+        <div style={{ paddingTop: "500px" }}>
+            {cart.map((ca) => {
+                return (
+                    <ul>
+                        <li>{ca.id}</li>
+                        <li>{ca.itm}</li>
+                        <li>{ca.price}</li>
+                    </ul>
+                );
+            })}
+        </div>
+    );
+};
