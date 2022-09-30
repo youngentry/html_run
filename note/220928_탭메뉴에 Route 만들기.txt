@@ -1,0 +1,87 @@
+220928 탭메뉴 만든거 방법 메모하기
+
+>>> 페이지를 로딩하여 최초에 선택된 메뉴에 'on'을 붙이기 위해 useState의 초기값은 0으로 설정합니다.
+const Menus = ({ menuTitle, routeURL }) => {
+    const [num, setNum] = useState(0);
+
+
+>>> data에 map()함수를 이용해서 메뉴 html을 만들어줍니다.
+                {menuTitle.map((el, idx) => {
+                    return (
+                        <Link
+                            to={routeURL + el.link}
+                            className="link"
+                            key={el.id}
+                        >
+                            <li
+>>> li의 className에서 삼항연산자를 이용해 리스트의 idx와 useState의 값이 같다면 "on"을 붙이도록 합니다.
+                                className={`${idx == num ? "on" : ""}`}
+                                onClick={() => setNum(idx)}
+                            >
+                                {el.title}
+                            </li>
+                        </Link>
+
+
+
+
+
+>>> 탭메뉴 각각의 li에 Route를 생성해 하위 페이지에서도 메뉴가 나타나도록 합니다.
+const Benefit = () => {
+    return (
+
+>>> <Routes>로 감싼 뒤에 map()함수 안에서 탭메뉴 컴포넌트를 <Route />의 element로 넘깁니다.
+                <Routes>
+                    {MENUTITLE.map((it) => {
+                        return (
+                            <Route
+                                key={it.id}
+                                
+>>> path="/*"와 같이 path의 값을 정해주게 되면 하위경로에 여러개의 URL을 연결할 수 있게 됩니다.
+>>> /benefit 페이지에서만 보이던 탭메뉴가 하위 라우트로 이동하여도 나타나게 됩니다.
+>>> /benefit/member
+>>> /benefit/vip
+                                path="/*"
+                                element={
+                                    <Menus
+
+>>> props로 전달한 routeURL을 "/benefit"으로 저장했습니다.
+>>> MENUTITLE.link 를 각각 "/membership"과 "/vip"로 저장했습니다.
+                                        menuTitle={MENUTITLE}
+                                        routeURL={routeURL}
+                                    />
+                                }
+                            />
+                        );
+                    })}
+                </Routes>
+
+>>> <Menus /> 컴포넌트에서 각 탭메뉴의 li에 Link를 연결시켜줍니다.
+                {menuTitle.map((el, idx) => {
+                    return (
+                        <Link
+>>> <Link to={routeURL + el.link}로 props로 전달받은 url + link로 보내도록 합니다.
+>>> 탭메뉴의 li를 눌러보면 /benefit/membership 페이지로 이동하게 됩니다. 
+                            to={routeURL + el.link}
+                            className="link"
+                            key={el.id}
+                        >
+                            <li
+                                className={`${idx == num ? "on" : ""}`}
+                                onClick={() => setNum(idx)}
+                            >
+                                {el.title}
+                            </li>
+                        </Link>
+
+
+1. route의 path="/*"를 통해서 여러개의 하위 라우트를 생성하지 않아도 됩니다.
+<Route path="/membership" element="" />    
+<Route path="/vip" element="" />           >>>>>>>>    <Route path="/*" element="" />
+<Route path="/brbrbr" element="" />
+
+/** 개선사항 */
+2. <Link to="">로 연결할 주소는 <Link to={routeURL + el.link}로
+<Link to="/benefit/membership"> 처럼 나타나도록 props를 전달받았습니다.
+그런데 여러개의 component를 만들기 위해서는 routeURL이 아닌 
+객체의 값으로 el.routeURL과 같이 전달할 수 있도록 해야할 것 같습니다.
