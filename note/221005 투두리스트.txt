@@ -1,26 +1,39 @@
 1. target.value > event가 발생하면 state를 value로 바꿉니다.
+
 >>> word useState를 만들고,
 const [word, setWord] = useState("");
 >>> setState에는 이벤트의 값을 주도록 합니다. (e.target.value)
 <div><input type="text" onChange={(e) => setWord(e.target.value)} /></div>
 
 
+
+
 2. value를 데이터에 저장합니다.
+
 >>> list useState를 만들고, 여기에는 배열을 담을 것입니다.
     const [list, setList] = useState([]);
             <button onClick={() => setList([word])}>저장하기</button>
         
             
+            
+            
 3. 저장된 데이터를 먼저 뿌리고, 스프레드연산자를 이용해 새로운 데이터를 추가합니다.
+
 >>> 배열을 스프레드 연산자로 펼치고, word을 뒤에 적어주면 됩니다.
             <button onClick={() => setList([...list, word])}>저장하기</button>
 
 
-4. name을 써서 입력 여러개를 동시에 할 수 있도록 합니다.
+
+
+
+4. 객체와 name을 써서 입력 여러개를 동시에 할 수 있도록 합니다.
+
 >>> word state의 기본값을 객체{}로 합니다.
     const [word, setWord] = useState({});
+    
 >>> 객체의 키와 값을 전달합니다.
                 <input type="text" onChange={(e) => setWord({ [e.target.name]: e.target.value })} name="content" />
+                
 >>> 마찬가지로 저장된 데이터를 뿌리고, 새로운 데이터를 추가합니다.
                 <input type="text" onChange={(e) => setWord({ ...word, [e.target.name]: e.target.value })} name="title" />
                 <input type="text" onChange={(e) => setWord({ ...word, [e.target.name]: e.target.value })} name="content" />
