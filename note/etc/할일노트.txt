@@ -13,7 +13,7 @@
 https://woowacourse.github.io/
 10월 17일(월) 오후 3시 ~
 10월 24일(월) 오전 10시
-온라인코딩테스트 1106
+
 
 바닐라코딩
 vcdr.club/courses/Bootcamp
