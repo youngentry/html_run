@@ -1,0 +1,50 @@
+리액트 생명주기
+Mount 탄생(화면에 나타나는 것) >
+update 변화(업데이트, 리렌더) >
+UnMount 죽음(화면에서 사라짐)
+
+클래스형 컴포넌트에서 사용가능하던 기능들을 낚아채듯 가져와 이용하는 기능들로
+React Hooks 라는 이름의 기능들을 이용하도록 합니다.(2019년에 정신 출시된 기능)
+useState, useEffect, useRef
+
+>코드 길이 간소화, 중복코드, 가독성문제 등등을 해결하기 위헤 등장했습니다.
+
+1. useEffect
+useEffect의 두번쨰 파라미터인 []는 의존성 배열(Dependency Array)라고 부르며,
+이 배열 안의 값이 변화할 때 콜백 함수가 수행됩니다.
+
+
+useEffect(()=>{
+}) 
+위와 같이 두번째 파라미터를 주지 않는다면 "컴포넌트"가 업데이트 될 떄마다 실행하게 됩니다.
+매번 업데이트 될 때마다 실행하고 싶은 코드가 있는 경우에 사용합니다.
+
+
+useEffect(()=> {
+}, [count])
+count State가 변화하거나
+useEffect(()=> {
+}, [text])
+text State가 변화할때만 실행되도록 합니다.
+
+
+useEffect(()=> {
+  if (count == 5) {
+  alert("count가 5가 되었습니다. 6이 되면 초기화합니다.");
+  setCount(1)
+}, [count])
+와 같이 원하는 조건을 넣어 count를 다시 1로 돌리는 등의 작업도 수행가능합니다.
+
+
+2. Unmount
+시작인 Mount가 될 떄와 반대로 Unmount되는 시점에 실행시킬 함수를 지정할 수 있습니다. 
+return () => {}로 unmount하는 순간 실행할 코드를 설정할 수 있습니다.
+const UnMountTest = () => {
+  useEffect(() => {
+    console.log("Sub Component Mount"); // Mount가 되는 시점에 실행됩니다
+    return () => {
+      console.log("Sub Component Unmount"); // Unmount되는 시점에 실행됩니다.
+    };
+  }, []);
+  return <div>UN MOUNT TEST</div>;
+};
