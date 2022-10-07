@@ -54,3 +54,43 @@ toggleIsEdit()을 실행하여 수정하기 기능을 끝내도록 합니다.
   };
 
 주소 https://codesandbox.io/s/chapt-6-790r2?file=/src/DiaryItem.js:557-798
+
+
+
+
+list >>> 서버로(post)
+
+
+
+view/:param
+useParam == id
+content
+
+isEdit (false)
+editToggle (!isEdit)
+
+isEdit true
+
+{list.map(()=> {
+    isEdit ?
+    <input>리스트1 list id일치하는 녀석의 값 e.target.value 이녀석이 
+    <button>수정완료()=> list업데이트 콘텐츠
+    <button>수정취소
+    :
+    <li>리스트1
+    <button>수정하기()=> editToggle
+    <button>삭제하기
+    })
+}
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,57 @@
+로컬스토리지 저장방법
+// 키에 데이터 쓰기
+localStorage.setItem("key", value);
+
+// 키로 부터 데이터 읽기
+localStorage.getItem("key");
+
+// 키의 데이터 삭제
+localStorage.removeItem("key");
+
+// 모든 키의 데이터 삭제
+localStorage.clear();
+
+// 저장된 키/값 쌍의 개수
+localStorage.length;
+
+
+
+주의 사항
+웹 스토리지를 사용할 때 주의해야 할 부분이 하나 있는데요. 오직 문자형(string) 데이터 타입만 지원한다는 것입니다.
+해결 방법
+웹 스토리지를 사용할 때 위와 같은 문제를 피하기 위해서 많이 사용하는 방법이 JSON 형태로 데이터를 읽고 쓰는 것입니다.
+
+> localStorage.setItem('json', JSON.stringify({a: 1, b: 2}))
+undefined
+> JSON.parse(localStorage.getItem('json'))
+{a: 1, b: 2}
+
+위와 같이 로컬 스토리지에 쓸 데이터를 JSON 형태로 직렬화(serialization)하고, 읽은 데이터를 JSON 형태로 역직렬화(deserialization)해주면 원본의 데이터를 그대로 얻을 수 있습니다.
+
+배열형 데이터를 로컬 스토리지에 저장할 때도 동일한 방법을 문제를 예방할 수 있습니다.
+
+> localStorage.setItem('nums', JSON.stringify([1, 2, 3]))
+undefined
+> JSON.parse(localStorage.getItem('nums'))
+[1, 2, 3]
+
+데이터 청소
+로컬 스토리지에 저장된 데이터는 웹페이지를 닫는다고 해서 사라지지 않으므로 불필요한 데이터가 남지 않도록 직접 청소해주는 것이 좋겠습니다.
+
+> localStorage.length
+5
+> localStorage.key(0)
+"email"
+> localStorage.removeItem('obj')
+undefined
+> localStorage.length
+4
+> localStorage.clear()
+undefined
+> localStorage.length
+0
+
+
+객체를 저장하고 가져옵니다.
+                <button onClick={() => localStorage.setItem("list", JSON.stringify(boardList))}>LocalStorage set</button>
+                <button onClick={() => console.log(JSON.parse(localStorage.getItem("list")))}>LocalStorage get</button>
