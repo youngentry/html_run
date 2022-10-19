@@ -1,0 +1,24 @@
+params에 language를 추가하여 한글데이터를 받아옵니다.
+
+const instance = axios.create({
+    // 기본 url
+    baseURL: url,
+    // params : URL 파라미터 ( ?key=value 로 요청하는 url get방식을 객체로 표현한 것)
+    params: {
+        api_key: key,
+        language: "ko-KR",
+    },
+});
+
+데이터를 html 구조에 맞게 설정합니다.
+박스 안의 텍스트에 ... ellipsis를 만드는 방법입니다.
+    // 몇 번째 줄 까지 출력할지 설정합니다.
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 8; /* 라인수 */
+    
+
+에러
+react hook useEffect has a missing dependency
