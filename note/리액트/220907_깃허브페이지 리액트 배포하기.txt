@@ -10,11 +10,11 @@ https://intrepidgeeks.com/tutorial/everything-deployed-by-gh-pages#5
 7.배포하기
 package.json 안에
 private 밑에 
-"homepage": "https://username.github.io/repository/"
+"homepage": "https://username.github.io/repository/",
 
 scripts 안에
-  "predeploy": "npm run build",
-  "deploy": "gh-pages -d build"
+,  "predeploy": "npm run build",
+  "deploy": "gh-pages -d build",
   
 8.터미널에 npm run deploy
 
