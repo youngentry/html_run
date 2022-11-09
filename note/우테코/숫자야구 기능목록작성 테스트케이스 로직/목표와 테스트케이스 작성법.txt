@@ -2,8 +2,8 @@
 함수별 테스트 작성
 클래스 분리
 
-
-
+테스트케이스 참고
+https://github.com/woowacourse-precourse/javascript-baseball/pull/94/files
 
 큰 단위의 테스트
 숫자 야구 게임을 시작해서 사용자가 숫자를 입력하면, 컴퓨터 숫자와 비교하여 그 결과를 알려준다.
