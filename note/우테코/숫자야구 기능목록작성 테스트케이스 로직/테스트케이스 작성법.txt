@@ -21,3 +21,4 @@ test폴더
     RefereeTest.js
 result = 000
 assertThat(result).isEqualTo("0 볼 3 스트라이크")
+
