@@ -1,0 +1,49 @@
+object.freeze(객체)(쓰지는 않을 듯 함): 객체의 내용을 변경할 수 없도록 할 수 있다.
+
+
+
+
+
+hoisting 현상 (쓰지는 않을 듯 함)
+var로 변수를 만들면 스코프의 맨 위에서 해당 변수를 선언하고, 할당은 해당 변수를 만든 라인에서 진행하는 것
+
+console.log(단어); // undefined
+var 단어 = "apple";
+console.log(단어) // apple
+함수도 마찬가지로 hoisting 현상이 일어난다. var 함수 = function(){}
+
+let, const는 undefined가 자동으로 할당이 안됩니다.
+
+
+
+
+
+전역변수 만들기 (쓰지는 않을 듯 함)
+window.이름 = "young"
+
+
+
+
+ES6 신문법: tagged literal 
+함수는 `` 로 동작하여 문자열과 변수를 ${}를 기준으로 분리할 수 있다.
+
+const 변수1 = "사과"
+const 변수2 = "바나나"
+const 문자 = `빨간 것은 ${변수1} 노란 것은 ${변수2}입니다.`
+
+function taggedLiteral(문자들, 변수1, 변수2) {
+	console.log(문자들) 
+	console.log(변수1) 	
+	console.log(변수2) 
+}
+
+taggedLiterral`빨간 것은 ${변수1} 노란 것은 ${변수2}입니다.`
+// ['빨간 것은', '노란 것은', '입니다.'] 자동으로 trim() 되는 듯 합니다.
+// 사과
+// 바나나
+
+아래와 같이 순서를 바꾸는 용도로 쓸 수 있습니다.
+function taggedLiteral(문자들, 변수1, 변수2) {
+	console.log(문자들[1] + 변수1 + 문자들[0] + 변수2 + 문자들[2) 
+}
+// 노란 것은사과빨간 것은 바나나입니다.
