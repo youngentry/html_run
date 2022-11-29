@@ -1,0 +1,26 @@
+스프레드 연산자는 배열만이 아니라 문자열에도 적용됩니다.
+const word = apple
+console.log(...word) // a p p l e
+
+
+
+
+reference data type (array, object)
+배열을 변수에 할당하게되면 deep copy 가 일어나서 값을 공유하게 됩니다.
+const a = [1,2];
+const b = a
+
+a[2]= 3
+
+console.log(a) // [1,2,3]
+console.log(b) // [1,2,3] <<< a를 수정하고 b는 건드리지 않았음에도 값을 공유한 상태이므로 배열이 수정된다.
+
+
+
+
+array 내의 데이터를 파라미터로 넣을 때도 스프레드 연산자 이용 가능
+const array = [1,2,3]
+함수(...array) // 함수(1,2,3) 과 같은 결과
+
+
+
