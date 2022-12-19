@@ -13,10 +13,12 @@ private 밑에
 "homepage": "https://username.github.io/repository/",
 
 scripts 안에
-,  "predeploy": "npm run build",
+, "predeploy": "npm run build",
   "deploy": "gh-pages -d build",
   
 8.터미널에 npm run deploy
+
+9. https://youngentry.github.io/리포지토리이름/
 
 배포를 했다고 해서 깃허브에 업로드를 한 것은 아닙니다.
 백업을 잊지 맙시다.
